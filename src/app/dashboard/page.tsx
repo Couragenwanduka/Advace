@@ -4,6 +4,7 @@ import { CryptoTicker } from "../../components/crypto-ticker";
 import { PortfolioChart } from "../../components/portfolio-chart";
 import { PropertyList } from "../../components/property-list";
 import { Home } from "lucide-react";
+import { PropertyGrid } from "../../components/property-grid";
 
 export default async function Dashboard() {
   const supabase = createServerComponentClient({ cookies });
@@ -72,7 +73,7 @@ export default async function Dashboard() {
         </div>
       </div>
 
-      <PropertyList />
+      <PropertyGrid count={3} />
     </div>
   );
 }

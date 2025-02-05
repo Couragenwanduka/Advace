@@ -8,7 +8,7 @@ type Property = {
   location: string;
 };
 
-const properties: Property[] = [
+export const properties: Property[] = [
   {
     id: 1,
     image:
@@ -53,7 +53,8 @@ const properties: Property[] = [
   },
 ];
 
-export function PropertyGrid() {
+export function PropertyGrid(count: number = 10) {
+  count = Number(count) >= 0 ? count : 30;
   return (
     <div className="bg-[#1a1a1a] p-6 rounded-lg">
       <div className="mb-6">
@@ -62,7 +63,7 @@ export function PropertyGrid() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pr-12">
-        {properties.map((property) => (
+        {properties.slice(0, count).map((property) => (
           <div key={property.id} className="group">
             <div className="relative overflow-hidden rounded-lg">
               <img
