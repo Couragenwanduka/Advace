@@ -11,45 +11,63 @@ type Property = {
 export const properties: Property[] = [
   {
     id: 1,
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Modern smart home",
-    location: "London, YC",
+    image: "/images/parkplace.jpeg",
+    title: "Park Place Villas",
+    location: "Park Place Villas, little Venice, London,W2",
   },
   {
     id: 2,
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Modern smart home",
-    location: "London, YC",
+    image: "/images/horizon.jpeg",
+    title: "Horizon Heights Villas",
+    location: "Horizon Heights, Chelsea, London, SW3",
   },
   {
     id: 3,
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Modern smart home",
-    location: "London, YC",
+    image: "/images/hampstead.jpeg",
+    title: "Hampstead Villas",
+    location: "The Stables, Hampstead, London, NW3",
   },
   {
     id: 4,
-    image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Modern smart home",
-    location: "London, YC",
+    image: "/images/clifton.png",
+    title: "Clifton Manor Villa",
+    location: "Clifton Manor, Clifton, Bristol, BS8",
   },
   {
     id: 5,
-    image:
-      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Modern smart home",
-    location: "London, YC",
+    image: "/images/linden.jpeg",
+    title: "Linden House",
+    location: "Linden House, Notting Hill, London, W11",
   },
   {
     id: 6,
-    image:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Modern smart home",
-    location: "London, YC",
+    image: "/images/riverside.jpeg",
+    title: "Riverside Lodge Villa",
+    location: "Riverside Lodge, Henley-on-Thames, Oxfordshire, RG9",
+  },
+  {
+    id: 7,
+    image: "/images/glade.png",
+    title: "The Glade Villas",
+    location: "The Glade, Salisbury, Wiltshire, SP1",
+  },
+  {
+    id: 8,
+    image: "/images/holcombe.png",
+    title: "Holcombe House",
+    location: "Holcombe House, Harrogate, North Yorkshire, HG1",
+  },
+  {
+    id: 9,
+    image: "/images/haven.png",
+    title: "Haven Court Villas",
+    location: "Haven Court, Hampstead Heath, London, NW3",
+  },
+  {
+    id: 10,
+    image: "/images/bennetts.png",
+    title: "Bennetts Court Villa",
+    location: "Bennetts Court, Cambridge,  CB2",
   },
 ];
 
