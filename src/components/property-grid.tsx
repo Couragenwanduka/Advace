@@ -53,8 +53,8 @@ export const properties: Property[] = [
   },
 ];
 
-export function PropertyGrid(count: number = 10) {
-  count = Number(count) >= 0 ? count : 30;
+export function PropertyGrid({ count }: any) {
+  count = count >= 0 ? count : 30;
   return (
     <div className="bg-[#1a1a1a] p-6 rounded-lg">
       <div className="mb-6">
