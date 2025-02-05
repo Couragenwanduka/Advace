@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
-import { Property } from "../../../types/property";
-import { PropertyHeader } from "../../../components/property-details/property-header";
-import { PropertyInfo } from "../../../components/property-details/property-info";
-import { PropertyGallery } from "../../../components/property-details/property-gallery";
-import { PropertyFeatures } from "../../../components/property-details/property-features";
-import { PropertyPrice } from "../../../components/property-details/property-price";
-import { PropertyDescription } from "../../../components/property-details/property-description";
+import { Property } from "../../../../types/property";
+import { PropertyHeader } from "../../../../components/property-details/property-header";
+import { PropertyInfo } from "../../../../components/property-details/property-info";
+import { PropertyGallery } from "../../../../components/property-details/property-gallery";
+import { PropertyFeatures } from "../../../../components/property-details/property-features";
+import { PropertyPrice } from "../../../../components/property-details/property-price";
+import { PropertyDescription } from "../../../../components/property-details/property-description";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useParams } from "next/navigation";
+import { properties } from "../../../../components/property-grid";
 
 export default function PropertyDetails() {
   const { id } = useParams<{ id: string }>();
@@ -27,7 +28,12 @@ export default function PropertyDetails() {
         //   .single();
 
         // if (error) throw error;
-        const singleProperty = {
+
+        const singleProperty = properties.find(
+          (prop) => prop.id == id
+        ) as Property;
+
+        const oldprop = {
           id: "string",
           title: "Park Place Villas",
           location: "Ikeja, Lagos",
@@ -108,10 +114,10 @@ The property benefits from a fully integrated state-of-the-art home automation s
       <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
         <PropertyHeader />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="pt-[80px] grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             <PropertyInfo property={property} />
-            <PropertyGallery images={property.images} />
+            <PropertyGallery images={[property.image]} />
             <PropertyDescription
               description={property.description}
               property={property}

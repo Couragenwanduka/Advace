@@ -28,7 +28,7 @@ export function Navbar({ user }: NavbarProps) {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
+            <a href="/" className="flex items-center">
               <Image
                 src="/images/logo.png"
                 alt="Logo"
@@ -36,25 +36,25 @@ export function Navbar({ user }: NavbarProps) {
                 height={80}
                 className="rounded-full"
               />
-            </Link>
+            </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link
+            <a
               href="/dashboard"
               className="flex items-center space-x-2 hover:text-blue-600"
             >
               <LayoutDashboard size={20} />
               <span>Dashboard</span>
-            </Link>
+            </a>
 
-            <Link
+            <a
               href="/transactions"
               className="flex items-center space-x-2 hover:text-blue-600"
             >
               <ArrowRightLeft size={20} />
               <span>Transactions</span>
-            </Link>
+            </a>
 
             <div className="relative">
               <button
@@ -68,37 +68,37 @@ export function Navbar({ user }: NavbarProps) {
 
               {isRealEstateOpen && (
                 <div className="absolute mt-2 w-48 border bg-white rounded-lg shadow-lg">
-                  <Link
+                  <a
                     href="/real-estate/assets"
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     Assets
-                  </Link>
-                  <Link
-                    href="/real-estate/properties"
+                  </a>
+                  <a
+                    href="/real-estate"
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     Properties
-                  </Link>
+                  </a>
                 </div>
               )}
             </div>
 
-            <Link
+            <a
               href="/pricing"
               className="flex items-center space-x-2 hover:text-blue-600"
             >
               <HeadphonesIcon size={20} />
               <span>Pricing</span>
-            </Link>
+            </a>
 
-            <Link
+            <a
               href="/support"
               className="flex items-center space-x-2 hover:text-blue-600"
             >
               <HeadphonesIcon size={20} />
               <span>Support</span>
-            </Link>
+            </a>
           </div>
 
           <div className="flex items-center space-x-4">
