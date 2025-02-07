@@ -5,6 +5,8 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Triangle } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { getUser, uploadUserDocuments } from "../../lib/supabase";
 
 export default function Documents() {
   const router = useRouter();
@@ -17,6 +19,12 @@ export default function Documents() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const user = (await getUser()) as any;
+    if (!user) {
+      alert("Please login to upload documents");
+      return;
+    }
+    uploadUserDocuments(user?.id, files);
     // Here you would typically upload the documents
     router.push("/dashboard");
   };
@@ -27,12 +35,14 @@ export default function Documents() {
         <div className="w-full max-w-md bg-white rounded-2xl p-8 space-y-6">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <Triangle className="h-6 w-6 text-red-500 transform rotate-90" />
-              <div>
-                <h1 className="text-xl font-semibold text-gray-800">Advanta</h1>
-                <p className="text-sm text-gray-500">Wealth</p>
-              </div>
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                width={120}
+                height={80}
+                className="rounded-full"
+              />
             </div>
             <Button
               variant="outline"
@@ -58,7 +68,7 @@ export default function Documents() {
                   placeholder="No file chosen"
                   readOnly
                   value={files.selfie ? (files.selfie as any).name : ""}
-                  className="flex-1"
+                  className="flex-1 text-black"
                 />
                 <Input
                   type="file"
@@ -71,6 +81,7 @@ export default function Documents() {
                 <Button
                   type="button"
                   variant="outline"
+                  className="text-black"
                   onClick={() => document.getElementById("selfie")?.click()}
                 >
                   Choose File
@@ -86,7 +97,7 @@ export default function Documents() {
                   placeholder="No file chosen"
                   readOnly
                   value={files.idFront ? (files.idFront as any).name : ""}
-                  className="flex-1"
+                  className="flex-1 text-black"
                 />
                 <Input
                   type="file"
@@ -99,6 +110,7 @@ export default function Documents() {
                 <Button
                   type="button"
                   variant="outline"
+                  className="text-black"
                   onClick={() => document.getElementById("idFront")?.click()}
                 >
                   Choose File
@@ -114,7 +126,7 @@ export default function Documents() {
                   placeholder="No file chosen"
                   readOnly
                   value={files.idBack ? (files.idBack as any).name : ""}
-                  className="flex-1"
+                  className="flex-1 text-black"
                 />
                 <Input
                   type="file"
@@ -127,6 +139,7 @@ export default function Documents() {
                 <Button
                   type="button"
                   variant="outline"
+                  className="text-black"
                   onClick={() => document.getElementById("idBack")?.click()}
                 >
                   Choose File
@@ -146,7 +159,7 @@ export default function Documents() {
                       ? (files.proofOfAddress as any).name
                       : ""
                   }
-                  className="flex-1"
+                  className="flex-1 text-black"
                 />
                 <Input
                   type="file"
@@ -162,6 +175,7 @@ export default function Documents() {
                 <Button
                   type="button"
                   variant="outline"
+                  className="text-black"
                   onClick={() =>
                     document.getElementById("proofOfAddress")?.click()
                   }

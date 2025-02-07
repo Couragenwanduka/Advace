@@ -7,12 +7,10 @@ import { Home } from "lucide-react";
 import { PropertyGrid } from "../../components/property-grid";
 import { PageHeader } from "../../components/page-header";
 import { MiniCard } from "../../components/mini-card";
+import { getUser } from "../../lib/supabase";
 
 export default async function Dashboard() {
-  const supabase = createServerComponentClient({ cookies });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getUser();
   const balance = 0;
 
   return (

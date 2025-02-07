@@ -4,6 +4,7 @@ import { PageHeader } from "../../../components/page-header";
 import { PropAssetSwitcher } from "../../../components/prop-asset-switcher";
 import { useState } from "react";
 import { properties } from "../../../components/property-grid";
+import { addFundingRecord } from "../../../lib/supabase";
 
 export default function FundingPage() {
   const [method, setMethod] = useState<"Bank" | "Crypto" | "Other">("Bank");
@@ -66,6 +67,15 @@ export default function FundingPage() {
       property,
       amount,
     };
+    addFundingRecord({
+      method,
+      property,
+      amount,
+      wallet,
+      wallet_address: walletAddress,
+    });
+    alert("Funding submitted");
+    window.location.reload();
     console.log(data);
   };
 

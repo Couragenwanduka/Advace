@@ -5,6 +5,7 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Triangle } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Verify() {
   const router = useRouter();
@@ -31,16 +32,18 @@ export default function Verify() {
   };
 
   return (
-    <main className="min-h-screen bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069')] bg-cover bg-center bg-no-repeat">
+    <main className="min-h-screen">
       <div className="min-h-screen bg-black/50 flex items-center justify-center p-4">
         <div className="w-full max-w-md bg-white rounded-2xl p-8 space-y-6">
           {/* Logo */}
-          <div className="flex items-center gap-2 mb-8">
-            <Triangle className="h-6 w-6 text-red-500 transform rotate-90" />
-            <div>
-              <h1 className="text-xl font-semibold text-gray-800">Advanta</h1>
-              <p className="text-sm text-gray-500">Wealth</p>
-            </div>
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={120}
+              height={80}
+              className="rounded-full"
+            />
           </div>
 
           <div className="text-center space-y-2">

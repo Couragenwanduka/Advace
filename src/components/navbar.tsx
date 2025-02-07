@@ -81,6 +81,12 @@ export function Navbar({ user }: NavbarProps) {
                     >
                       Properties
                     </a>
+                    <a
+                      href="/real-estate/funding"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Funding
+                    </a>
                   </div>
                 )}
               </div>
@@ -103,7 +109,13 @@ export function Navbar({ user }: NavbarProps) {
             </div>
 
             <div className="flex items-center space-x-4">
-              <button className="flex items-center space-x-2 hover:text-blue-600">
+              <button
+                className="flex items-center space-x-2 hover:text-blue-600"
+                onClick={() => {
+                  // await logout();
+                  window.location.href = "/login";
+                }}
+              >
                 <LogOut size={20} />
                 <span>Logout</span>
               </button>
