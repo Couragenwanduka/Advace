@@ -5,6 +5,8 @@ import { PortfolioChart } from "../../components/portfolio-chart";
 import { PropertyList } from "../../components/property-list";
 import { Home } from "lucide-react";
 import { PropertyGrid } from "../../components/property-grid";
+import { PageHeader } from "../../components/page-header";
+import { MiniCard } from "../../components/mini-card";
 
 export default async function Dashboard() {
   const supabase = createServerComponentClient({ cookies });
@@ -15,21 +17,12 @@ export default async function Dashboard() {
 
   return (
     <div className="space-y-8">
-      <CryptoTicker />
-
+      <PageHeader
+        pageTitle="Dashboard"
+        link="/dashboard"
+        linkTitle="Dashboard"
+      />
       <div className="flex bg-[#1D3557] rounded-[24px] w-full relative justify-between">
-        {/* <div className="bg-[#1a2332] p-6 rounded-lg">
-          <div className="flex items-center gap-4 mb-4">
-            <Home size={24} className="text-blue-500" />
-            <div>
-              <h2 className="text-xl font-semibold">Total assets in shares</h2>
-              <p className="text-gray-400">
-                Summary of total funding & total dividend earned
-              </p>
-            </div>
-          </div>
-          <div className="text-3xl font-bold">$0.0</div>
-        </div> */}
         <div className="flex p-6">
           <img src="/images/home-big.svg" className="mr-1" />
           <div className="flex flex-col text-white gap-2">
@@ -79,9 +72,50 @@ export default async function Dashboard() {
         </div>
       </div>
 
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <MiniCard
+          icon="/images/market.svg"
+          title="$0.00"
+          label="Total funding"
+        />
+        <MiniCard
+          icon="/images/market.svg"
+          title="$0.00"
+          label="Total withdrawals"
+        />
+        <MiniCard
+          icon="/images/circle-progress.svg"
+          title="22"
+          label="Properties on sale"
+        />
+        <MiniCard
+          icon="/images/circle-progress.svg"
+          title="15"
+          label="Properties on rent"
+        />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-[#1a1a1a] p-6 rounded-lg">
-          <PortfolioChart />
+        <div className="flex flex-col gap-7">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <MiniCard
+              icon="/images/circle-progress.svg"
+              title="22"
+              label="Properties on sale"
+            />
+            <MiniCard
+              icon="/images/circle-progress.svg"
+              title="15"
+              label="Properties on rent"
+            />
+          </div>
+
+          <div className="bg-[#1a1a1a] p-6 rounded-lg">
+            <h2 className="text-xl font-semibold mb-4">Properties viewed</h2>
+            <div className="h-2 bg-[#4FD1C5] rounded mb-6"></div>
+
+            <h2 className="text-xl font-semibold mb-4">Subscribed to</h2>
+            <div className="h-2 bg-[#4FD1C5] rounded"></div>
+          </div>
         </div>
 
         <div className="flex flex-col gap-8">
@@ -108,18 +142,13 @@ export default async function Dashboard() {
                 Projects
               </button>
             </div>
-            <div className="border-t border-gray-800 pt-4">
+            <div className="border-t border-gray-800 pt-4 flex flex-col gap-[18px]">
               <p className="text-gray-400">Full Name: {user?.email}</p>
+              <p className="text-gray-400">Mobile: United States</p>
               <p className="text-gray-400">Email: {user?.email}</p>
               <p className="text-gray-400">Location: United States</p>
+              <p className="text-gray-400">Social Media: United States</p>
             </div>
-          </div>
-          <div className="bg-[#1a1a1a] p-6 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Properties viewed</h2>
-            <div className="h-1 bg-blue-500 rounded mb-6"></div>
-
-            <h2 className="text-xl font-semibold mb-4">Subscribed to</h2>
-            <div className="h-1 bg-blue-500 rounded"></div>
           </div>
         </div>
       </div>

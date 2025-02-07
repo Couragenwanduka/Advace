@@ -84,13 +84,13 @@ export default function FundingPage() {
           <div className="flex space-x-2">
             <Link
               href="/real-estate/assets/withdraw"
-              className="bg-white text-black px-4 py-2 rounded-xl"
+              className="bg-white text-black px-4 py-3 text-sm rounded-xl"
             >
               Withdraw dividend
             </Link>
             <Link
               href="/real-estate/assets/history"
-              className="bg-white text-black px-4 py-2 rounded-xl"
+              className="bg-white text-black px-4 py-3 text-sm rounded-xl"
             >
               History
             </Link>
@@ -103,11 +103,9 @@ export default function FundingPage() {
           <div className="bg-[#222] p-6 rounded-lg">
             {displayForm == false && displayPlanForm == false && (
               <div className="flex flex-col gap-6">
-                <h2 className="text-xl font-bold mb-6">
-                  Choose A Funding Method
-                </h2>
+                <h2 className="text-xl mb-6">Choose A Funding Method</h2>
                 <select
-                  className="w-full bg-[#292929] rounded-[10px] px-4 py-3"
+                  className="w-full bg-[#292929] rounded-[10px] px-4 py-3 text-sm"
                   name="method"
                   onChange={(e) => {
                     e.preventDefault();
@@ -135,7 +133,7 @@ export default function FundingPage() {
                     Selected Invested Plan:
                   </label>
                   <select
-                    className="w-full bg-[#292929] rounded-[10px] px-4 py-3"
+                    className="w-full bg-[#292929] rounded-[10px] px-4 py-3 text-sm"
                     name="method"
                     onChange={(e) => {
                       e.preventDefault();
@@ -156,7 +154,7 @@ export default function FundingPage() {
                       Selected Wallet to make deposit into:
                     </label>
                     <select
-                      className="w-full bg-[#292929] rounded-[10px] px-4 py-3"
+                      className="w-full bg-[#292929] rounded-[10px] px-4 py-3 text-sm"
                       name="method"
                       onChange={(e) => handleSelectWallet(e)}
                     >
@@ -177,7 +175,7 @@ export default function FundingPage() {
                     type="text"
                     placeholder="Amount"
                     onChange={(e) => setAmount(e.target.value)}
-                    className="w-full bg-[#292929] rounded-[10px] px-4 py-3"
+                    className="w-full bg-[#292929] rounded-[10px] px-4 py-3 text-sm"
                   />
                 </div>
                 <button
@@ -189,103 +187,104 @@ export default function FundingPage() {
               </div>
             )}
             {displayPlanForm && method === "Bank" ? (
-              <form className="space-y-6">
-                <h2 className="text-xl font-bold mb-6">Payment Details</h2>
-                <p className="px-3 py-5 border rounded-lg font-bold">
+              <form className="space-y-2">
+                <h2 className="text-xl mb-6">Account numbers</h2>
+                <p className="py-3 text-sm rounded-lg">Bank Name: Bank Wire</p>
+                <p className="px-4 py-3 text-sm rounded-lg text-white bg-[#29292a]">
                   Payment method: Bank Wire
                 </p>
-                <p className="px-3 py-5 border rounded-lg font-bold">
-                  Bank Name: Bank Wire
-                </p>
-                <p className="px-3 py-5 border rounded-lg font-bold">
+                <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
                   Account Name: Bank Wire
                 </p>
-                <p className="px-3 py-5 border rounded-lg font-bold">
+                <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
                   Account Number: Bank Wire
                 </p>
-                <p className="px-3 py-5 border rounded-lg font-bold">
+                <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
                   Bank Address: Bank Wire
                 </p>
-                <p className="px-3 py-5 border rounded-lg font-bold">
+                <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
                   Swift Code: Bank Wire
                 </p>
-                <p className="px-3 py-5 border rounded-lg font-bold">
+                <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
                   Routing Number: Bank Wire
                 </p>
-                <div className="flex flex-col gap-6">
-                  <p>
+                <div className="flex flex-col gap-6 pt-10">
+                  {/* <p>
                     After making payment, click on the I have made payment
                     button to proceed.
+                  </p> */}
+
+                  <p className="text-red-400 text-sm">
+                    “Due to delays in international banking transactions, there
+                    may be a delay in processing payments. We kindly ask that
+                    you proceed with the transfer using digital payment methods
+                    for quicker processing.”
                   </p>
                   <button
                     type="submit"
                     onClick={(e) => handleSubmit(e)}
-                    className="w-full bg-green-500 text-white py-3 rounded-[10px]"
+                    className="w-full bg-white text-black py-3 rounded-[10px]"
                   >
                     I have made payment
                   </button>
-                  <a
-                    href="/dashboard"
-                    className="bg-blue-500 text-center text-white py-3 px-4 rounded-[10px]"
-                  >
-                    Go to dashboard
-                  </a>
+                  <p className="text-white text-sm">
+                    * Your funding will appear in your account as soon as your
+                    payment is confirmed.
+                  </p>
                 </div>
-                <p className="text-red-400 text-sm">
-                  * Be aware that transaction may be delayed for network
-                  reasons.
-                </p>
-                <p className="text-green-400 text-sm">
-                  * Your funding will appear in your account as soon as your
-                  payment is confirmed.
-                </p>
               </form>
             ) : (
               displayPlanForm && (
-                <form className="space-y-6">
-                  <h2 className="text-xl font-bold mb-6">Payment Details</h2>
+                <form className="space-y-6 flex flex-col md:flex-row gap-3 ">
+                  <div className="bg-black rounded-lg p-6 w-full md:w-[50%]">
+                    <img
+                      src={walletImage}
+                      alt="wallet"
+                      height={360}
+                      width={536}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h2 className="text-xl mb-6">Payment Details</h2>
+                    <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
+                      Payment method: {wallet}
+                    </p>
 
-                  <img src={walletImage} alt="wallet" />
-                  <p className="px-3 py-5 border rounded-lg font-bold">
-                    Payment method: {wallet}
-                  </p>
+                    {/* <p>Copy wallet address</p> */}
+                    <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
+                      {walletAddress}
+                    </p>
+                    <p className="px-4 py-3 text-sm text-white bg-[#29292a] rounded-lg">
+                      Amount to Fund: ${amount} i n {wallet}
+                    </p>
 
-                  <p>Copy wallet address</p>
-                  <p className="px-3 py-5 border rounded-lg font-bold">
-                    {walletAddress}
-                  </p>
-                  <p className="px-3 py-5 border rounded-lg font-bold">
-                    Amount to Fund: ${amount} in {wallet}
-                  </p>
-
-                  <div className="flex flex-col gap-6">
-                    <p>
+                    <div className="flex flex-col gap-6 pt-10">
+                      {/* <p>
                       After making payment, click on the I have made payment
                       button to proceed.
-                    </p>
-                    <button
-                      type="submit"
-                      onClick={(e) => handleSubmit(e)}
-                      className="w-full bg-green-500 text-white py-3 rounded-[10px]"
-                    >
-                      I have made payment
-                    </button>
-                    <a
-                      href="/dashboard"
-                      className="bg-blue-500 text-center text-white py-3 px-4 rounded-[10px]"
-                    >
-                      Go to dashboard
-                    </a>
+                    </p> */}
+                      <button
+                        type="submit"
+                        onClick={(e) => handleSubmit(e)}
+                        className="w-full bg-white text-black py-3 rounded-[10px]"
+                      >
+                        Proceed to digital funding to make payment
+                      </button>
+                      {/* <a
+                        href="/dashboard"
+                        className="bg-blue-500 text-center text-white py-3 px-4 rounded-[10px]"
+                      >
+                        Go to dashboard
+                      </a> */}
+                    </div>
                   </div>
                 </form>
               )
             )}
           </div>
 
-          <div className="bg-[#222] p-6 rounded-lg h-fit">
-            <h2 className="text-xl font-bold mb-4">
-              Why Invest with Advanta Capital?
-            </h2>
+          {/* <div className="bg-[#222] p-6 rounded-lg h-fit">
+            <h2 className="text-xl mb-4">Why Invest with Advanta Capital?</h2>
             <p className="text-gray-400 mb-4 text-sm">
               As an active investor in our platform, you can earn a regular
               stream of revenue dividends from your investments. These dividends
@@ -302,7 +301,7 @@ export default function FundingPage() {
               take advantage of the power of compounding, potentially
               accelerating the growth of your investment portfolio over time.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
