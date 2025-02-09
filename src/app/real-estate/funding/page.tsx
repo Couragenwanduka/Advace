@@ -263,7 +263,7 @@ export default function FundingPage() {
                     onClick={(e) => handleSubmit(e)}
                     className="w-full bg-white text-black py-3 rounded-[10px]"
                   >
-                    I have made payment
+                    Proceed to digital funding
                   </button>
                   <p className="text-white text-sm">
                     * Your funding will appear in your account as soon as your
@@ -306,7 +306,7 @@ export default function FundingPage() {
                         onClick={(e) => handleSubmit(e)}
                         className="w-full bg-white text-black py-3 rounded-[10px]"
                       >
-                        Proceed to digital funding to make payment
+                        Proceed
                       </button>
                       {/* <a
                         href="/dashboard"
