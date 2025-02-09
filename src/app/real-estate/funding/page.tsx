@@ -260,7 +260,7 @@ export default function FundingPage() {
                   </p>
                   <button
                     type="submit"
-                    onClick={(e) => handleSubmit(e)}
+                    onClick={(e) => window.location.reload()}
                     className="w-full bg-white text-black py-3 rounded-[10px]"
                   >
                     Proceed to digital funding
