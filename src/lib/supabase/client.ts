@@ -1,0 +1,187 @@
+import { createClient } from "@supabase/supabase-js";
+import { getSupabaseClient, getSupabaseServerClient } from "./utils";
+import { schemaName } from "../../consts";
+import { getUser } from "../../app/functions";
+
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  {
+    auth: {
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: true,
+    },
+  }
+);
+// Login function
+export const login = async (email: string, password: string) => {
+  const { error, data } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+  if (error) {
+    console.log(error.message);
+    throw error.message;
+  }
+  localStorage.setItem("advanta-user", JSON.stringify(data.user));
+  return true;
+};
+
+// User registration function
+export const registerUser = async (formData: {
+  fullName: string;
+
+  username: string;
+  email: string;
+  phone: string;
+  country: string;
+  referralName?: string;
+  password: string;
+}) => {
+  try {
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+      options: {
+        data: {
+          full_name: formData.fullName,
+          username: formData.username,
+          phone: formData.phone,
+          country: formData.country,
+          referral_name: formData.referralName || null,
+        },
+      },
+    });
+
+    if (signUpError) throw signUpError;
+    await supabase
+      .schema(schemaName)
+      .from("users")
+      .insert({
+        userId: data?.user?.id,
+        fullName: formData.fullName,
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        phone: formData.phone,
+        country: formData.country,
+        referralName: formData.referralName || null,
+      });
+    localStorage.setItem("advanta-user", JSON.stringify(data.user));
+    return data.user;
+  } catch (error) {
+    console.error("Registration error:", error);
+    throw error;
+  }
+};
+
+export const uploadUserDocuments = async (
+  userId: string,
+  files: {
+    selfie: File | null;
+    idFront: File | null;
+    idBack: File | null;
+    proofOfAddress: File | null;
+  }
+) => {
+  const uploadFile = async (file: File | null, path: string) => {
+    if (!file) return null;
+
+    const fileExt = file.name.split(".").pop();
+    const filePath = `${path}.${fileExt}`;
+
+    const { data, error } = await supabase.storage
+      .from("user-documents")
+      .upload(filePath, file);
+
+    if (error) throw error;
+    return data.path;
+  };
+
+  try {
+    const [selfiePath, idFrontPath, idBackPath, proofOfAddressPath] =
+      await Promise.all([
+        uploadFile(files.selfie, `${userId}/selfie`),
+        uploadFile(files.idFront, `${userId}/id-front`),
+        uploadFile(files.idBack, `${userId}/id-back`),
+        uploadFile(files.proofOfAddress, `${userId}/proof-of-address`),
+      ]);
+
+    const { error: updateError } = await supabase
+      .from("user_documents")
+      .upsert({
+        user_id: userId,
+        selfie_path: selfiePath,
+        id_front_path: idFrontPath,
+        id_back_path: idBackPath,
+        proof_of_address_path: proofOfAddressPath,
+      });
+
+    if (updateError) throw updateError;
+
+    return {
+      selfie: selfiePath,
+      idFront: idFrontPath,
+      idBack: idBackPath,
+      proofOfAddress: proofOfAddressPath,
+    };
+  } catch (error) {
+    console.error("Document upload error:", error);
+    throw error;
+  }
+};
+
+export const addFundingRecord = async (fundingData: {
+  method: "Bank" | "Crypto" | "Other";
+  property: string;
+  amount: number;
+  wallet?: string;
+  wallet_address?: string;
+}) => {
+  try {
+    const user = await getUser();
+    if (!user) {
+      throw new Error("No authenticated user found");
+    }
+
+    const { data, error } = await supabase
+      .from(`funding_records_view`)
+      .insert({
+        user_id: user.id,
+        ...fundingData,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        status: "pending",
+      })
+      .select()
+      .single();
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error adding funding record:", error);
+    throw error;
+  }
+};
+
+export const getUserFundingRecords = async () => {
+  try {
+    const user = await getUser();
+    if (!user) {
+      throw new Error("No authenticated user found");
+    }
+
+    const { data, error } = await supabase
+      .from("funding_records_view")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error retrieving funding records:", error);
+    throw error;
+  }
+};

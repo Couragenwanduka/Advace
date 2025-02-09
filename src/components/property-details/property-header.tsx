@@ -7,7 +7,7 @@ export function PropertyHeader() {
   return (
     <div className="space-y-4">
       <div className="flex items-center space-x-2 text-gray-400">
-        <Link href="/home" className="hover:text-white">
+        <Link href="/dashboard" className="hover:text-white">
           Home
         </Link>
         <span>

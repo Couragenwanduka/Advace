@@ -10,15 +10,17 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
+import { logout } from "../lib/supabase";
+import { getUser } from "../app/functions";
 
 interface NavbarProps {
   user: User;
 }
 
-export function Navbar({ user }: NavbarProps) {
+export function Navbar() {
   const [isRealEstateOpen, setIsRealEstateOpen] = useState(false);
-
+  const user = getUser();
   const toggleRealEstateDropdown = () => {
     setIsRealEstateOpen(!isRealEstateOpen);
   };
@@ -108,18 +110,20 @@ export function Navbar({ user }: NavbarProps) {
               </a>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <button
-                className="flex items-center space-x-2 hover:text-blue-600"
-                onClick={() => {
-                  // await logout();
-                  window.location.href = "/login";
-                }}
-              >
-                <LogOut size={20} />
-                <span>Logout</span>
-              </button>
-            </div>
+            {user != null && (
+              <div className="flex items-center space-x-4">
+                <button
+                  className="flex items-center space-x-2 hover:text-blue-600"
+                  onClick={() => {
+                    localStorage.removeItem("advanta-user");
+                    window.location.href = "/login";
+                  }}
+                >
+                  <LogOut size={20} />
+                  <span>Logout</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>

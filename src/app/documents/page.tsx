@@ -6,7 +6,8 @@ import { Input } from "../../components/ui/input";
 import { Triangle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { getUser, uploadUserDocuments } from "../../lib/supabase";
+import { getUser } from "../functions";
+import { uploadUserDocuments } from "../../lib/supabase/client";
 
 export default function Documents() {
   const router = useRouter();

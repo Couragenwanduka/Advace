@@ -1,18 +1,21 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { CryptoTicker } from "../../components/crypto-ticker";
-import { PortfolioChart } from "../../components/portfolio-chart";
-import { PropertyList } from "../../components/property-list";
-import { Home } from "lucide-react";
+"use client";
 import { PropertyGrid } from "../../components/property-grid";
 import { PageHeader } from "../../components/page-header";
 import { MiniCard } from "../../components/mini-card";
-import { getUser } from "../../lib/supabase";
+import { useEffect, useState } from "react";
+import { getUser } from "../functions";
 
-export default async function Dashboard() {
-  const user = await getUser();
+export default function Dashboard() {
+  // const [user, setUser] = useState<any>(null);
   const balance = 0;
-
+  const user = getUser();
+  console.log("User in app func:", user);
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("advanta-user")!);
+  //   console.log(user);
+  //   setUser(user);
+  //   console.log("User in navbar:", user);
+  // }, []);
   return (
     <div className="space-y-8">
       <PageHeader
@@ -142,10 +145,14 @@ export default async function Dashboard() {
             </div>
             <div className="border-t border-gray-800 pt-4 flex flex-col gap-[18px]">
               <p className="text-gray-400">Full Name: {user?.email}</p>
-              <p className="text-gray-400">Mobile: United States</p>
+              <p className="text-gray-400">
+                Mobile: {user?.user_metadata?.phone}
+              </p>
               <p className="text-gray-400">Email: {user?.email}</p>
-              <p className="text-gray-400">Location: United States</p>
-              <p className="text-gray-400">Social Media: United States</p>
+              <p className="text-gray-400">
+                Location: {user?.user_metadata?.country}
+              </p>
+              {/* <p className="text-gray-400">Social Media: United States</p> */}
             </div>
           </div>
         </div>

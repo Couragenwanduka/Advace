@@ -3,6 +3,8 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import { PageHeader } from "../../../../components/page-header";
 import { PropAssetSwitcher } from "../../../../components/prop-asset-switcher";
+import { schemaName } from "../../../../consts";
+import { properties } from "../../../../components/property-grid";
 
 interface FundingRecord {
   id: string;
@@ -17,12 +19,20 @@ export default async function HistoryPage() {
   const supabase = createServerComponentClient({ cookies });
 
   const { data: fundingRecords, error } = await supabase
+    .schema("advanta")
     .from("funding_records")
     .select("*")
     .order("created_at", { ascending: false });
 
   if (error) {
     console.error("Error fetching funding records:", error);
+  }
+
+  for (const record of fundingRecords as any) {
+    const property = properties.find((prop) => prop.id == record.property);
+    record.status = record.status != null ? record.status : "pending";
+    record.property =
+      record.property.length < 5 ? property?.title : properties[0].title;
   }
 
   const getStatusStyle = (status: string) => {

@@ -50,13 +50,13 @@ export default async function AssetsPage() {
       </div>
 
       <div className="rounded-lg">
-        <div className="bg-[#222] p-4 rounded-lg mb-8">
+        {/* <div className="bg-[#222] p-4 rounded-lg mb-8">
           <p className="text-gray-300">
             Hi, I'm. Decisions: If you can't decide, the answer is no. If two
             equally difficult paths, choose the one more painful in the short
             term (pain avoidance is creating an illusion of equality).
           </p>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div className="bg-red-500 p-6 rounded-lg">

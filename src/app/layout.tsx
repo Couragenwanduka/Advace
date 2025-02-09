@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/navbar";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { getUser } from "../consts";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,17 +18,13 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createServerComponentClient(
-    { cookies },
-    {
-      supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-      supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    }
-  );
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  // const { data: session }: any = await supabase.auth.getUser();
+  // console.log("Session in layout:", session);
+  // const supabase = createServerComponentClient({ cookies });
 
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
   const protectedRoutes = [
     "/dashboard",
     "/transactions",
@@ -38,15 +34,15 @@ export default async function RootLayout({
   ];
   const currentPath = cookies().get("path")?.value || "/";
 
-  if (!session && protectedRoutes.includes(currentPath)) {
-    redirect("/login");
-  }
+  // if (protectedRoutes.includes(currentPath)) {
+  //   redirect("/login");
+  // }
 
   return (
     <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen bg-black text-white">
-          {session && <Navbar user={session.user} />}
+          <Navbar />
           <main className="container mx-auto px-4 py-8">{children}</main>
           <div className="bg-black text-white border-t border-[#FFFFFF33]">
             <div className="my-11 mx-auto md:w-[600px]">

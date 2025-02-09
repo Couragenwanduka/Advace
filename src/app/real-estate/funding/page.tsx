@@ -4,7 +4,7 @@ import { PageHeader } from "../../../components/page-header";
 import { PropAssetSwitcher } from "../../../components/prop-asset-switcher";
 import { useState } from "react";
 import { properties } from "../../../components/property-grid";
-import { addFundingRecord } from "../../../lib/supabase";
+import { addFundingRecord } from "../../../lib/supabase/client";
 
 export default function FundingPage() {
   const [method, setMethod] = useState<"Bank" | "Crypto" | "Other">("Bank");
@@ -59,6 +59,18 @@ export default function FundingPage() {
   };
 
   const handleSubmit = (e: any) => {
+    if (!property) {
+      alert("Please select a property");
+      return;
+    }
+    if (!amount) {
+      alert("Please enter an amount");
+      return;
+    }
+    if ((!wallet || !walletAddress) && method !== "Bank") {
+      alert("Please select a wallet");
+      return;
+    }
     e.preventDefault();
     console.log("Submitted");
     setDisplayPlanForm(false);
@@ -73,10 +85,16 @@ export default function FundingPage() {
       amount,
       wallet,
       wallet_address: walletAddress,
-    });
-    alert("Funding submitted");
-    window.location.reload();
-    console.log(data);
+    })
+      .then((data) => {
+        alert("Funding submitted");
+        window.location.reload();
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error adding funding record:", error);
+        alert("Error adding funding record");
+      });
   };
 
   return (
@@ -190,7 +208,17 @@ export default function FundingPage() {
                 </div>
                 <button
                   className="bg-red-500 text-white py-3 px-4 rounded-[10px] mt-6"
-                  onClick={() => setDisplayPlanForm(true)}
+                  onClick={() => {
+                    if (!property || !amount) {
+                      alert("Please select a property and enter an amount");
+                      return;
+                    }
+                    if ((!wallet || !walletAddress) && method !== "Bank") {
+                      alert("Please select a wallet or enter a wallet address");
+                      return;
+                    }
+                    setDisplayPlanForm(true);
+                  }}
                 >
                   Proceed
                 </button>

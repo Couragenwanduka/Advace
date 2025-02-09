@@ -8,7 +8,7 @@ import { Eye, EyeOff, Triangle } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { registerUser } from "../lib/supabase";
+import { registerUser } from "../lib/supabase/client";
 
 export default function Register() {
   const router = useRouter();
@@ -30,6 +30,20 @@ export default function Register() {
     e.preventDefault();
     // Here you would typically make an API call to register the user
     // For now, we'll simulate the flow
+    if (formData.password.length < 8) {
+      alert("Password must be at least 8 characters");
+      return;
+    }
+    if (
+      !formData.fullName ||
+      !formData.username ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.country
+    ) {
+      alert("Please fill in all fields");
+      return;
+    }
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;

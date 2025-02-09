@@ -9,7 +9,7 @@ import { Checkbox } from "../../components/ui/checkbox";
 import { Eye, EyeOff, Triangle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { login } from "../../lib/supabase";
+import { login } from "../../lib/supabase/client";
 
 export default function Login() {
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +45,8 @@ export default function Login() {
       })
       .catch((error) => {
         console.log(error);
-        setError(error);
+        setError(error.message);
+        alert(error);
       });
   };
 
