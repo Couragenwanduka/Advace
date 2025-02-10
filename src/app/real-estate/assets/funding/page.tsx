@@ -3,9 +3,45 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import { PageHeader } from "../../../../components/page-header";
 import { PropAssetSwitcher } from "../../../../components/prop-asset-switcher";
+import { properties } from "../../../../components/property-grid";
+
+interface FundingRecord {
+  id: string;
+  property: string;
+  amount: number;
+  status: "pending" | "completed" | "failed";
+  created_at: string;
+  method: "Bank" | "Crypto";
+}
 
 export default async function HistoryPage() {
   const supabase = createServerComponentClient({ cookies });
+
+  const { data: fundingRecords, error } = await supabase
+    .schema("advanta")
+    .from("funding_records")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Error fetching funding records:", error);
+  }
+
+  for (const record of fundingRecords as any) {
+    const property = properties.find((prop) => prop.id == record.property);
+    record.status = record.status != null ? record.status : "pending";
+    record.property =
+      record.property.length < 5 ? property?.title : properties[0].title;
+  }
+
+  const getStatusStyle = (status: string) => {
+    const styles = {
+      pending: "bg-yellow-500/20 text-yellow-500",
+      completed: "bg-green-500/20 text-green-500",
+      failed: "bg-red-500/20 text-red-500",
+    };
+    return styles[status as keyof typeof styles] || "";
+  };
 
   return (
     <div className="space-y-8">
@@ -52,34 +88,38 @@ export default async function HistoryPage() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-800">
-                  <td className="p-3">#67080165</td>
-                  <td className="p-3">McMall Modern Smart Home</td>
-                  <td className="p-3">$10,000</td>
-                  <td className="p-3">
-                    <span className="bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">
-                      Pending
-                    </span>
-                  </td>
-                  <td className="p-3">2024-12-02</td>
-                  <td className="p-3">
-                    <button className="bg-white text-black px-3 py-1 rounded">
-                      Receipt
-                    </button>
-                  </td>
-                </tr>
-                <tr className="border-b border-gray-800">
-                  <td className="p-3">#67080165</td>
-                  <td className="p-3">Residential</td>
-                  <td className="p-3">GAL/001</td>
-                  <td className="p-3">Residential</td>
-                  <td className="p-3">Residential</td>
-                  <td className="p-3">
-                    <button className="bg-white text-black px-3 py-1 rounded">
-                      Receipt
-                    </button>
-                  </td>
-                </tr>
+                {fundingRecords?.map((record: FundingRecord) => (
+                  <tr key={record.id} className="border-b border-gray-800">
+                    <td className="p-3">#{record.id}</td>
+                    <td className="p-3">{record.property}</td>
+                    <td className="p-3">${record.amount.toLocaleString()}</td>
+                    <td className="p-3">
+                      <span
+                        className={`px-2 py-1 rounded ${getStatusStyle(
+                          record.status
+                        )}`}
+                      >
+                        {record.status.charAt(0).toUpperCase() +
+                          record.status.slice(1)}
+                      </span>
+                    </td>
+                    <td className="p-3">
+                      {new Date(record.created_at).toLocaleDateString()}
+                    </td>
+                    <td className="p-3">
+                      <button className="bg-white text-black px-3 py-1 rounded">
+                        Receipt
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+                {!fundingRecords?.length && (
+                  <tr>
+                    <td colSpan={6} className="p-3 text-center">
+                      No funding records found
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>

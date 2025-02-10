@@ -4,12 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageHeader } from "../../../components/page-header";
 import { PropAssetSwitcher } from "../../../components/prop-asset-switcher";
+import { properties } from "../../../components/property-grid";
 
 export default async function AssetsPage() {
   const supabase = createServerComponentClient({ cookies });
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  const funding = 0;
+  const withdrawal = 0;
+  const total = funding + withdrawal;
+  const dividend = 0;
+  const assets = 0;
 
   return (
     <div className="space-y-8">
@@ -50,30 +57,33 @@ export default async function AssetsPage() {
       </div>
 
       <div className="rounded-lg">
-        {/* <div className="bg-[#222] p-4 rounded-lg mb-8">
-          <p className="text-gray-300">
-            Hi, I'm. Decisions: If you can't decide, the answer is no. If two
-            equally difficult paths, choose the one more painful in the short
-            term (pain avoidance is creating an illusion of equality).
+        <div className="w-1/2 bg-[#222] p-4 rounded-lg mb-8 space-y-4">
+          <p className="text-white font-semibold text-xl">
+            Active Assets in Investments
           </p>
-        </div> */}
+          <p className="text-[#a0aec0] text-xs">
+            Dividends are calculated from amount funded into a property
+            investment, while Dividends for compounded property investments are
+            calculated from Total Asset in Share.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div className="bg-red-500 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4">Properties on sale</h3>
-            <p className="text-sm">Job Application</p>
+            <h3 className="text-xl font-semibold mb-4">Total Funding</h3>
+            <p className="text-sm">${funding.toLocaleString()}</p>
           </div>
           <div className="bg-[#1e3a8a] p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4">Properties on sale</h3>
-            <p className="text-sm">Job Application</p>
+            <h3 className="text-xl font-semibold mb-4">My Assets in Shares</h3>
+            <p className="text-sm">${assets.toLocaleString()}</p>
           </div>
           <div className="bg-gray-700 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4">Properties on sale</h3>
-            <p className="text-sm">Job Application</p>
+            <h3 className="text-xl font-semibold mb-4">Accumulated Dividend</h3>
+            <p className="text-sm">${dividend.toLocaleString()}</p>
           </div>
           <div className="bg-green-500 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4">Properties on sale</h3>
-            <p className="text-sm">Job Application</p>
+            <h3 className="text-xl font-semibold mb-4">Total withdrawal</h3>
+            <p className="text-sm">${withdrawal.toLocaleString()}</p>
           </div>
         </div>
 
@@ -82,7 +92,7 @@ export default async function AssetsPage() {
             <div key={i} className="bg-[#222] rounded-3xl p-6">
               <div className="flex items-center gap-4 mb-6">
                 <Image
-                  src={`/images/divi.png`}
+                  src={properties[i].image}
                   alt="Property"
                   width={80}
                   height={80}
