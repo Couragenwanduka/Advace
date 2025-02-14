@@ -1,7 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSupabaseClient, getSupabaseServerClient } from "./utils";
 import { schemaName } from "../../consts";
-import { getUser } from "../../app/functions";
+import { getAdmin, getUser } from "../../app/functions";
+// import { getAdmin, getUser } from "../../app/functions";
 
 export const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -176,6 +177,82 @@ export const getUserFundingRecords = async () => {
       .from("funding_records_view")
       .select("*")
       .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error retrieving funding records:", error);
+    throw error;
+  }
+};
+
+// Admin
+export const loginAdmin = async (email: string, password: string) => {
+  const { error, data } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+  if (error) {
+    console.log(error.message);
+    throw error.message;
+  }
+  console.log(data);
+  if (!data.user.user_metadata.admin) {
+    throw new Error("User is not an admin");
+  }
+  localStorage.setItem("advanta-admin", JSON.stringify(data.user));
+  return true;
+};
+
+export const registerAdmin = async (formData: {
+  fullName: string;
+  username: string;
+  email: string;
+  phone: string;
+  password: string;
+}) => {
+  try {
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+      options: {
+        data: {
+          full_name: formData.fullName,
+          username: formData.username,
+          phone: formData.phone,
+          admin: true,
+        },
+      },
+    });
+
+    if (signUpError) throw signUpError;
+    await supabase.schema(schemaName).from("users").insert({
+      userId: data?.user?.id,
+      fullName: formData.fullName,
+      username: formData.username,
+      email: formData.email,
+      password: formData.password,
+      phone: formData.phone,
+    });
+    localStorage.setItem("advanta-admin", JSON.stringify(data.user));
+    return data.user;
+  } catch (error) {
+    console.error("Registration error:", error);
+    throw error;
+  }
+};
+
+export const getAllFundingRecords = async () => {
+  try {
+    // const user = await getAdmin();
+    // if (!user) {
+    //   throw new Error("No authenticated user found");
+    // }
+
+    const { data, error } = await supabase
+      .from("funding_records_view")
+      .select("*")
       .order("created_at", { ascending: false });
 
     if (error) throw error;

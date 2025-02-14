@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import { use, useEffect, useState } from "react";
 import { logout } from "../lib/supabase";
-import { getUser } from "../app/functions";
+import { getAdmin, getUser } from "../app/functions";
 
 interface NavbarProps {
   user: User;
@@ -21,9 +21,13 @@ interface NavbarProps {
 export function Navbar() {
   const [isRealEstateOpen, setIsRealEstateOpen] = useState(false);
   const user = getUser();
+  const admin = getAdmin();
   const toggleRealEstateDropdown = () => {
     setIsRealEstateOpen(!isRealEstateOpen);
   };
+  if (admin) {
+    console.log("Admin in navbar");
+  }
 
   return (
     <div className="flex flex-col">
@@ -31,7 +35,7 @@ export function Navbar() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <a href="/" className="flex items-center">
+              <a href={admin && "/admin" + "/"} className="flex items-center">
                 <Image
                   src="/images/logo.png"
                   alt="Logo"
@@ -44,7 +48,7 @@ export function Navbar() {
 
             <div className="hidden md:flex items-center space-x-8">
               <a
-                href="/dashboard"
+                href={admin && "/admin" + "/dashboard"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <LayoutDashboard size={20} />
@@ -52,7 +56,7 @@ export function Navbar() {
               </a>
 
               <a
-                href="/transactions"
+                href={admin && "/admin" + "/transactions"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <ArrowRightLeft size={20} />
@@ -72,19 +76,19 @@ export function Navbar() {
                 {isRealEstateOpen && (
                   <div className="absolute mt-2 w-48 border bg-white rounded-lg shadow-lg">
                     <a
-                      href="/real-estate/assets"
+                      href={admin && "/admin" + "/real-estate/assets"}
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Assets
                     </a>
                     <a
-                      href="/real-estate"
+                      href={admin && "/admin" + "/real-estate"}
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Properties
                     </a>
                     <a
-                      href="/real-estate/funding"
+                      href={admin && "/admin" + "/real-estate/funding"}
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Funding
@@ -94,7 +98,7 @@ export function Navbar() {
               </div>
 
               <a
-                href="/pricing"
+                href={admin && "/admin" + "/pricing"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <HeadphonesIcon size={20} />
@@ -102,7 +106,7 @@ export function Navbar() {
               </a>
 
               <a
-                href="/support"
+                href={admin && "/admin" + "/support"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <HeadphonesIcon size={20} />
