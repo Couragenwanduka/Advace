@@ -23,7 +23,7 @@ interface EditingState {
 }
 
 export function UserTableClient({ initialUsers }: Props) {
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState<User[]>(initialUsers);
   const [editingMetadata, setEditingMetadata] = useState<EditingState | null>(null);
 
   const updateUser = async (id: string, updates: Partial<User>) => {
@@ -76,7 +76,7 @@ export function UserTableClient({ initialUsers }: Props) {
       return;
     }
 
-    setUsers(users.filter(user => user.id !== id));
+    setUsers(users.filter(user => user?.id !== id));
     alert('User deleted successfully');
   };
 
