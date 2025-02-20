@@ -8,6 +8,7 @@ import {
   HeadphonesIcon,
   LogOut,
   ChevronDown,
+  Users,
 } from "lucide-react";
 import Image from "next/image";
 import { use, useEffect, useState } from "react";
@@ -105,6 +106,16 @@ export function Navbar() {
                 <HeadphonesIcon size={20} />
                 <span>Pricing</span>
               </a>
+
+              {admin && (
+                <a
+                  href={prefix + "/admin/users"}
+                  className="flex items-center space-x-2 hover:text-blue-600"
+                >
+                  <Users size={20} />
+                  <span>Users</span>
+                </a>
+              )}
 
               <a
                 href={prefix + "/support"}

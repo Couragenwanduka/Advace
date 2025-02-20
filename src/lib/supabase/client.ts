@@ -15,6 +15,18 @@ export const supabase = createClient(
     },
   }
 );
+
+export const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY!,
+  {
+    auth: {
+      autoRefreshToken: true,
+      persistSession: true,
+    }
+  }
+);
+
 // Login function
 export const login = async (email: string, password: string) => {
   const { error, data } = await supabase.auth.signInWithPassword({
@@ -40,6 +52,17 @@ export const registerUser = async (formData: {
   referralName?: string;
   password: string;
 }) => {
+
+  //fields
+  // balance
+  // total_assets
+  // total_dividends
+  // total_funding
+  // total_withdrawals
+  // total_properties
+  // total_properties_invested
+  // total_properties_sale
+  // total_properties_rent
   try {
     const { data, error: signUpError } = await supabase.auth.signUp({
       email: formData.email,
@@ -51,10 +74,19 @@ export const registerUser = async (formData: {
           phone: formData.phone,
           country: formData.country,
           referral_name: formData.referralName || null,
+          balance: 0,
+          total_funding: 0,
+          total_withdrawals: 0,
+          total_properties: 0,
+          total_properties_invested: 0,
+          total_properties_sale: 0,
+          total_properties_rent: 0,
+          total_assets: 0,
+          total_dividends: 0,
+          approved: false,
         },
       },
     });
-
     if (signUpError) throw signUpError;
     await supabase
       .schema(schemaName)
@@ -259,6 +291,18 @@ export const getAllFundingRecords = async () => {
     return data;
   } catch (error) {
     console.error("Error retrieving funding records:", error);
+    throw error;
+  }
+};
+
+export const getAllUsers = async () => {
+  try {
+    const { data: { users }, error } = await supabaseAdmin.auth.admin.listUsers();
+
+    if (error) throw error;
+    return users;
+  } catch (error) {
+    console.error("Error retrieving authenticated users:", error);
     throw error;
   }
 };

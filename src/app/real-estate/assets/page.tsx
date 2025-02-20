@@ -110,7 +110,7 @@ export default async function AssetsPage() {
 
         {fundingRecords != null && fundingRecords.length >= 1 ? 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[57px]">
-          {fundingRecords.slice(0, 3).map((i) => (
+          {fundingRecords.filter((i) => i.status === "completed").slice(0, 3).map((i) => (
             <div key={i} className="bg-[#222] rounded-3xl p-6">
               <div className="flex items-center gap-4 mb-6">
                 <Image
