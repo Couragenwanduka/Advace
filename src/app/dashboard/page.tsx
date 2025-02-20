@@ -76,22 +76,22 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <MiniCard
           icon="/images/market.svg"
-          title="$0.00"
+          title={`$${user?.user_metadata?.total_funding || 0.00}`}
           label="Total funding"
         />
         <MiniCard
           icon="/images/market.svg"
-          title="$0.00"
+          title={`$${user?.user_metadata?.total_withdrawals || 0.00}`}
           label="Total withdrawals"
         />
         <MiniCard
           icon="/images/circle-progress.svg"
-          title="22"
+          title={`${user?.user_metadata?.total_properties_sale || 0}`}
           label="Properties on sale"
         />
         <MiniCard
           icon="/images/circle-progress.svg"
-          title="15"
+          title={`${user?.user_metadata?.total_properties_rent || 0}`}
           label="Properties on rent"
         />
       </div>
@@ -100,12 +100,12 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <MiniCard
               icon="/images/circle-progress.svg"
-              title="22"
+              title={`${user?.user_metadata?.total_properties_sale || 0}`}
               label="Properties on sale"
             />
             <MiniCard
               icon="/images/circle-progress.svg"
-              title="15"
+              title={`${user?.user_metadata?.total_properties_rent || 0}`}
               label="Properties on rent"
             />
           </div>
@@ -125,11 +125,11 @@ export default function Dashboard() {
             <div className="flex justify-between mb-4">
               <div>
                 <p className="text-gray-400">Total Properties</p>
-                <p className="text-xl font-semibold">12+</p>
+                <p className="text-xl font-semibold">{user?.user_metadata?.total_properties || 0}</p>
               </div>
               <div>
                 <p className="text-gray-400">Invested properties</p>
-                <p className="text-xl font-semibold">0 properties</p>
+                <p className="text-xl font-semibold">{user?.user_metadata?.total_properties_invested || 0}</p>
               </div>
             </div>
             <div className="flex gap-2 mb-4">

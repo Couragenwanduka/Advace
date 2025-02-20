@@ -8,9 +8,30 @@ import { properties } from "../../../components/property-grid";
 
 export default async function AssetsPage() {
   const supabase = createServerComponentClient({ cookies });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
+
+  const { data: fundingRecords, error } = await supabase
+    .schema("advanta")
+    .from("funding_records")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Error fetching funding records:", error);
+  }
+
+  //fields
+  // balance
+  // total_assets
+  // total_dividends
+  // total_funding
+  // total_withdrawals
+  // total_properties
+  // total_properties_invested
+  // total_properties_sale
+  // total_properties_rent
 
   const funding = 0;
   const withdrawal = 0;
@@ -87,18 +108,19 @@ export default async function AssetsPage() {
           </div>
         </div>
 
+        {fundingRecords != null && fundingRecords.length >= 1 ? 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[57px]">
-          {[1, 2, 3].map((i) => (
+          {fundingRecords.slice(0, 3).map((i) => (
             <div key={i} className="bg-[#222] rounded-3xl p-6">
               <div className="flex items-center gap-4 mb-6">
                 <Image
-                  src={properties[i].image}
+                  src={properties[i.property]?.image || ""}
                   alt="Property"
                   width={80}
                   height={80}
                 />
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-semibold text-2xl">Modern smart homes</h3>
+                  <h3 className="font-semibold text-2xl">{properties[i.property]?.title}</h3>
                   <p className="text-sm text-gray-400">Total funding</p>
                 </div>
               </div>
@@ -106,7 +128,7 @@ export default async function AssetsPage() {
               <div className="space-y-4">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Amount invested</span>
-                  <span>$0.00</span>
+                  <span>${i.amount}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Property category</span>
@@ -122,8 +144,15 @@ export default async function AssetsPage() {
                 Withdraw dividend
               </button>
             </div>
-          ))}
+            ))
+          }
+           
         </div>
+        : (
+          <div className="bg-[#222] rounded-3xl p-6">
+            <p className="text-white">No assets funded</p>
+          </div>
+        )}
       </div>
     </div>
   );

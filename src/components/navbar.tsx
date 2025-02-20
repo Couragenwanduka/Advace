@@ -28,6 +28,7 @@ export function Navbar() {
   if (admin) {
     console.log("Admin in navbar");
   }
+  const prefix = admin ? "/admin" : "";
 
   return (
     <div className="flex flex-col">
@@ -35,7 +36,7 @@ export function Navbar() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <a href={admin && "/admin" + "/"} className="flex items-center">
+              <a href={prefix + "/"} className="flex items-center">
                 <Image
                   src="/images/logo.png"
                   alt="Logo"
@@ -48,7 +49,7 @@ export function Navbar() {
 
             <div className="hidden md:flex items-center space-x-8">
               <a
-                href={admin && "/admin" + "/dashboard"}
+                href={prefix + "/dashboard"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <LayoutDashboard size={20} />
@@ -56,7 +57,7 @@ export function Navbar() {
               </a>
 
               <a
-                href={admin && "/admin" + "/transactions"}
+                href={prefix + "/transactions"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <ArrowRightLeft size={20} />
@@ -76,19 +77,19 @@ export function Navbar() {
                 {isRealEstateOpen && (
                   <div className="absolute mt-2 w-48 border bg-white rounded-lg shadow-lg">
                     <a
-                      href={admin && "/admin" + "/real-estate/assets"}
+                      href={prefix + "/real-estate/assets"}
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Assets
                     </a>
                     <a
-                      href={admin && "/admin" + "/real-estate"}
+                      href={prefix + "/real-estate"}
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Properties
                     </a>
                     <a
-                      href={admin && "/admin" + "/real-estate/funding"}
+                      href={prefix + "/real-estate/funding"}
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Funding
@@ -98,7 +99,7 @@ export function Navbar() {
               </div>
 
               <a
-                href={admin && "/admin" + "/pricing"}
+                href={prefix + "/pricing"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <HeadphonesIcon size={20} />
@@ -106,7 +107,7 @@ export function Navbar() {
               </a>
 
               <a
-                href={admin && "/admin" + "/support"}
+                href={prefix + "/support"}
                 className="flex items-center space-x-2 hover:text-blue-600"
               >
                 <HeadphonesIcon size={20} />

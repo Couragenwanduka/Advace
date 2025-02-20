@@ -17,7 +17,7 @@ export function PropertyFilter() {
           />
         </div>
 
-        <div className="relative">
+        {/* <div className="relative">
           <input
             type="email"
             placeholder="Input Your Email"
@@ -39,7 +39,7 @@ export function PropertyFilter() {
             className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
             size={20}
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="border-[#E0E1E2] opacity-10 w-full h-[1px] bg-white" />
