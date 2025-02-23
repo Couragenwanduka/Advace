@@ -1,9 +1,13 @@
 // user-table-client.tsx
 "use client";
 
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import Button from "../../../components/button";
-import { supabase, supabaseAdmin } from "../../../lib/supabase/client";
+import {
+  getAllUsers,
+  supabase,
+  supabaseAdmin,
+} from "../../../lib/supabase/client";
 
 interface User {
   id: string;
@@ -23,14 +27,22 @@ interface EditingState {
 }
 
 export function UserTableClient({ initialUsers }: Props) {
-  const [users, setUsers] = useState<User[]>(initialUsers);
-  const [editingMetadata, setEditingMetadata] = useState<EditingState | null>(null);
+  const [users, setUsers] = useState<User[]>([]);
+  const [editingMetadata, setEditingMetadata] = useState<EditingState | null>(
+    null
+  );
+  useEffect(() => {
+    getAllUsers()
+      .then((allUsers) => {
+        setUsers(allUsers as User[]);
+      })
+      .catch((error) => console.error(error));
+  }, [users]);
 
   const updateUser = async (id: string, updates: Partial<User>) => {
-    const { error } = await supabaseAdmin.auth.admin.updateUserById(
-      id,
-      { user_metadata: updates.user_metadata }
-    )
+    const { error } = await supabaseAdmin.auth.admin.updateUserById(id, {
+      user_metadata: updates.user_metadata,
+    });
 
     if (error) {
       console.error("Error updating user:", error);
@@ -38,71 +50,72 @@ export function UserTableClient({ initialUsers }: Props) {
     }
 
     setUsers(
-      users.map((user) =>
-        user.id === id ? { ...user, ...updates } : user
-      )
+      users.map((user) => (user.id === id ? { ...user, ...updates } : user))
     );
     alert("User updated successfully");
+    window.location.reload();
   };
 
   const handleMetadataEdit = (id: string, metadata: Record<string, any>) => {
-    setEditingMetadata({ 
-      id, 
+    setEditingMetadata({
+      id,
       data: { ...metadata },
-      rawText: JSON.stringify(metadata, null, 2)
+      rawText: JSON.stringify(metadata, null, 2),
     });
   };
 
   const saveMetadata = async () => {
     if (!editingMetadata) return;
-    
+
     try {
       const parsedData = JSON.parse(editingMetadata.rawText);
       await updateUser(editingMetadata.id, { user_metadata: parsedData });
       setEditingMetadata(null);
     } catch (err) {
-      alert('Invalid JSON format');
+      alert("Invalid JSON format");
     }
   };
 
   const deleteUser = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this user?')) return;
+    if (!confirm("Are you sure you want to delete this user?")) return;
 
     const { error } = await supabaseAdmin.auth.admin.deleteUser(id);
 
     if (error) {
-      console.error('Error deleting user:', error);
-      alert('Failed to delete user');
+      console.error("Error deleting user:", error);
+      alert("Failed to delete user");
       return;
     }
 
-    setUsers(users.filter(user => user?.id !== id));
-    alert('User deleted successfully');
+    setUsers(users.filter((user) => user?.id !== id));
+    alert("User deleted successfully");
   };
 
-  const approveUser = async (id: string, currentMetadata: Record<string, any>) => {
+  const approveUser = async (
+    id: string,
+    currentMetadata: Record<string, any>
+  ) => {
     const updatedMetadata = {
       ...currentMetadata,
-      approved: true
+      approved: true,
     };
 
-    const { error } = await supabaseAdmin.auth.admin.updateUserById(
-      id,
-      { user_metadata: updatedMetadata }
-    );
+    const { error } = await supabaseAdmin.auth.admin.updateUserById(id, {
+      user_metadata: updatedMetadata,
+    });
 
     if (error) {
-      console.error('Error approving user:', error);
-      alert('Failed to approve user');
+      console.error("Error approving user:", error);
+      alert("Failed to approve user");
       return;
     }
 
-    setUsers(users.map(user => 
-      user.id === id 
-        ? { ...user, user_metadata: updatedMetadata }
-        : user
-    ));
-    alert('User approved successfully');
+    setUsers(
+      users.map((user) =>
+        user.id === id ? { ...user, user_metadata: updatedMetadata } : user
+      )
+    );
+    alert("User approved successfully");
   };
 
   return (
@@ -134,7 +147,7 @@ export function UserTableClient({ initialUsers }: Props) {
                       onChange={(e) => {
                         setEditingMetadata({
                           ...editingMetadata,
-                          rawText: e.target.value
+                          rawText: e.target.value,
                         });
                       }}
                     />
@@ -160,23 +173,25 @@ export function UserTableClient({ initialUsers }: Props) {
                     </pre>
                     <Button
                       className="bg-blue-500 text-white px-3 py-1 rounded"
-                      onClick={() => handleMetadataEdit(user.id, user.user_metadata)}
+                      onClick={() =>
+                        handleMetadataEdit(user.id, user.user_metadata)
+                      }
                     >
                       Edit
                     </Button>
                     <Button
-                        className="bg-green-500 text-white px-3 py-1 rounded"
-                        onClick={() => approveUser(user.id, user.user_metadata)}
-                        disabled={user.user_metadata?.approved}
-                      >
-                        {user.user_metadata?.approved ? 'Approved' : 'Approve'}
-                      </Button>
-                      <Button
-                        className="bg-red-500 text-white px-3 py-1 rounded"
-                        onClick={() => deleteUser(user.id)}
-                      >
-                        Delete
-                      </Button>
+                      className="bg-green-500 text-white px-3 py-1 rounded"
+                      onClick={() => approveUser(user.id, user.user_metadata)}
+                      disabled={user.user_metadata?.approved}
+                    >
+                      {user.user_metadata?.approved ? "Approved" : "Approve"}
+                    </Button>
+                    <Button
+                      className="bg-red-500 text-white px-3 py-1 rounded"
+                      onClick={() => deleteUser(user.id)}
+                    >
+                      Delete
+                    </Button>
                   </div>
                 )}
               </td>

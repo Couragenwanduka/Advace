@@ -391,6 +391,149 @@ The home is equipped with an integrated sound system, climate control, and secur
     created_at: "2024-01-01T00:00:00.000Z",
     updated_at: "2025-01-01T00:00:00.000Z",
   },
+  {
+    id: 11,
+    image: "/images/alberta.jpeg",
+    title: "Alberta Homes",
+    location: "Alberta House, Calgary, Alberta, T2P",
+    price: 900000,
+    description: `This Newly Built, On A Pool Sized Lot Is Bright And Airy. Offering Larg Windows Throughout, Open Concept, 10Ft Ceilings On Ma Floor, 9Ft Ceilings On Upper Floor. Beautiful Hardwood Staircase Leading To The Spacious Upper Level Offering Three Generously Sized Bedrooms With Beautiful Ensuite 8 Walk-In Closet In Master Bedroom. In Close Proximity To A Vast Selection Of Amenities And The Water. Freshly Painte Basement floors coated & sealed.`,
+    bedrooms: 5,
+    bathrooms: 3,
+    square_meters: 600,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 12,
+    image: "/images/holburn.jpeg",
+    title: "Holburn House",
+    location: "Holburn House, Halifax, Nova Scotia, B3J",
+    price: 900000,
+    description: `This modern farmhouse is located on an estate lot that is the embodiment of country living!
+Perfect family home with finished basement, kitchen, family room, full bathroom and den.
+Surrounded by 1.5 acres of lush green conservation.
+A second dwelling appx 1500 sf located at back of property is a fully restored barn with 3 br, kitchen and laundry for extended family.`,
+    bedrooms: 4,
+    bathrooms: 5,
+    square_meters: 1500,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 13,
+    image: "/images/weston.jpeg",
+    title: "Weston Manor Home",
+    location: "Weston Manor, Edmonton, Alberta, T5J",
+    price: 900000,
+    description: `Crafted to the highest standards, this exquisite residence spans over 8,500 sq ft across three impeccably designed levels, offering a perfect blend of luxury and comfort.
+
+The main floor welcomes you with a grand foyer leading to a spacious open-plan living area, featuring a formal sitting room, a refined dining space, and a gourmet kitchen with custom cabinetry and premium appliances. A private office, a state-of-the-art home theater, a fully equipped fitness center, and a temperature-controlled wine cellar complete this level.
+
+The rear of the property opens onto an expansive covered terrace, ideal for outdoor gatherings, with direct access to a beautifully landscaped private garden.
+
+The upper level is home to an opulent principal suite, boasting a generous walk-in closet and a spa-inspired en suite bathroom. Three additional well-appointed bedroom suites, each with custom-designed bathrooms and built-in wardrobes, provide exceptional comfort.
+
+This home is outfitted with cutting-edge smart home technology, featuring a fully integrated sound system, advanced security, and climate control for seamless modern living.`,
+    bedrooms: 5,
+    bathrooms: 3,
+    square_meters: 8500,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 14,
+    image: "/images/ashford.jpeg",
+    title: "Ashford House",
+    location: "Ashford House, Calgary, Alberta, T3C",
+    price: 900000,
+    description: `Designed with elegance and modern luxury in mind, this stunning home offers over 8,200 sq ft of meticulously crafted living space across three levels.
+
+The main floor boasts a grand entrance leading to an open-concept living area, featuring a formal lounge, a sophisticated dining room, and a chef’s kitchen with bespoke cabinetry and high-end appliances. Additional highlights include a private study, a state-of-the-art media room, a fully equipped gym, and a custom wine cellar.
+
+At the rear, the home extends onto a spacious outdoor terrace, seamlessly connecting to a beautifully landscaped private garden, ideal for relaxation and entertaining.
+
+The upper floor showcases a lavish principal suite, complete with a walk-in dressing room and a spa-inspired en suite. Three additional bedroom suites, each with elegant en suite bathrooms and built-in wardrobes, provide exceptional comfort for family and guests.
+
+This home is equipped with the latest in smart home technology, including an integrated audio system, advanced security, and climate control, ensuring effortless modern living.`,
+    bedrooms: 4,
+    bathrooms: 2,
+    square_meters: 8200,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
 ];
 
 export function PropertyGrid({ count }: any) {

@@ -109,7 +109,7 @@ export function Navbar() {
 
               {admin && (
                 <a
-                  href={prefix + "/admin/users"}
+                  href={prefix + "/users"}
                   className="flex items-center space-x-2 hover:text-blue-600"
                 >
                   <Users size={20} />
