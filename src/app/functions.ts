@@ -1,14 +1,44 @@
 // import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 // import { cookies } from "next/headers";
+
+import { getUserSupabase } from "../lib/supabase/client";
+
 // const supabase = createServerComponentClient({ cookies });
 export function getUser() {
   try {
-    const user = JSON.parse(localStorage.getItem("advanta-user")!) || null;
-    console.log(user);
-    // console.log(supabase.auth.getUser());
-    return user;
+    let user: any = JSON.parse(localStorage.getItem("advanta-user")!) || null;
+    let session: any = JSON.parse(
+      localStorage.getItem("advanta-user-session")!
+    );
+
+    console.log(session, "session is here in user func");
+    // getUserSupabase()
+    //   .then((data) => {
+    //     user = data;
+    //     console.log(user, "user is here v2");
+    //     return user;
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching user:", error);
+    //     return null;
+    //   });
+    //JSON.parse(localStorage.getItem("advanta-user")!) || null;
+    return user || null;
   } catch (error) {
     console.error("Error fetching user:", error);
+    return null;
+  }
+}
+export function getSession() {
+  try {
+    let session: any = JSON.parse(
+      localStorage.getItem("advanta-user-session")!
+    );
+    console.log(session, "session is here");
+    //JSON.parse(localStorage.getItem("advanta-user")!) || null;
+    return session || null;
+  } catch (error) {
+    console.error("Error fetching user session:", error);
     return null;
   }
 }

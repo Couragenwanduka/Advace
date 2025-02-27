@@ -456,24 +456,63 @@ A second dwelling appx 1500 sf located at back of property is a fully restored b
     created_at: "2024-01-01T00:00:00.000Z",
     updated_at: "2025-01-01T00:00:00.000Z",
   },
+  //   {
+  //     id: 13,
+  //     image: "/images/weston.jpeg",
+  //     title: "Weston Manor Home",
+  //     location: "Weston Manor, Edmonton, Alberta, T5J",
+  //     price: 900000,
+  //     description: `Crafted to the highest standards, this exquisite residence spans over 8,500 sq ft across three impeccably designed levels, offering a perfect blend of luxury and comfort.
+
+  // The main floor welcomes you with a grand foyer leading to a spacious open-plan living area, featuring a formal sitting room, a refined dining space, and a gourmet kitchen with custom cabinetry and premium appliances. A private office, a state-of-the-art home theater, a fully equipped fitness center, and a temperature-controlled wine cellar complete this level.
+
+  // The rear of the property opens onto an expansive covered terrace, ideal for outdoor gatherings, with direct access to a beautifully landscaped private garden.
+
+  // The upper level is home to an opulent principal suite, boasting a generous walk-in closet and a spa-inspired en suite bathroom. Three additional well-appointed bedroom suites, each with custom-designed bathrooms and built-in wardrobes, provide exceptional comfort.
+
+  // This home is outfitted with cutting-edge smart home technology, featuring a fully integrated sound system, advanced security, and climate control for seamless modern living.`,
+  //     bedrooms: 5,
+  //     bathrooms: 3,
+  //     square_meters: 8500,
+  //     features: [
+  //       "Swimming pool",
+  //       "Terrace",
+  //       "Radio",
+  //       "Grill",
+  //       "Cable TV",
+  //       "Air conditioning",
+  //       "Coffee pot",
+  //       "Balcony",
+  //       "Computer",
+  //       "Parquet",
+  //       "Internet",
+  //       "Roof Terrace",
+  //       "Oven",
+  //     ],
+  //     images: ["", "", ""],
+  //     is_featured: true,
+  //     is_new: true,
+  //     created_at: "2024-01-01T00:00:00.000Z",
+  //     updated_at: "2025-01-01T00:00:00.000Z",
+  //   },
   {
-    id: 13,
-    image: "/images/weston.jpeg",
-    title: "Weston Manor Home",
-    location: "Weston Manor, Edmonton, Alberta, T5J",
+    id: 14,
+    image: "/images/ashford.jpeg",
+    title: "Ashford House",
+    location: "Ashford House, Calgary, Alberta, T3C",
     price: 900000,
-    description: `Crafted to the highest standards, this exquisite residence spans over 8,500 sq ft across three impeccably designed levels, offering a perfect blend of luxury and comfort.
+    description: `Designed with elegance and modern luxury in mind, this stunning home offers over 8,200 sq ft of meticulously crafted living space across three levels.
 
-The main floor welcomes you with a grand foyer leading to a spacious open-plan living area, featuring a formal sitting room, a refined dining space, and a gourmet kitchen with custom cabinetry and premium appliances. A private office, a state-of-the-art home theater, a fully equipped fitness center, and a temperature-controlled wine cellar complete this level.
+The main floor boasts a grand entrance leading to an open-concept living area, featuring a formal lounge, a sophisticated dining room, and a chef’s kitchen with bespoke cabinetry and high-end appliances. Additional highlights include a private study, a state-of-the-art media room, a fully equipped gym, and a custom wine cellar.
 
-The rear of the property opens onto an expansive covered terrace, ideal for outdoor gatherings, with direct access to a beautifully landscaped private garden.
+At the rear, the home extends onto a spacious outdoor terrace, seamlessly connecting to a beautifully landscaped private garden, ideal for relaxation and entertaining.
 
-The upper level is home to an opulent principal suite, boasting a generous walk-in closet and a spa-inspired en suite bathroom. Three additional well-appointed bedroom suites, each with custom-designed bathrooms and built-in wardrobes, provide exceptional comfort.
+The upper floor showcases a lavish principal suite, complete with a walk-in dressing room and a spa-inspired en suite. Three additional bedroom suites, each with elegant en suite bathrooms and built-in wardrobes, provide exceptional comfort for family and guests.
 
-This home is outfitted with cutting-edge smart home technology, featuring a fully integrated sound system, advanced security, and climate control for seamless modern living.`,
-    bedrooms: 5,
-    bathrooms: 3,
-    square_meters: 8500,
+This home is equipped with the latest in smart home technology, including an integrated audio system, advanced security, and climate control, ensuring effortless modern living.`,
+    bedrooms: 4,
+    bathrooms: 2,
+    square_meters: 8200,
     features: [
       "Swimming pool",
       "Terrace",
@@ -496,23 +535,224 @@ This home is outfitted with cutting-edge smart home technology, featuring a full
     updated_at: "2025-01-01T00:00:00.000Z",
   },
   {
-    id: 14,
-    image: "/images/ashford.jpeg",
-    title: "Ashford House",
-    location: "Ashford House, Calgary, Alberta, T3C",
+    id: 15,
+    image: "/images/Maplewood.PNG",
+    title: "Maplewood Estate",
+    location: "Toronto, Ontario, M5V ",
     price: 900000,
-    description: `Designed with elegance and modern luxury in mind, this stunning home offers over 8,200 sq ft of meticulously crafted living space across three levels.
+    description: `Designed for those who appreciate elegance and modern luxury, Maplewood Estate offers over 8,000 sq. ft. of meticulously crafted living space across three expansive levels. Every detail has been thoughtfully designed to provide an exceptional living experience.
 
-The main floor boasts a grand entrance leading to an open-concept living area, featuring a formal lounge, a sophisticated dining room, and a chef’s kitchen with bespoke cabinetry and high-end appliances. Additional highlights include a private study, a state-of-the-art media room, a fully equipped gym, and a custom wine cellar.
+The main floor features a grand foyer that opens into a sophisticated open-concept living area. The formal lounge, adorned with floor-to-ceiling windows, fills the space with natural light, while the dining room provides an elegant setting for entertaining. The chef’s kitchen is a masterpiece, featuring bespoke cabinetry, top-of-the-line appliances, and a marble-topped island perfect for casual dining. Additional highlights include a private home office, a state-of-the-art media room, a fully equipped gym, and a temperature-controlled wine cellar.
 
-At the rear, the home extends onto a spacious outdoor terrace, seamlessly connecting to a beautifully landscaped private garden, ideal for relaxation and entertaining.
+At the rear, the home extends onto a beautifully designed outdoor terrace, seamlessly connecting to a professionally landscaped private garden. This outdoor space is ideal for both relaxation and entertaining, with a firepit, a covered lounge area, and a built-in BBQ station.
 
-The upper floor showcases a lavish principal suite, complete with a walk-in dressing room and a spa-inspired en suite. Three additional bedroom suites, each with elegant en suite bathrooms and built-in wardrobes, provide exceptional comfort for family and guests.
+The upper floor boasts a luxurious principal suite, complete with a walk-in dressing room and a spa-inspired en suite featuring a soaking tub, dual vanities, and a rainfall shower. Three additional bedroom suites, each with en suite bathrooms and built-in wardrobes, provide exceptional comfort for family and guests.
 
-This home is equipped with the latest in smart home technology, including an integrated audio system, advanced security, and climate control, ensuring effortless modern living.`,
-    bedrooms: 4,
-    bathrooms: 2,
-    square_meters: 8200,
+This smart home is equipped with cutting-edge technology, including an integrated audio system, advanced security monitoring, and climate control, allowing for effortless modern living. A three-car garage and a private driveway ensure ample parking.
+
+Maplewood Estate is a true masterpiece of design and function, offering a refined lifestyle in one of Toronto’s most sought-after neighborhoods.`,
+    bedrooms: 5,
+    bathrooms: 3,
+    square_meters: 8000,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 16,
+    image: "/images/Riverside.PNG",
+    title: "Riverside Manor",
+    location: "Vancouver, British Columbia, V6J",
+    price: 900000,
+    description: `Nestled in a prime riverside location, Riverside Manor is a breathtaking 9,000 sq. ft. estate that epitomizes luxury and sophistication. Every inch of this home has been meticulously designed to combine modern comfort with timeless elegance.
+
+Upon entry, guests are welcomed by a grand foyer with soaring ceilings, leading into an expansive open-concept living space. The formal living and dining areas are highlighted by floor-to-ceiling windows, allowing natural light to illuminate the exquisite interior. The chef’s kitchen is equipped with custom cabinetry, a marble island, and top-of-the-line appliances. Additional amenities include a state-of-the-art media room, a temperature-controlled wine cellar, a home gym, and a private study.
+
+Stepping outside, a beautifully landscaped backyard offers a tranquil escape. A spacious outdoor terrace, complete with a firepit, lounge area, and outdoor kitchen, makes for the perfect entertainment space. The backyard extends toward the scenic river, offering breathtaking waterfront views.
+
+The upper level is home to an opulent principal suite featuring a spa-inspired en suite, a walk-in dressing room, and a private balcony overlooking the water. Five additional bedroom suites provide ample space for family and guests.
+
+This smart home is fully automated with a security system, climate control, and integrated sound and lighting, ensuring seamless modern living. A three-car garage and a private driveway complete this exceptional residence.
+
+Riverside Manor is a rare opportunity to own a waterfront estate that blends luxury, comfort, and style in one of Vancouver’s most prestigious locations.`,
+    bedrooms: 6,
+    bathrooms: 4,
+    square_meters: 9000,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 17,
+    image: "/images/willowbrook.PNG",
+    title: "Willowbrook Residence",
+    location: "Montreal, Quebec, H3H",
+    price: 900000,
+    description: `A perfect blend of modern luxury and timeless elegance, Willowbrook Residence offers 8,400 sq. ft. of exquisite living space across three meticulously designed levels. This stunning home is ideal for those who appreciate craftsmanship, comfort, and sophistication.
+
+As you step inside, a grand entrance welcomes you into an open-concept living area, featuring a spacious lounge with floor-to-ceiling windows, a formal dining room, and a gourmet chef’s kitchen outfitted with bespoke cabinetry and high-end appliances. Additional highlights include a private home office, a state-of-the-art media room, a personal gym, and a fully equipped wine cellar.
+
+At the rear, the home extends onto a beautifully designed outdoor terrace, seamlessly connecting to a landscaped garden, complete with a firepit, a lounge area, and an outdoor dining space—perfect for relaxation and entertaining.
+
+The upper level features a breathtaking principal suite, complete with a walk-in dressing room and a spa-like en suite with a soaking tub, rainfall shower, and dual vanities. Three additional bedroom suites offer en suite bathrooms and custom-built wardrobes, ensuring ultimate comfort.
+
+Smart home technology integrates an advanced security system, climate control, and an automated sound and lighting system, providing effortless convenience. A private double garage and a large driveway provide ample parking space.
+
+Willowbrook Residence is a masterfully designed estate, offering luxury and functionality in one of Montreal’s most sought-after neighborhoods.`,
+    bedrooms: 5,
+    bathrooms: 3,
+    square_meters: 8400,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 18,
+    image: "/images/Crestwood.PNG",
+    title: "Crestwood Manor",
+    location: "London, United Kingdom, W8",
+    price: 900000,
+    description: `Nestled in the heart of Kensington, Crestwood Manor is an extraordinary 8,700 sq. ft. residence designed to offer unparalleled elegance and sophistication. This stately home is a masterpiece of architectural brilliance, with contemporary touches that enhance its timeless charm.
+
+Upon entering, you are greeted by a grand reception hall leading into a spacious and sunlit living area. The home boasts a formal dining room, an opulent sitting room, and a chef’s kitchen featuring handcrafted cabinetry, marble countertops, and state-of-the-art appliances. Additional amenities include a fully equipped home gym, a private study, a cinema room, and a custom-designed wine cellar.
+
+The beautifully landscaped rear garden features a large outdoor terrace, ideal for entertaining or enjoying serene moments of relaxation. A charming patio, outdoor fireplace, and water feature complete the space.
+
+Upstairs, the master suite is a true retreat, featuring a luxurious en suite bathroom with a soaking tub, rainfall shower, and his-and-hers vanities. The suite also includes a spacious dressing room. Five additional bedrooms, each with en suite bathrooms, ensure ample accommodation for family and guests.
+
+A private elevator, integrated smart home technology, and underfloor heating add to the comfort and convenience of this exceptional home.
+
+Crestwood Manor represents the pinnacle of London luxury, offering an unmatched living experience in one of the city's most prestigious areas.`,
+    bedrooms: 6,
+    bathrooms: 4,
+    square_meters: 8000,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 19,
+    image: "/images/Stonebridge.PNG",
+    title: "Stonebridge Villa",
+    location: "Edinburgh, Scotland, EH3",
+    price: 900000,
+    description: `A distinguished estate set in the heart of Edinburgh’s historic district, Stonebridge Villa spans 7,000 sq. ft. and showcases a flawless blend of traditional grandeur and contemporary refinement.
+
+A magnificent entrance hall sets the tone for the rest of the home, leading into a spacious living area with intricate crown moldings and high ceilings. The grand dining room is perfect for hosting, while the gourmet kitchen features a marble island, premium appliances, and a separate breakfast nook. Additional highlights include a home office, a library, a gym, a cinema room, and a bespoke wine cellar.
+
+The upper level is home to a stunning master suite with a walk-in closet and an en suite spa bathroom. Each of the additional bedrooms offers en suite bathrooms and built-in storage, ensuring luxury and comfort for all occupants.
+
+Equipped with smart home automation, including security cameras, climate control, and an integrated sound system, Stonebridge Villa is a testament to refined living in one of Scotland’s most esteemed neighborhoods.`,
+    bedrooms: 5,
+    bathrooms: 3,
+    square_meters: 7000,
+    features: [
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images: ["", "", ""],
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+  },
+  {
+    id: 20,
+    image: "/images/Oakridge.png",
+    title: "Oakridge Estate",
+    location: "Birmingham, United Kingdom, B15",
+    price: 900000,
+    description: `Nestled in a prestigious neighborhood, Oakridge Estate is an exquisite 8,500 sq. ft. residence offering timeless elegance and modern comfort. Designed for luxurious living, this home boasts breathtaking architectural details and high-end finishes throughout.
+
+A grand entrance hall welcomes you into an expansive open-concept living space, featuring a formal lounge with floor-to-ceiling windows, a sophisticated dining area, and a chef’s kitchen with custom cabinetry and top-tier appliances. Additional highlights include a state-of-the-art cinema room, a private study, a home gym, and a temperature-controlled wine cellar.
+
+At the rear, a beautifully landscaped garden and a spacious outdoor terrace provide a serene retreat, ideal for relaxation or entertaining guests. The terrace features a covered lounge area, a firepit, and an alfresco dining space.
+
+The upper level is home to a grand principal suite with a walk-in dressing room and a spa-inspired en suite featuring a freestanding soaking tub, rainfall shower, and dual vanities. Four additional bedrooms, all with en suite bathrooms, offer exceptional comfort.
+
+With integrated smart home technology, including advanced security, climate control, and surround sound, Oakridge Estate is the epitome of luxury living in Birmingham’s most sought-after district.`,
+    bedrooms: 5,
+    bathrooms: 4,
+    square_meters: 8500,
     features: [
       "Swimming pool",
       "Terrace",

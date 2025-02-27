@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSupabaseClient, getSupabaseServerClient } from "./utils";
 import { schemaName } from "../../consts";
-import { getAdmin, getUser } from "../../app/functions";
+import { getAdmin, getSession, getUser } from "../../app/functions";
 // import { getAdmin, getUser } from "../../app/functions";
 
 export const supabase = createClient(
@@ -23,7 +23,7 @@ export const supabaseAdmin = createClient(
     auth: {
       autoRefreshToken: true,
       persistSession: true,
-    }
+    },
   }
 );
 
@@ -37,6 +37,7 @@ export const login = async (email: string, password: string) => {
     console.log(error.message);
     throw error.message;
   }
+  localStorage.setItem("advanta-user-session", JSON.stringify(data.session));
   localStorage.setItem("advanta-user", JSON.stringify(data.user));
   return true;
 };
@@ -52,7 +53,6 @@ export const registerUser = async (formData: {
   referralName?: string;
   password: string;
 }) => {
-
   //fields
   // balance
   // total_assets
@@ -106,6 +106,24 @@ export const registerUser = async (formData: {
   } catch (error) {
     console.error("Registration error:", error);
     throw error;
+  }
+};
+
+export const getUserSupabase = async (token?: string) => {
+  try {
+    const session = getSession();
+    console.log(session, "session is here");
+    const { data: user } = await supabase.auth.getUser(
+      token || session?.access_token
+    );
+    if (!user) {
+      throw new Error("No authenticated user found");
+    }
+    return user || null;
+  } catch (error) {
+    console.error("Error retrieving user from supabase:", error);
+    // throw error;
+    return null;
   }
 };
 
@@ -297,7 +315,10 @@ export const getAllFundingRecords = async () => {
 
 export const getAllUsers = async () => {
   try {
-    const { data: { users }, error } = await supabaseAdmin.auth.admin.listUsers();
+    const {
+      data: { users },
+      error,
+    } = await supabaseAdmin.auth.admin.listUsers();
 
     if (error) throw error;
     return users;
@@ -305,4 +326,8 @@ export const getAllUsers = async () => {
     console.error("Error retrieving authenticated users:", error);
     throw error;
   }
+};
+
+export const addTransactionRecord = async (record: any) => {
+  return true;
 };

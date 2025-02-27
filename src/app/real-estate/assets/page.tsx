@@ -5,12 +5,15 @@ import Image from "next/image";
 import { PageHeader } from "../../../components/page-header";
 import { PropAssetSwitcher } from "../../../components/prop-asset-switcher";
 import { properties } from "../../../components/property-grid";
+import { getUser } from "../../functions";
+import { getUserSupabase } from "../../../lib/supabase/client";
+import { AssetDetails } from "../../../components/asset-details";
 
 export default async function AssetsPage() {
   const supabase = createServerComponentClient({ cookies });
-  // const {
-  //   data: { user },
-  // } = await supabase.auth.getUser();
+  console.log("Cookies in assets page:", cookies().getAll());
+  // const gg = supabase.auth.getSession(cookies);
+  const user: any = await getUserSupabase();
 
   const { data: fundingRecords, error } = await supabase
     .schema("advanta")
@@ -32,12 +35,6 @@ export default async function AssetsPage() {
   // total_properties_invested
   // total_properties_sale
   // total_properties_rent
-
-  const funding = 0;
-  const withdrawal = 0;
-  const total = funding + withdrawal;
-  const dividend = 0;
-  const assets = 0;
 
   return (
     <div className="space-y-8">
@@ -89,7 +86,7 @@ export default async function AssetsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div className="bg-red-500 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Total Funding</h3>
             <p className="text-sm">${funding.toLocaleString()}</p>
@@ -106,49 +103,54 @@ export default async function AssetsPage() {
             <h3 className="text-xl font-semibold mb-4">Total withdrawal</h3>
             <p className="text-sm">${withdrawal.toLocaleString()}</p>
           </div>
-        </div>
+        </div> */}
 
-        {fundingRecords != null && fundingRecords.length >= 1 ? 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[57px]">
-          {fundingRecords.filter((i) => i.status === "completed").slice(0, 3).map((i) => (
-            <div key={i} className="bg-[#222] rounded-3xl p-6">
-              <div className="flex items-center gap-4 mb-6">
-                <Image
-                  src={properties[i.property]?.image || ""}
-                  alt="Property"
-                  width={80}
-                  height={80}
-                />
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-semibold text-2xl">{properties[i.property]?.title}</h3>
-                  <p className="text-sm text-gray-400">Total funding</p>
-                </div>
-              </div>
+        <AssetDetails />
 
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Amount invested</span>
-                  <span>${i.amount}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Property category</span>
-                  <span>For Rent</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Dividend</span>
-                  <span>$0.00</span>
-                </div>
-              </div>
+        {fundingRecords != null && fundingRecords.length >= 1 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[57px]">
+            {fundingRecords
+              .filter((i) => i.status === "completed")
+              .slice(0, 3)
+              .map((i) => (
+                <div key={i} className="bg-[#222] rounded-3xl p-6">
+                  <div className="flex items-center gap-4 mb-6">
+                    <Image
+                      src={properties[i.property]?.image || ""}
+                      alt="Property"
+                      width={80}
+                      height={80}
+                    />
+                    <div className="flex flex-col gap-2">
+                      <h3 className="font-semibold text-2xl">
+                        {properties[i.property]?.title}
+                      </h3>
+                      <p className="text-sm text-gray-400">Total funding</p>
+                    </div>
+                  </div>
 
-              <button className="w-full bg-red-500 text-white py-2 rounded-lg mt-6">
-                Withdraw dividend
-              </button>
-            </div>
-            ))
-          }
-           
-        </div>
-        : (
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Amount invested</span>
+                      <span>${i.amount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Property category</span>
+                      <span>For Rent</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Dividend</span>
+                      <span>$0.00</span>
+                    </div>
+                  </div>
+
+                  <button className="w-full bg-red-500 text-white py-2 rounded-lg mt-6">
+                    Withdraw dividend
+                  </button>
+                </div>
+              ))}
+          </div>
+        ) : (
           <div className="bg-[#222] rounded-3xl p-6">
             <p className="text-white">No assets funded</p>
           </div>
