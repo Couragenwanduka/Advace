@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { PageHeader } from "../../components/page-header";
-import { wallets } from "../real-estate/funding/page";
 import { getUser } from "../functions";
+import { wallets } from "../../components/wallets";
 
 // Types
 interface Transaction {
