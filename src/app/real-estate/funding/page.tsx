@@ -5,7 +5,39 @@ import { PropAssetSwitcher } from "../../../components/prop-asset-switcher";
 import { useState } from "react";
 import { properties } from "../../../components/property-grid";
 import { addFundingRecord } from "../../../lib/supabase/client";
-
+export const wallets = [
+  {
+    id: 1,
+    name: "BTC",
+    image: "/images/btc.jpeg",
+    address: "bc1qd6rjew937mhrx98pcauvm03j5s6nl0p4s4mkl0",
+  },
+  {
+    id: 2,
+    name: "USDT",
+    image: "/images/usdt.jpeg",
+    address: "0x7e0F28A96072aCA27DB51f4E4cb812E21e5E6B37",
+  },
+  {
+    id: 3,
+    name: "BCH",
+    image: "/images/bch.jpeg",
+    address: "qrdtvvu9gmyw6xzvrwdwdcp5p6djrm74ysglju76c9",
+  },
+  {
+    id: 4,
+    name: "ETH",
+    value: "ETH",
+    image: "/images/eth.jpeg",
+    address: "0x7938a23f2558b0BA00fdd70D9f25474182386801",
+  },
+  {
+    id: 5,
+    name: "SOL",
+    image: "/images/sol.jpeg",
+    address: "39RpXE8jRpAYYLgJ5nnbvJXmT8vn2AaKPggGmkjgnNXR",
+  },
+];
 export default function FundingPage() {
   const [method, setMethod] = useState<"Bank" | "Crypto" | "Other">("Bank");
   const [property, setProperty] = useState<any>(null);
@@ -15,40 +47,6 @@ export default function FundingPage() {
   const [wallet, setWallet] = useState<any>(null);
   const [walletAddress, setWalletAddress] = useState<any>(null);
   const [walletImage, setWalletImage] = useState<any>(null);
-
-  const wallets = [
-    {
-      id: 1,
-      name: "BTC",
-      image: "/images/btc.jpeg",
-      address: "bc1qd6rjew937mhrx98pcauvm03j5s6nl0p4s4mkl0",
-    },
-    {
-      id: 2,
-      name: "USDT",
-      image: "/images/usdt.jpeg",
-      address: "0x7e0F28A96072aCA27DB51f4E4cb812E21e5E6B37",
-    },
-    {
-      id: 3,
-      name: "BCH",
-      image: "/images/bch.jpeg",
-      address: "qrdtvvu9gmyw6xzvrwdwdcp5p6djrm74ysglju76c9",
-    },
-    {
-      id: 4,
-      name: "ETH",
-      value: "ETH",
-      image: "/images/eth.jpeg",
-      address: "0x7938a23f2558b0BA00fdd70D9f25474182386801",
-    },
-    {
-      id: 5,
-      name: "SOL",
-      image: "/images/sol.jpeg",
-      address: "39RpXE8jRpAYYLgJ5nnbvJXmT8vn2AaKPggGmkjgnNXR",
-    },
-  ];
 
   const handleSelectWallet = (e: any) => {
     e.preventDefault();

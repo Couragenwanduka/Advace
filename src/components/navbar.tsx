@@ -99,13 +99,15 @@ export function Navbar() {
                 )}
               </div>
 
-              <a
-                href={prefix + "/pricing"}
-                className="flex items-center space-x-2 hover:text-blue-600"
-              >
-                <HeadphonesIcon size={20} />
-                <span>Pricing</span>
-              </a>
+              {!admin && (
+                <a
+                  href={prefix + "/pricing"}
+                  className="flex items-center space-x-2 hover:text-blue-600"
+                >
+                  <HeadphonesIcon size={20} />
+                  <span>Pricing</span>
+                </a>
+              )}
 
               {admin && (
                 <a
@@ -117,13 +119,15 @@ export function Navbar() {
                 </a>
               )}
 
-              <a
-                href={prefix + "/support"}
-                className="flex items-center space-x-2 hover:text-blue-600"
-              >
-                <HeadphonesIcon size={20} />
-                <span>Support</span>
-              </a>
+              {!admin && (
+                <a
+                  href={prefix + "/support"}
+                  className="flex items-center space-x-2 hover:text-blue-600"
+                >
+                  <HeadphonesIcon size={20} />
+                  <span>Support</span>
+                </a>
+              )}
             </div>
 
             {user != null && (
