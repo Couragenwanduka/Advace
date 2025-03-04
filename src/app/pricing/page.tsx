@@ -30,7 +30,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     <p className="text-[32px] font-medium text-white mt-4">{priceRange}</p>
     <p className="mt-3 text-sm text-white leading-[25px]">{description}</p>
     <Link
-      href="#"
+      href="/transactions"
       className={`inline-flex items-center justify-center mt-4 px-10 py-3 h-12 rounded-lg text-white ${buttonColor}`}
     >
       Get Started
@@ -39,30 +39,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
 );
 
 export default function Pricing() {
-  //   useEffect(() => {
-  //     const toggleMenu = () => {
-  //       const mobileMenu = document.getElementById("mobile-menu");
-  //       const overlay = document.querySelector(".overlay-menu");
-  //       const header = document.querySelector("header");
-  //       mobileMenu?.classList.toggle("hidden");
-  //       overlay?.classList.toggle("hidden");
-  //       header?.classList.toggle("hidden");
-  //     };
-
-  //     const buttons = document.querySelectorAll(".butt");
-  //     const overlay = document.querySelector(".overlay-menu");
-
-  //     buttons.forEach((button) => button.addEventListener("click", toggleMenu));
-  //     overlay?.addEventListener("click", toggleMenu);
-
-  //     return () => {
-  //       buttons.forEach((button) =>
-  //         button.removeEventListener("click", toggleMenu)
-  //       );
-  //       overlay?.removeEventListener("click", toggleMenu);
-  //     };
-  //   }, []);
-
   return (
     <>
       <div className="bg-black min-h-screen">

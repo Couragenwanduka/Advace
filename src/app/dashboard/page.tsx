@@ -7,8 +7,8 @@ import { getUser } from "../functions";
 
 export default function Dashboard() {
   // const [user, setUser] = useState<any>(null);
-  const balance = 0;
   const user = getUser();
+  const balance = user?.user_metadata?.total_assets.toLocaleString() || 0.0;
   console.log("User in app func:", user);
   // useEffect(() => {
   //   const user = JSON.parse(localStorage.getItem("advanta-user")!);
@@ -76,12 +76,12 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <MiniCard
           icon="/images/market.svg"
-          title={`$${user?.user_metadata?.total_funding || 0.00}`}
+          title={`$${user?.user_metadata?.total_funding || 0.0}`}
           label="Total funding"
         />
         <MiniCard
           icon="/images/market.svg"
-          title={`$${user?.user_metadata?.total_withdrawals || 0.00}`}
+          title={`$${user?.user_metadata?.total_withdrawals || 0.0}`}
           label="Total withdrawals"
         />
         <MiniCard
@@ -125,11 +125,15 @@ export default function Dashboard() {
             <div className="flex justify-between mb-4">
               <div>
                 <p className="text-gray-400">Total Properties</p>
-                <p className="text-xl font-semibold">{user?.user_metadata?.total_properties || 0}</p>
+                <p className="text-xl font-semibold">
+                  {user?.user_metadata?.total_properties || 0}
+                </p>
               </div>
               <div>
                 <p className="text-gray-400">Invested properties</p>
-                <p className="text-xl font-semibold">{user?.user_metadata?.total_properties_invested || 0}</p>
+                <p className="text-xl font-semibold">
+                  {user?.user_metadata?.total_properties_invested || 0}
+                </p>
               </div>
             </div>
             <div className="flex gap-2 mb-4">
