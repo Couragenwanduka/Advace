@@ -185,7 +185,7 @@ export default function ContactUs() {
                             href="mailto:@advantawwealth.com"
                             className="text-white/50 hover:underline"
                           >
-                            Support @advantawwealth.com
+                            Support @advantawwealth.co
                           </a>
                         </div>
                       </div>

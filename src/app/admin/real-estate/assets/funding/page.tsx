@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageHeader } from "../../../../../components/page-header";
 import { PropAssetSwitcher } from "../../../../../components/prop-asset-switcher";
 import { properties } from "../../../../../components/property-grid";
+import { getUser } from "../../../../functions";
 
 interface FundingRecord {
   id: string;
@@ -16,11 +17,16 @@ interface FundingRecord {
 
 export default async function HistoryPage() {
   const supabase = createServerComponentClient({ cookies });
+  const user = await getUser();
+  if (!user) {
+    throw new Error("No authenticated user found");
+  }
 
   const { data: fundingRecords, error } = await supabase
     .schema("advanta")
     .from("funding_records")
     .select("*")
+    .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
   if (error) {

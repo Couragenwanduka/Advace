@@ -54,7 +54,7 @@ export default async function RootLayout({
 
                 <div className="flex flex-col gap-4">
                   <p className="text-red-500">Email Us</p>
-                  <p>admin@advantawealthinvest.biz</p>
+                  <p>advantawwealth.co</p>
                 </div>
               </div>
             </div>
