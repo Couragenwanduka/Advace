@@ -154,7 +154,7 @@ export default function ContactUs() {
                             href="tel:+447441393510"
                             className="text-white/50 hover:underline"
                           >
-                            +44 7441 393510
+                            +44 7441 393510 
                           </a>
                         </div>
                       </div>
@@ -182,10 +182,10 @@ export default function ContactUs() {
                         <div>
                           <p className="text-white font-bold">Email:</p>
                           <a
-                            href="mailto:advantawealthmanagement@gmail.com"
+                            href="mailto:@advantawwealth.com"
                             className="text-white/50 hover:underline"
                           >
-                            advantawealthmanagement@gmail.com
+                            Support @advantawwealth.com
                           </a>
                         </div>
                       </div>

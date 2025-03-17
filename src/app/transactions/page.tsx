@@ -18,9 +18,10 @@ interface Transaction {
 }
 
 const Transactions: NextPage = () => {
+  const userEmail = localStorage.getItem("userEmail");
   const session = {
     user: {
-      email: "test@test.com",
+      email: userEmail,
     },
   };
   const [depositOpen, setDepositOpen] = useState(false);

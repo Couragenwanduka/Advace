@@ -40,6 +40,7 @@ export default function Login() {
     await login(formData.email, formData.password)
       .then((data) => {
         console.log(data);
+        localStorage.setItem("userEmail", formData.email);
         router.push("/dashboard");
         router.refresh();
       })
