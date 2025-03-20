@@ -6,7 +6,7 @@ import { getUserSupabase } from "../lib/supabase/client";
 // const supabase = createServerComponentClient({ cookies });
 export function getUser() {
   try {
-    let user: any = JSON.parse(localStorage.getItem("advanta-user")!) || null;
+    let user: any = JSON.parse(localStorage.getItem("advanta-user")!) || {};
     let session: any = JSON.parse(
       localStorage.getItem("advanta-user-session")!
     );
@@ -50,5 +50,16 @@ export function getAdmin() {
   } catch (error) {
     console.error("Error fetching admin:", error);
     return null;
+  }
+}
+
+export const getAUser = () => {
+  try{
+    let user: any = JSON.parse(localStorage.getItem("advanta-user")!) || {};
+    console.log(user, "user is here v2");
+    return user;
+  }catch(error){
+    console.error("Error fetching user:", error);
+    return
   }
 }

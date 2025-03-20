@@ -1,8 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSupabaseClient, getSupabaseServerClient } from "./utils";
 import { schemaName } from "../../consts";
-import { getAdmin, getSession, getUser } from "../../app/functions";
-// import { getAdmin, getUser } from "../../app/functions";
+import { getSession, getUser } from "../../app/functions";
+import { getAUser } from "../../app/functions";
+
 
 export const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -216,17 +217,19 @@ export const addFundingRecord = async (fundingData: {
   }
 };
 
-export const getUserFundingRecords = async () => {
+export const getUserFundingRecords = async (user_id:string) => {
   try {
-    const user = await getUser();
-    if (!user) {
-      throw new Error("No authenticated user found");
-    }
+    // const user = await getAUser();
+    // console.log(user, "user is here");
+    // if (!user) {
+    //   console.log( "user is here");
+    //   // throw new Error("No authenticated user found");
+    // }
 
     const { data, error } = await supabase
       .from("funding_records_view")
       .select("*")
-      .eq("user_id", user.id)
+      .eq("user_id", user_id)
       .order("created_at", { ascending: false });
 
     if (error) throw error;
