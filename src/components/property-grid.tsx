@@ -550,7 +550,7 @@ This home is equipped with the latest in smart home technology, including an int
     id: 15,
     image: "/images/Maplewood.PNG",
     title: "Parkside Estates",
-    location: "Pittsburgh, PA ",
+    location: "Pittsburg Pennsylvania",
     price: 320000,
     description: `McCandless 5 bedroom and 3.5 bathrooms. This home has traditional hardwood floors under the main level existing carpets. 
     Living room with cathedral ceilings flows into the dining room. 3 bedrooms and 2 full bathrooms round out this main level. 
@@ -852,7 +852,7 @@ With integrated smart home technology, including advanced security, climate cont
     image:"/images/Delafield.WEBP",
     title:"Delafield Villa ",
     location:"Louisianan Ave, Pittsburgh, PA 1521",
-    price:3320000,
+    price:293689,
     description:"This charming home is located in the heart of Fox Chapel. It features beautiful hardwood floors throughout and a bright, airy family room with plenty of natural light. The room's centerpiece is a striking stone fireplace. The elegant dining room, adorned with stained glass light fixtures, flows seamlessly into the kitchen, complete with sleek stainless steel appliances. A convenient first-floor master bedroom is complemented by two additional bedrooms upstairs, along with a versatile bonus roomperfect for a home office. The expansive basement offers ample storage and the potential for a game room or additional living space. Outside, enjoy the peace and privacy of a beautifully landscaped backyard, as well as a charming all-brick front porch. The newly updated stone driveway is lined with large boulders and perennial gardens, adding to the home's curb appeal. Located just minutes from Route 28, shopping and downtown this home offers both comfort and convenience",
     bathrooms:2,
     bedrooms:3,
@@ -884,7 +884,7 @@ With integrated smart home technology, including advanced security, climate cont
     image:"/images/Beechwood.WEBP",
     title:"Beechwood Boulevard",
     location:"Pittsburgh, Pennsylvania 15216",
-    price:445900,
+    price:320000,
     description:"With just over 2,700 square feet has a generous great room and kitchen perfect for hosting family meals. A flex room, family entry and powder room complete the 1st floor. The homes 2nd floor hosts 4 generous bedrooms all with walk-in-closets, 3 full baths including a well-appointed owner's bath and laundry room.",
     bedrooms:4,
     bathrooms:4,
