@@ -5,6 +5,7 @@ import Image from "next/image";
 import { PageHeader } from "../../components/page-header";
 import { getUser } from "../functions";
 import { wallets } from "../../components/wallets";
+import { createDeposit, getUserDeposits } from "../../lib/supabase/client";
 
 // Types
 interface Transaction {
@@ -12,9 +13,11 @@ interface Transaction {
   amount: number;
   email: string;
   create_datetime: string;
+  created_at: string;
   coin: string;
   mode: string;
   status: string;
+  method: string; // Added the missing property
 }
 
 const Transactions: NextPage = () => {
@@ -33,39 +36,35 @@ const Transactions: NextPage = () => {
   // Form states
   const [depositMethod, setDepositMethod] = useState("");
   const [depositAmount, setDepositAmount] = useState("");
-  const [feeMethod, setFeeMethod] = useState("");
-  const [feeAmount, setFeeAmount] = useState("");
+  // const [feeMethod, setFeeMethod] = useState("");
+  // const [feeAmount, setFeeAmount] = useState("");
   const [withdrawMethod, setWithdrawMethod] = useState("");
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
-  const [screenshot, setScreenshot] = useState<any>(null);
+  // const [screenshot, setScreenshot] = useState<any>(null);
 
-  // Fetch transactions and balance
   useEffect(() => {
     const fetchData = async () => {
-      // Replace with actual API calls
-      const response = await fetch("/api/transactions");
-      const data = await response.json();
-      setTransactions(data.transactions);
-      setBalance(data.balance);
+      const response = await getUserDeposits();
+      setTransactions(response);
     };
 
     const user = getUser();
     setBalance(user?.user_metadata?.balance || 0);
     fetchData();
-  }, []);
+  },[])
 
   // Utility functions
-  const getCoinName = (coin: string) => {
-    const coins: { [key: string]: string } = {
-      "1": wallets[0].name,
-      "2": wallets[1].name,
-      "3": wallets[2].name,
-      "4": wallets[3].name,
-      "5": wallets[4].name,
-    };
-    return coins[coin] || "Unknown";
-  };
+  // const getCoinName = (coin: string) => {
+  //   const coins: { [key: string]: string } = {
+  //     "1": wallets[0].name,
+  //     "2": wallets[1].name,
+  //     "3": wallets[2].name,
+  //     "4": wallets[3].name,
+  //     "5": wallets[4].name,
+  //   };
+  //   return coins[coin] || "Unknown";
+  // };
 
   const getAddressImage = (method: string) => {
     const images: { [key: string]: string } = {
@@ -91,38 +90,59 @@ const Transactions: NextPage = () => {
 
   // Form handlers
   const handleDepositSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const response = await fetch("/api/deposit", {
-      method: "POST",
-      body: JSON.stringify({
-        email: session?.user?.email,
-        amount: depositAmount,
-        depositmethod: depositMethod,
-      }),
-    });
-    if (response.ok) {
-      setDepositOpen(false);
-      alert(
-        "Deposit Successful. Admin would verify and your balance would reflect"
-      );
+    try {
+      e.preventDefault();
+  
+      // Map method ID to payment method name
+      const paymentMethods: Record<number, string> = {
+        0: "BTC/Bitcoin",
+        1: "BCH/Bitcoin Cash",
+        2: "ETH/Ethereum",
+        3: "USDT",
+        4: "SOL/Solana",
+      };
+  
+      const methodId = parseInt(depositMethod);
+      const method = paymentMethods[methodId];
+
+      if (!method) {
+        throw new Error("Invalid payment method selected");
+      }
+  
+      const response = await createDeposit({
+        amount: parseInt(depositAmount),
+        method, // Store the mapped method name
+      });
+  
+      if (response.id) {
+        setDepositAmount("");
+        setDepositMethod("");
+        setDepositOpen(false);
+        alert(
+          "Deposit Successful. Admin will verify, and your balance will reflect soon."
+        );
+      }
+    } catch (error) {
+      console.error("Deposit Error:", error);
+      alert("Error processing deposit. Please try again.");
     }
   };
+  
 
   const handleWithdrawSubmit = async (e: React.FormEvent) => {
+    console.log("handleWithdrawSubmit");
     e.preventDefault();
     if (withdrawStep === 1) {
       setWithdrawStep(2);
-    } else if (withdrawStep === 2 && screenshot) {
-      setWithdrawStep(3);
-    } else if (withdrawStep === 3) {
+    } else if (withdrawStep === 2) {
       const formData = new FormData();
       formData.append("withdraw_email", session?.user?.email || "");
       formData.append("withdraw_amount", withdrawAmount);
       formData.append("wallet_address", walletAddress);
       formData.append("withdraw_method", withdrawMethod);
-      formData.append("feedepositmethod", feeMethod);
-      formData.append("amount", feeAmount);
-      formData.append("withdraw_screenshot", screenshot);
+      // formData.append("feedepositmethod", feeMethod);
+      // formData.append("amount", feeAmount);
+      // formData.append("withdraw_screenshot", screenshot);
 
       const response = await fetch("/api/withdraw", {
         method: "POST",
@@ -137,7 +157,8 @@ const Transactions: NextPage = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen text-white">
+   <section className="flex justify-center items-center">
+       <div className="bg-black min-h-screen text-white">
       {/* Blur Background */}
       {(depositOpen || withdrawOpen) && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50" />
@@ -188,7 +209,7 @@ const Transactions: NextPage = () => {
                 height={100}
               />
               <p className="text-center mt-4">
-                Something is amiss?
+                Something is missing?
                 <br />
                 <span className="text-gray-400">
                   No transaction History yet. Make a transaction.
@@ -215,17 +236,17 @@ const Transactions: NextPage = () => {
                     />
                     <div>
                       <p className="font-semibold">
-                        {getCoinName(transaction.coin)}
+                        {transaction.method}
                       </p>
                       <p className="text-gray-400 text-sm">
-                        {new Date(transaction.create_datetime).toLocaleString()}
+                        {new Date(transaction.created_at).toLocaleString()}
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 justify-center items-center">
                     <p>${transaction.amount.toFixed(2)}</p>
                     <span
-                      className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                      className={`rounded-xl text-xs font-semibold flex w-28 h-full pt-3 text-center justify-center ${
                         transaction.status === "1"
                           ? "bg-green-500/20 text-green-500"
                           : transaction.status === "2"
@@ -292,8 +313,8 @@ const Transactions: NextPage = () => {
               <Image
                 src={getAddressImage(depositMethod)}
                 alt="QR Code"
-                width={161}
-                height={174}
+                width={290}
+                height={300}
               />
             </div>
             <div className="mb-4">
@@ -315,6 +336,7 @@ const Transactions: NextPage = () => {
               </button>
             </div>
             <button
+              onClick={() => handleDepositSubmit}
               type="submit"
               className="bg-[#E63946] text-white w-full py-3 rounded-lg"
             >
@@ -352,68 +374,9 @@ const Transactions: NextPage = () => {
 
           {withdrawStep >= 2 && (
             <form onSubmit={handleWithdrawSubmit} className="w-full mt-4">
-              {withdrawStep === 2 && (
-                <>
-                  <div className="mb-4">
-                    <label className="block text-sm mb-1">Deposit Method</label>
-                    <select
-                      value={feeMethod}
-                      onChange={(e) => setFeeMethod(e.target.value)}
-                      className="w-full p-2 border rounded"
-                      required
-                    >
-                      <option value="">Select Deposit Method</option>
-                      <option value="1">BTC/Bitcoin</option>
-                      <option value="2">BCH/Bitcoin cash</option>
-                      <option value="3">ETH/Ethereum</option>
-                      <option value="4">USDT</option>
-                      <option value="5">SOL/Solana</option>
-                    </select>
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-sm mb-1">Amount</label>
-                    <input
-                      type="number"
-                      value={feeAmount}
-                      onChange={(e) => setFeeAmount(e.target.value)}
-                      className="w-full p-2 border rounded"
-                      placeholder="$0"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <Image
-                      src={getAddressImage(feeMethod)}
-                      alt="QR Code"
-                      width={161}
-                      height={174}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-sm mb-1">Address</label>
-                    <input
-                      type="text"
-                      value={getAddress(feeMethod)}
-                      className="w-full p-2 border rounded"
-                      readOnly
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-sm mb-1">Screenshot</label>
-                    <input
-                      type="file"
-                      onChange={(e) =>
-                        setScreenshot(e.target.files?.[0] || null)
-                      }
-                      className="w-full p-2 border rounded"
-                      accept=".png,.jpg,.jpeg"
-                      required
-                    />
-                  </div>
-                </>
-              )}
+            
 
-              {withdrawStep === 3 && (
+              {withdrawStep >= 2 && (
                 <>
                   <div className="mb-4">
                     <label className="block text-sm mb-1">
@@ -473,6 +436,7 @@ const Transactions: NextPage = () => {
               {withdrawStep < 4 && (
                 <button
                   type="submit"
+                  onClick={handleWithdrawSubmit}
                   className="bg-[#E63946] text-white w-full py-3 rounded-lg"
                 >
                   Submit
@@ -483,6 +447,7 @@ const Transactions: NextPage = () => {
         </div>
       )}
     </div>
+    </section>
   );
 };
 

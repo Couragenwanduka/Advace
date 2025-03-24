@@ -132,3 +132,37 @@ VALUES
     'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000',
     '["Swimming pool", "Smart Home", "Security System", "Home Theater", "Electric Car Charging"]'::jsonb
   );
+
+  -- Deposits Table
+CREATE TABLE IF NOT EXISTS deposits (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE, -- The user making the deposit
+  amount decimal NOT NULL, -- Amount deposited
+  method text NOT NULL CHECK (method IN ('Bank', 'Crypto', 'Other')), -- Deposit method
+  status text NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'approved')), -- Approval status
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now()
+);
+
+-- Enable Row Level Security on Deposits
+ALTER TABLE deposits ENABLE ROW LEVEL SECURITY;
+
+-- Deposits Policies
+CREATE POLICY "Users can view their own deposits"
+  ON deposits
+  FOR SELECT
+  TO authenticated
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can create their own deposits"
+  ON deposits
+  FOR INSERT
+  TO authenticated
+  WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Admins can approve deposits"
+  ON deposits
+  FOR UPDATE
+  TO authenticated
+  USING (EXISTS (SELECT 1 FROM auth.users WHERE id = auth.uid() AND role = 'admin'))
+  WITH CHECK (status IN ('confirmed', 'approved'));

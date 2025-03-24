@@ -1,9 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
-import { getSupabaseClient, getSupabaseServerClient } from "./utils";
 import { schemaName } from "../../consts";
 import { getSession, getUser } from "../../app/functions";
-import { getAUser } from "../../app/functions";
-
 
 export const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -46,7 +43,6 @@ export const login = async (email: string, password: string) => {
 // User registration function
 export const registerUser = async (formData: {
   fullName: string;
-
   username: string;
   email: string;
   phone: string;
@@ -298,11 +294,6 @@ export const registerAdmin = async (formData: {
 
 export const getAllFundingRecords = async () => {
   try {
-    // const user = await getAdmin();
-    // if (!user) {
-    //   throw new Error("No authenticated user found");
-    // }
-
     const { data, error } = await supabase
       .from("funding_records_view")
       .select("*")
@@ -334,3 +325,83 @@ export const getAllUsers = async () => {
 export const addTransactionRecord = async (record: any) => {
   return true;
 };
+
+export const createDeposit = async (depositData: {
+  amount: number;
+  method: string;
+}) => {
+  try {
+    const user = await getUser(); // Ensure the user is authenticated
+    if (!user) {
+      throw new Error("No authenticated user found");
+    }
+
+    const { data, error } = await supabase
+      .from("deposits")
+      .insert({
+        user_id: user.id,
+        ...depositData,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        status: "pending", // Default status
+      })
+      .select()
+      .single();
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error creating deposit:", error);
+    throw error;
+  }
+};
+
+export const approveDeposit = async (depositId: string) => {
+  try {
+    const { data, error } = await supabase
+      .from("deposits")
+      .update({ status: "approved", updated_at: new Date().toISOString() })
+      .eq("id", depositId)
+      .select()
+      .single();
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error approving deposit:", error);
+    throw error;
+  }
+};
+
+export const updateUserBalance = async (userId: string, amount: number) => {
+  try {
+    const { data, error } = await supabase.rpc("increment_user_balance", { user_id: userId, amount });
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error updating balance:", error);
+    throw error;
+  }
+};
+
+export const getUserDeposits = async () => {
+  try {
+    const user = await getUser(); // Ensure the user is authenticated
+    if (!user) {
+      throw new Error("No authenticated user found");
+    }
+    const { data, error } = await supabase
+      .from("deposits")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error retrieving user deposits:", error);
+    throw error;
+  }
+}
+
