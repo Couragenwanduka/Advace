@@ -125,7 +125,7 @@ The property benefits from a fully integrated state-of-the-art home automation s
           </div>
 
           <div className="space-y-8">
-            <PropertyPrice price={property.price} />
+            <PropertyPrice buy={property.buy} />
             <PropertyFeatures features={property.features} />
           </div>
         </div>

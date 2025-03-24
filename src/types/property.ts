@@ -12,6 +12,7 @@ export interface Property {
   images: string[];
   is_featured: boolean;
   is_new: boolean;
+  buy:boolean;
   created_at: string;
   updated_at: string;
 }
