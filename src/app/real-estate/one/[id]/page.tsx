@@ -117,7 +117,11 @@ The property benefits from a fully integrated state-of-the-art home automation s
         <div className="pt-[80px] grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             <PropertyInfo property={property} />
-            <PropertyGallery images={property.images} />
+            {property.images.some((img) => img.trim() !== "") ? (
+              <PropertyGallery images={property.images} />
+            ) : (
+              <PropertyGallery images={[property.image]} />
+            )}
             <PropertyDescription
               description={property.description}
               property={property}

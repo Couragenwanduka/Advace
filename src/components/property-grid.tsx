@@ -809,7 +809,7 @@ With integrated smart home technology, including advanced security, climate cont
       "Roof Terrace",
       "Oven",
     ],
-    images:["/images/Hamilton.WEBP","/McMurryHome/IMG_7683.PNG", "/McMurryHome/IMG_7684.PNG", "/McMurryHome/IMG_7685.PNG","/McMurryHome/IMG_7686.PNG", "/McMurryHome/IMG_7687.PNG", "/McMurryHome/IMG_7688.PNG", "/McMurryHome/IMG_7690.PNG", "/McMurryHome/IMG_7691.PNG", "/McMurryHome/IMG_7692.PNG", "/McMurryHome/IMG_7693.PNG", "/McMurryHome/IMG_7699.PNG", "/McMurryHome/IMG_7700.PNG"],
+    images:["/images/Hamilton.WEBP","/McMurryHome/IMG_7683.PNG", "/McMurryHome/IMG_7684.PNG", "/McMurryHome/IMG_7685.PNG","/McMurryHome/IMG_7686.PNG", "/McMurryHome/IMG_7687.PNG", "/McMurryHome/IMG_7688.PNG", "/McMurryHome/IMG_7690.PNG", "/McMurryHome/IMG_7691.PNG", "/McMurryHome/IMG_7692.PNG", "/McMurryHome/IMG_7693.PNG", "/McMurryHome/IMG_7699.PNG", "/McMurryHome/IMG_7700.PNG", "/McMurryHome/IMG_7697.PNG"],
     is_featured: true,
     is_new: true,
     buy:true,
