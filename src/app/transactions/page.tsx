@@ -6,6 +6,7 @@ import { PageHeader } from "../../components/page-header";
 import { getUser } from "../functions";
 import { wallets } from "../../components/wallets";
 import { createDeposit, getUserDeposits } from "../../lib/supabase/client";
+import { createWithdrawal } from "../../lib/supabase/client2";
 
 // Types
 interface Transaction {
@@ -140,18 +141,21 @@ const Transactions: NextPage = () => {
       formData.append("withdraw_amount", withdrawAmount);
       formData.append("wallet_address", walletAddress);
       formData.append("withdraw_method", withdrawMethod);
-      // formData.append("feedepositmethod", feeMethod);
-      // formData.append("amount", feeAmount);
-      // formData.append("withdraw_screenshot", screenshot);
-
-      const response = await fetch("/api/withdraw", {
-        method: "POST",
-        body: formData,
+      
+      const response = await createWithdrawal({
+        amount: parseInt(withdrawAmount),
+        method: withdrawMethod,
+        address: walletAddress,
       });
-
-      if (response.ok) {
+      if (typeof response === "object" && response.success === true) {
         setWithdrawStep(4);
         setTimeout(() => setWithdrawOpen(false), 2000);
+      }else{
+        if (typeof response === "string") {
+          alert(response);
+        } else {
+          alert(response.message);
+        }
       }
     }
   };

@@ -2,13 +2,12 @@
 import { PropertyGrid } from "../../components/property-grid";
 import { PageHeader } from "../../components/page-header";
 import { MiniCard } from "../../components/mini-card";
-import { useEffect, useState } from "react";
 import { getUser } from "../functions";
 
 export default function Dashboard() {
   // const [user, setUser] = useState<any>(null);
   const user = getUser();
-  const balance = user?.user_metadata?.total_assets.toLocaleString() || 0.0;
+  const balance = user?.user_metadata?.total_assets?.toLocaleString() || 0.0;
   console.log("User in app func:", user);
   // useEffect(() => {
   //   const user = JSON.parse(localStorage.getItem("advanta-user")!);

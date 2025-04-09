@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Checkbox } from "../components/ui/checkbox";
-import { Eye, EyeOff, Triangle } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -52,7 +52,7 @@ export default function Register() {
       .then((user) => {
         console.log("Registration successful!");
         console.log(user);
-        router.push("/documents");
+        router.push("/dashboard");
       })
       .catch((error) => {
         alert("Registration error: " + error.message);

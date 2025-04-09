@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { schemaName } from "../../consts";
 import { getSession, getUser } from "../../app/functions";
 
+
 export const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -40,6 +41,23 @@ export const login = async (email: string, password: string) => {
   return true;
 };
 
+const handleSendMail = async (email:string, firstname:string, lastname:string) => {
+  console.log(email, firstname, lastname);
+  const response = await fetch("/api/welcome", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, firstname}),
+  });
+
+  const text = await response.text();
+  try {
+    const data = JSON.parse(text);
+    console.log(data);
+  } catch (error) {
+    console.error("API returned non-JSON response:", text);
+  }
+};
+
 // User registration function
 export const registerUser = async (formData: {
   fullName: string;
@@ -50,61 +68,54 @@ export const registerUser = async (formData: {
   referralName?: string;
   password: string;
 }) => {
-  //fields
-  // balance
-  // total_assets
-  // total_dividends
-  // total_funding
-  // total_withdrawals
-  // total_properties
-  // total_properties_invested
-  // total_properties_sale
-  // total_properties_rent
   try {
+    // Sign up user in Supabase Auth
     const { data, error: signUpError } = await supabase.auth.signUp({
       email: formData.email,
       password: formData.password,
-      options: {
-        data: {
-          full_name: formData.fullName,
-          username: formData.username,
-          phone: formData.phone,
-          country: formData.country,
-          referral_name: formData.referralName || null,
-          balance: 0,
-          total_funding: 0,
-          total_withdrawals: 0,
-          total_properties: 0,
-          total_properties_invested: 0,
-          total_properties_sale: 0,
-          total_properties_rent: 0,
-          total_assets: 0,
-          total_dividends: 0,
-          approved: false,
-        },
-      },
     });
+
     if (signUpError) throw signUpError;
-    await supabase
-      .schema(schemaName)
-      .from("users")
-      .insert({
-        userId: data?.user?.id,
-        fullName: formData.fullName,
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-        phone: formData.phone,
-        country: formData.country,
-        referralName: formData.referralName || null,
-      });
+
+    const userId = data?.user?.id;
+    if (!userId) throw new Error("User ID not found after sign-up");
+
+    // Insert user data into profiles table
+    const { error: insertError } = await supabase.from("profiles").insert({
+      id: userId, // Match the auth.users id
+      full_name: formData.fullName,
+      username: formData.username,
+      email: formData.email,
+      phone: formData.phone,
+      country: formData.country,
+      referral_name: formData.referralName || null,
+      balance: 0,
+      total_funding: 0,
+      total_withdrawals: 0,
+      total_properties: 0,
+      total_properties_invested: 0,
+      total_properties_sale: 0,
+      total_properties_rent: 0,
+      total_assets: 0,
+      total_dividends: 0,
+      approved: false,
+    });
+
+    if (insertError) throw insertError;
+
+    // Store user session in localStorage (optional)
     localStorage.setItem("advanta-user", JSON.stringify(data.user));
+
+    // Send email notification (if applicable)
+    await handleSendMail(formData.email, formData.fullName, formData.username);
+
     return data.user;
   } catch (error) {
     console.error("Registration error:", error);
     throw error;
   }
 };
+
 
 export const getUserSupabase = async (token?: string) => {
   try {
@@ -322,9 +333,6 @@ export const getAllUsers = async () => {
   }
 };
 
-export const addTransactionRecord = async (record: any) => {
-  return true;
-};
 
 export const createDeposit = async (depositData: {
   amount: number;
@@ -358,20 +366,48 @@ export const createDeposit = async (depositData: {
 
 export const approveDeposit = async (depositId: string) => {
   try {
-    const { data, error } = await supabase
+    // Step 1: Update the deposit status to "approved"
+    const { data: deposit, error: depositError } = await supabase
       .from("deposits")
       .update({ status: "approved", updated_at: new Date().toISOString() })
       .eq("id", depositId)
       .select()
       .single();
 
-    if (error) throw error;
-    return data;
+    if (depositError) throw depositError;
+    if (!deposit) throw new Error("Deposit not found");
+
+    // Step 2: Get the user ID from the deposit record
+    const userId = deposit.user_id;
+
+    // Step 3: Fetch the current balance of the user
+    const { data: user, error: userError } = await supabase
+      .from("users") // Ensure this matches your schema
+      .select("balance")
+      .eq("id", userId)
+      .single();
+
+    if (userError) throw userError;
+    if (!user) throw new Error("User not found");
+
+    // Step 4: Calculate new balance
+    const newBalance = (user.balance || 0) + deposit.amount;
+
+    // Step 5: Update the user's balance
+    const { error: balanceError } = await supabase
+      .from("users") // Ensure this matches your schema
+      .update({ balance: newBalance, updated_at: new Date().toISOString() })
+      .eq("id", userId);
+
+    if (balanceError) throw balanceError;
+
+    return { success: true, message: "Deposit approved and balance updated" };
   } catch (error) {
     console.error("Error approving deposit:", error);
     throw error;
   }
 };
+
 
 export const updateUserBalance = async (userId: string, amount: number) => {
   try {
@@ -404,4 +440,6 @@ export const getUserDeposits = async () => {
     throw error;
   }
 }
+
+
 
