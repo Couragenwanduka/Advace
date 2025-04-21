@@ -14,6 +14,10 @@ export default function HistoryPage() {
           linkTitle="Users"
         />
       </div>
+      
+      <div>
+        <button>Payment</button>
+      </div>
 
       <div className="bg-[#1a1a1a] rounded-lg p-6">
         <div className="bg-[#222] p-6 rounded-lg">

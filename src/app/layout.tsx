@@ -49,7 +49,7 @@ export default async function RootLayout({
               <div className="flex justify-between items-center">
                 <div className="flex flex-col gap-4">
                   <p className="text-red-500">Call Us</p>
-                  <p>+44 7441 393510</p>
+                  <p>+44 74142 69127</p>
                 </div>
 
                 <div className="flex flex-col gap-4">

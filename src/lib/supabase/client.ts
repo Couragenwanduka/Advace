@@ -326,6 +326,7 @@ export const getAllUsers = async () => {
     } = await supabaseAdmin.auth.admin.listUsers();
 
     if (error) throw error;
+    console.log(users)
     return users;
   } catch (error) {
     console.error("Error retrieving authenticated users:", error);

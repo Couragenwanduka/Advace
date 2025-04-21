@@ -154,7 +154,7 @@ export default function ContactUs() {
                             href="tel:+447441393510"
                             className="text-white/50 hover:underline"
                           >
-                            +44 7441 393510 
+                            +44 74142 69127
                           </a>
                         </div>
                       </div>

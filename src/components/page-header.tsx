@@ -13,7 +13,7 @@ export function PageHeader({ pageTitle, link, linkTitle }: PageHeaderProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center space-x-2 text-gray-400">
-        <Link href="/dashboard" className="hover:text-white">
+        <Link href="/admin/dashboard" className="hover:text-white">
           Home
         </Link>
         <span>

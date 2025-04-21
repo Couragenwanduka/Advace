@@ -94,13 +94,15 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <MiniCard
               icon="/images/circle-progress.svg"
-              title="22"
-              label="Properties on sale"
+              title="Click"
+              label="Deposit to approve"
+              link='/admin/approveFunding'
             />
             <MiniCard
               icon="/images/circle-progress.svg"
-              title="15"
-              label="Properties on rent"
+              title="Click"
+              label="Withdrawals to approve"
+              link='/admin/withdrawal'
             />
           </div>
 
