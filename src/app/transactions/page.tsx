@@ -120,7 +120,7 @@ const Transactions: NextPage = () => {
         setDepositMethod("");
         setDepositOpen(false);
         alert(
-          "Deposit Successful. Admin will verify, and your balance will reflect soon."
+          "Deposit Processing"
         );
       }
     } catch (error) {

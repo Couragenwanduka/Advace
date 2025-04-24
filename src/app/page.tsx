@@ -25,41 +25,73 @@ export default function Register() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading]= useState(false);
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (loading) return;                // guard against double clicks
+  //   setLoading(true);  
+  //   // Here you would typically make an API call to register the user
+  //   // For now, we'll simulate the flow
+  //   if (formData.password.length < 8) {
+  //     alert("Password must be at least 8 characters");
+  //     return;
+  //   }
+  //   if (
+  //     !formData.fullName ||
+  //     !formData.username ||
+  //     !formData.email ||
+  //     !formData.phone ||
+  //     !formData.country
+  //   ) {
+  //     alert("Please fill in all fields");
+  //     return;
+  //   }
+  //   if (formData.password !== formData.confirmPassword) {
+  //     alert("Passwords do not match");
+  //     return;
+  //   }
+  //   registerUser(formData)
+  //     .then((user) => {
+  //       console.log("Registration successful!");
+  //       console.log(user);
+  //       router.push("/dashboard");
+  //     })
+  //     .catch((error) => {
+  //       alert("Registration error: " + error.message);
+  //       console.error("Registration error:", error);
+  //     });
+  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically make an API call to register the user
-    // For now, we'll simulate the flow
-    if (formData.password.length < 8) {
-      alert("Password must be at least 8 characters");
-      return;
-    }
-    if (
-      !formData.fullName ||
-      !formData.username ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.country
-    ) {
-      alert("Please fill in all fields");
-      return;
-    }
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    registerUser(formData)
-      .then((user) => {
-        console.log("Registration successful!");
-        console.log(user);
-        router.push("/dashboard");
-      })
-      .catch((error) => {
-        alert("Registration error: " + error.message);
-        console.error("Registration error:", error);
-      });
-  };
+    if (loading) return;                // guard against double clicks
+    setLoading(true);                   // 🔒 lock the UI
 
+    try {
+      // 🔎 quick client‑side guards
+      if (formData.password.length < 8)
+        throw new Error("Password must be at least 8 characters");
+      if (
+        !formData.fullName ||
+        !formData.username ||
+        !formData.email ||
+        !formData.phone ||
+        !formData.country
+      )
+        throw new Error("Please fill in all required fields");
+      if (formData.password !== formData.confirmPassword)
+        throw new Error("Passwords do not match");
+
+      await registerUser(formData);
+
+      router.push("/dashboard");
+    } catch (err: any) {
+      alert(err.message ?? "Registration failed");
+    } finally {
+      setLoading(false);                // 🔓 always re‑enable
+    }
+  };
   return (
     <main className="min-h-screen">
       <div className="min-h-screen bg-black/50 flex items-center justify-center p-4">
@@ -228,8 +260,9 @@ export default function Register() {
             <Button
               type="submit"
               className="w-full bg-red-500 hover:bg-red-600 text-white"
+              disabled={loading}                 // ⬅️ disable while loading
             >
-              Register
+              {loading ? "Registering…" : "Register"}
             </Button>
           </form>
 
