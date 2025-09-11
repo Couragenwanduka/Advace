@@ -973,6 +973,38 @@ With integrated smart home technology, including advanced security, climate cont
     created_at: "2024-01-01T00:00:00.000Z",
     updated_at: "2025-01-01T00:00:00.000Z",
 
+  },{
+    id:27,
+    image:"tower/170c76cf-d60f-4396-b23b-1c345c50b900 2.JPG",
+    title:"Central Tower",
+    location:"Edmonton, Alberta",
+    price:0,
+    description:"Central Tower is an 18-storey premium apartment development in South Edmonton, strategically located steps from Century Park LRT, shopping, dining, and urban conveniences. Designed for long term value, the property offers bright, energy efficient suites with panoramic windows, upscale in-suite features such as laundry and smart thermostats, and desirable resident amenities including a fitness centre, community garden, pet friendly spaces with a dog park, and secure heated underground parking. This combination of prime location, modern finishes, and lifestyle driven amenities positions Central Tower as a resilient and high demand rental asset in one of Edmonton’s strongest markets.",
+    bedrooms:0,
+    bathrooms:0,
+    square_meters:174000,
+    features:[
+      "Swimming pool",
+      "Terrace",
+      "Radio",
+      "Grill",
+      "Cable TV",
+      "Air conditioning",
+      "Coffee pot",
+      "Balcony",
+      "Computer",
+      "Parquet",
+      "Internet",
+      "Roof Terrace",
+      "Oven",
+    ],
+    images:["/tower/b76cf6aa-28cc-423e-89dc-a6e1cff10adf.JPG","/tower/c12f2655-d933-41cf-afa1-2230cedc7c3a.JPG", "/tower/91524b4f-f99e-42c0-83c9-b89e27c3e2c6 2.JPG", "/tower/91524b4f-f99e-42c0-83c9-b89e27c3e2c6 2.JPG", "/tower/39129260-a66f-4ba5-9215-b3899e65acad 2.JPG", "/tower/8e204651-3fbf-405b-a5e7-6c1d064ec54f 2.JPG"],
+    buy:true,
+    is_featured: true,
+    is_new: true,
+    created_at: "2024-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+
   }
 ];
 
