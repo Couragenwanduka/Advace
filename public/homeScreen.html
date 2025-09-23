@@ -1,0 +1,647 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+  <title>Advanta Investment</title>
+  <link href="css/home.css" rel="stylesheet"></link>
+  <!-- <link href="css/tab.css" rel="stylesheet"></link> -->
+  <!-- <link href="css/mobile.css" rel="stylesheet"></link>  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    /* laptop view */
+    .mx-156{
+      margin: 0 156px!important;
+    }
+    *{
+      font-family: 'Sk Modernist';
+    }
+    .header{
+      display: flex;
+      justify-content: space-around;
+    }
+    .get-started{
+      display: flex;
+      gap:34px
+    }
+    .def-btn{
+      display: flex;
+      /* width: 158px; */
+      text-align: center;
+      padding: 11px 39px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    .bg-red{
+      background-color: #E63946;
+    }
+    .general-color{
+      color: #E63946;
+    }
+    .below-hero{
+      position: absolute;
+      height: 113px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, #070707 100%);
+    }
+    .sub-header{
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 32px;
+      /* identical to box height, or 178% */
+
+      letter-spacing: 0.2em;
+
+      /* Primary Color */
+
+      color: #E63946;
+    }
+    .normal-header{
+      font-weight: 600;
+      font-size: 42px;
+      line-height: 124%;
+      color: #FFFFFF;
+    }
+    .heading500{
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 124%;
+    }
+    .minifeature-row{
+      display: flex;
+      flex-direction: row;
+      gap: 34px;
+    }
+    .minifeature-item{
+      width: 186px;
+    }
+    .minifeature-item>img{
+      margin-right: 27px;
+    }
+    .minifeature-item>span{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 25px;
+      /* identical to box height, or 180% */
+
+
+      /* White */
+
+      color: #FFFFFF;
+    }
+    .black-card-head{
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 26px;
+      color: #FFFFFF;
+    }
+    .black-card{
+      background: linear-gradient(152.98deg, rgba(255, 255, 255, 0.2) 14.8%, rgba(255, 255, 255, 0.01) 87.76%);
+      box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(25px);
+      border-radius: 40px;
+      border: 1px solid rgba(230, 57, 70, 0.3);
+      width: 388px;
+      /* height: 446px; */
+      padding: 32px;
+    }
+    .investments-needs{
+      display: flex;
+      flex-direction: column;
+      margin-left: 40px;
+      margin-top: 75px;
+      gap: 64px;
+      
+    }
+    .investments-needs>div:nth-child(1){
+      margin-right: 0px;
+    }
+    .investment-services{
+      display: flex;
+      gap: 40px;
+      flex-direction: row;
+    }
+    .testimonial-buttons>img{
+      margin-right: 32px;
+      cursor: pointer;
+    }
+    .testimonial-buttons{
+      margin-top: 40px;
+    }
+    .testimonial-card{
+      background-color: white;
+      padding: 34px 32px 59px 56px;
+      width: 648px;
+      box-shadow: 0px 8px 16px -6px rgba(24, 39, 75, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: row;
+      gap: 64px;
+    }
+    .testimonial-contact-info{
+      width: 130px;
+      padding-top: 20px;
+    }
+    .testimonial-contact-info>img{
+      width: 130px;
+      height: 130px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+    .testimonial-contact-info>p{
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      color: #1D3557;
+    }
+    .testimonial-contact-info>span{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 25px;
+      color: rgba(29, 53, 87, 0.4);
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+    .testimonial-message{
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      display: flex;
+      letter-spacing: 0.004em;
+      text-transform: capitalize;
+      color: rgba(29, 53, 87, 0.4);
+      padding-top: 60px;
+      position: relative;
+    }
+    .testimonial-div{
+      margin: 0 100px;
+      display: flex;
+      flex-direction: row;
+      gap: 150px;
+    }
+    #testimonial2, #testimonial3{
+      display: none;
+    }
+    .video-img{
+      border-radius:16px;
+      margin-top:64px;
+      width: 1128px;
+      height: 544px;
+    }
+    .hr-stand{
+      left:30px; 
+      width: 100px; 
+      height: 122px; 
+      border-left: 1px solid white;
+    }
+
+   .w-607{
+    width: 607px;
+   }
+    
+    /* Mobile View */
+    
+  </style>
+  <link href="css/mobile.css" rel="stylesheet"></link>
+  <style>
+    @media only screen and (max-width: 600px) {
+      .mx-156{
+        margin: 0!important;
+      }
+      .w-607{
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg" style="background: #070707;">
+  <div class="overlay-menu hidden"></div>
+  <header class="header sticky" id="header">
+    <a href="index.html">
+      <div class="log">
+        <img src="./images/logo.svg">
+      </div>
+    </a>
+
+    <div class="header-links">
+      <div class="header-links-item"><a href="index.html" class="header-links-text header-active">Home</a></div>
+      <div class="header-links-item"><a href="services.html" class="header-links-text header-not-active">Services</a></div>
+      <div class="header-links-item"><a href="real-estate.html" class="header-links-text header-not-active">Real Estate</a></div>
+      <div class="header-links-item"><a href="pricing.html" class="header-links-text header-not-active">Pricing</a></div>
+      <div class="header-links-item"><a href="about-us.html" class="header-links-text header-not-active">About Us</a></div>
+      <div class="header-links-item"><a href="meet-the-team.html" class="header-links-text header-not-active">Our Team</a></div>
+      <div class="header-links-item"><a href="contact-us.php" class="header-links-text header-not-active">Contact Us</a></div>
+      <!-- <a href="" class="header-links-item">About</a>-->
+      <a href="javascript:void(0);" class="butt mob-menu-icon" onclick="myFunction()">
+        <img src="./images/hamburger_menu.svg">
+      </a>
+    </div>
+
+    <div class="get-started">
+      <img class="" src="./images/search-icon.svg">
+      <a href="https://app.advantawealth.co/login" class="def-btn bg-red text-white">Get Started</a>
+    </div>
+
+    
+
+  </header>
+  <nav class="mobile-menu shadow-sm hidden " id="mobile-menu">
+    <div id="mobile-header-links" >
+      <a href="javascript:void(0);" class="butt mob-menu-icon-cancel" onclick="myFunction()">
+        <img src="./images/cancel.svg">
+      </a>
+      <div class="mobile-header-links-item"><a href="index.html" class="header-links-text header-active">Home</a></div>
+      <div class="mobile-header-links-item"><a href="services.html" class="header-links-text header-not-active">Services</a></div>
+      <div class="header-links-item"><a href="real-estate.html" class="header-links-text header-not-active">Real Estate</a></div>
+      <div class="mobile-header-links-item"><a href="pricing.html" class="header-links-text header-not-active">Pricing</a></div>
+      <div class="mobile-header-links-item"><a href="about-us.html" class="header-links-text header-not-active">About Us</a></div>
+      <div class="mobile-header-links-item"><a href="meet-the-team.html" class="header-links-text header-not-active">Our Team</a></div>
+      <div class="mobile-header-links-item"><a href="contact-us.php" class="header-links-text header-not-active">Contact Us</a></div>
+  </div>
+  </nav>
+  <div style="height:62px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=light&pref_coin_id=1505&invert_hover=" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Coinlib</div></div>
+  
+ 
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-div">
+      <h1 class="big-header">Elevate Your Portfolio</h1>
+      <p class="header-sub white-soft">Diversify with private assets such as real estate, private credit, and venture capital.</p>
+      <div class="hero-btns">
+        <a href="https://app.advantawealth.co/login" class="def-btn bg-red text-white">Get Started</a>
+        <a href="about-us.html" class="def-btn text-white" style="border: 1px solid rgba(255, 255, 255, 0.4);">Learn More About Us</a>
+      </div>
+    </div>
+    <div class="below-hero">
+      <div class="hr-stand" style=""></div>
+    </div>
+  </div>
+
+  <section class="bg-black">
+    <div style="height: 130px;"></div>
+    <div class="container mx-156">
+      <div class="row" style="gap: 30px;">
+        <div class="col-md-5" style="padding-right: 70px!important;">
+          <p class="sub-header">About Advanta Investment</p>
+          <h3 class="normal-header">Breaking Barriers to Premium Investments</h3>
+          <p class="white-softest small-text text-left">For nearly a century, regulatory restrictions have limited individual investors’ access to private markets, granting billion-dollar institutions exclusive opportunities. This imbalance has left most investors confined to public markets, excluding them from high-growth private investment opportunities like real estate and venture capital. Today, technology is reshaping this outdated system.
+            That’s where Avanta Wealth comes in. As America’s leading direct-to-consumer private markets manager, we’ve developed a cutting-edge technology platform to eliminate these barriers. Our software empowers us to operate at the scale of institutional investors while avoiding unnecessary bureaucracy. By combining advanced technology with deep investment expertise, we’re redefining access to private markets and building smarter, more diversified portfolios for our clients.
+            
+          </p>
+          <div class="minifeature">
+            <div class="minifeature-row">
+              <div class="minifeature-item">
+                <img src="./images/business.svg"/>
+                <span>High Frequency Trading</span>
+              </div>
+              <div class="minifeature-item">
+                <img src="./images/business2.svg"/>
+                <span>Instant Withdrawals</span>
+              </div>
+            </div>
+
+            <div class="minifeature-row">
+              <div class="minifeature-item">
+                <img src="./images/finance.svg"/>
+                <span>Guaranteed RoI’s</span>
+              </div>
+              <div class="minifeature-item">
+                <img src="./images/finance2.svg"/>
+                <span>Multiple Funding Option</span>
+              </div>
+            </div>
+
+            <div class="minifeature-row">
+              <div class="minifeature-item">
+                <img src="./images/finance3.svg"/>
+                <span>Fast & Secure</span>
+              </div>
+              <div class="minifeature-item">
+                <img src="./images/systems.svg"/>
+                <span>Learn from Customer feedback</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-md-5">
+          <img src="./images/home1.png" class="laptop-img" width="616px" height="740px"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-black">
+    <div class="container ">
+      <div class="row ">
+        <p class="sub-header text-center">What We Do</p>
+        <h3 class="normal-header text-center">We Create Solutions for Your<br /> Investment Needs.</h3>
+
+        <div class="investments-needs">
+          <!-- <div class="md-hidden">
+            <h3 class="heading500 text-white">Services<br/>
+              We Offer</h3>
+              <a href="services.html"><p class="general-color small-text" style="font-weight:600; text-decoration-line: underline;">View All Services <svg style="margin-left: 28px;align-self: center;" width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.333313 13.6667L6.99998 7.00004L0.333313 0.333374V13.6667Z" fill="#E63946"/>
+                </svg>
+                </p></a>
+          </div> -->
+          <div class="investment-services">
+            <div class="black-card">
+              <img src="./images/crypto-investment.svg"/>
+              <h5 class="mt-3 black-card-head">Cryptocurrency Investment</h5>
+              <p class="mt-3 small-text white-soft">We provides services related to the buying,
+                selling, or renting of real estate. We
+                are involved in the management of residential,
+                commercial, or industrial properties.
+                </p>
+  
+                <a href="about-us.html"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
+                  </svg>
+                  </p></a>
+            </div>
+  
+            <div class="black-card">
+              <img src="./images/forex-trading.svg"/>
+              <h5 class="mt-3 black-card-head">Forex Trading</h5>
+              <p class="mt-3 small-text white-soft">For businesses interested in entering the forex market, we assist by providing insight and guidance around what market to enter, when to
+                enter the market, and what influences each market.                
+                </p>
+  
+                <a href="about-us.html"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
+                  </svg>
+                  </p></a>
+            </div>
+            <div class="black-card">
+              <img src="./images/real-estate.svg"/>
+              <h5 class="mt-3 black-card-head">Real Estate</h5>
+              <p class="mt-3 small-text white-soft">For businesses interested in entering the forex market, we assist by providing insight and guidance around what market to enter, when to
+                enter the market, and what influences each market.                
+                </p>
+  
+                <a href="about-us.html"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
+                  </svg>
+                  </p></a>
+            </div>
+          </div>
+          <div class="investment-services">
+            <div class="black-card mx-auto w-607">
+              <img src="./images/ticker.svg"/>
+              <h5 class="mt-3 black-card-head">Stock Option</h5>
+              <p class="mt-3 small-text white-soft">For businesses looking to enter the stock exchange, we provide expert guidance to help navigate this complex landscape. We offer insights on selecting the right markets to engage with, timing strategies for optimal entry, and understanding the factors that influence stock price movements. With a clear roadmap, we ensure businesses make informed decisions that align with their investment goals and risk profiles              
+                </p>
+  
+                <a href="about-us.html"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
+                  </svg>
+                  </p></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="bg-black">
+    <div class="container">
+      <div class="row">
+        <p class="sub-header text-center">Advanta Investment</p>
+        <h3 class="normal-header text-center">How Does it Work?</h3>
+
+        <!-- <img src="./images/video.png" class="mx-auto video-img" style=""/> -->
+        <iframe class="mx-auto video-img" src="https://www.youtube.com/embed/yDl1_uLR5Os" title="How Do REITs Work?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-black">
+    <div class="container">
+      <div class="row">
+
+        <div class="testimonial-div" id="testimonial1">
+          <div>
+            <h3 class="normal-header">What our clients<br /> say about us</h3>
+            <p class="small-text white-soft">Reviews we get on a daily basis.</p>
+            <div class="testimonial-buttons">
+              <img src="./images/testimonial-left.svg"/>
+              <img src="./images/testimonial-right.svg"  onclick="togglet2()"/>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-contact-info">
+              <img src="./images/karen.jpeg" class="img-rounded"/>
+              <p>Karen Geller</p>
+              <span></span>
+            </div>
+            <div class="testimonial-message">
+              <svg style="top:0;position:absolute;right:0;" width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9355 21.0302V17.08C13.9355 16.5442 14.3643 16.1101 14.8933 16.1101C16.7808 16.1101 17.8074 14.1497 17.9497 10.2803L14.8933 10.2803C14.3643 10.2803 13.9355 9.84586 13.9355 9.31032V0.96962C13.9355 0.434153 14.3643 0 14.8933 0H23.0424C23.5716 0 24 0.434492 24 0.96962L24 9.31032C24 11.1652 23.8156 12.8674 23.452 14.3701C23.0792 15.9109 22.5069 17.2581 21.7514 18.3744C20.9741 19.5216 20.0018 20.4219 18.8613 21.049C17.7131 21.68 16.3778 22 14.893 22C14.3643 22 13.9355 21.5659 13.9355 21.0302ZM0.957905 16.1101C0.429165 16.1101 0 16.5446 0 17.08V21.0302C0 21.5659 0.429098 22 0.957905 22C2.44213 22 3.77757 21.6799 4.92538 21.049C6.0661 20.4219 7.03893 19.5216 7.81637 18.3744C8.57151 17.2581 9.14384 15.9108 9.51676 14.3697C9.8801 12.8665 10.0645 11.1643 10.0645 9.31032V0.96962C10.0645 0.434153 9.63555 0 9.10668 0H0.95797C0.429232 0 0.000469208 0.434492 0.000469208 0.96962L0.000469208 9.31039C0.000469208 9.84586 0.429165 10.2804 0.95797 10.2804L3.97076 10.2804C3.83061 14.1497 2.81894 16.1101 0.957905 16.1101Z" fill="#E63946"/>
+              </svg>
+                
+              "Contacting support was super easy and simple. You have a really responsive support team"
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="testimonial-div" id="testimonial2">
+          <div>
+            <h3 class="normal-header">What our clients<br /> say about us</h3>
+            <p class="small-text white-soft">Reviews we get on a daily basis.</p>
+            <div class="testimonial-buttons">
+              <img src="./images/testimonial-right.svg" style="transform: rotate(180deg);" onclick="togglet1()"/>
+              <img src="./images/testimonial-right.svg" onclick="togglet3()"/>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-contact-info">
+              <img src="./images/angelina.jpeg" class="img-rounded"/>
+              <p>Angelina</p>
+              <span></span>
+            </div>
+            <div class="testimonial-message">
+              <svg style="top:0;position:absolute;right:0;" width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9355 21.0302V17.08C13.9355 16.5442 14.3643 16.1101 14.8933 16.1101C16.7808 16.1101 17.8074 14.1497 17.9497 10.2803L14.8933 10.2803C14.3643 10.2803 13.9355 9.84586 13.9355 9.31032V0.96962C13.9355 0.434153 14.3643 0 14.8933 0H23.0424C23.5716 0 24 0.434492 24 0.96962L24 9.31032C24 11.1652 23.8156 12.8674 23.452 14.3701C23.0792 15.9109 22.5069 17.2581 21.7514 18.3744C20.9741 19.5216 20.0018 20.4219 18.8613 21.049C17.7131 21.68 16.3778 22 14.893 22C14.3643 22 13.9355 21.5659 13.9355 21.0302ZM0.957905 16.1101C0.429165 16.1101 0 16.5446 0 17.08V21.0302C0 21.5659 0.429098 22 0.957905 22C2.44213 22 3.77757 21.6799 4.92538 21.049C6.0661 20.4219 7.03893 19.5216 7.81637 18.3744C8.57151 17.2581 9.14384 15.9108 9.51676 14.3697C9.8801 12.8665 10.0645 11.1643 10.0645 9.31032V0.96962C10.0645 0.434153 9.63555 0 9.10668 0H0.95797C0.429232 0 0.000469208 0.434492 0.000469208 0.96962L0.000469208 9.31039C0.000469208 9.84586 0.429165 10.2804 0.95797 10.2804L3.97076 10.2804C3.83061 14.1497 2.81894 16.1101 0.957905 16.1101Z" fill="#E63946"/>
+              </svg>
+                
+              "It's a great feeling making money off my investment. Great service "
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="testimonial-div" id="testimonial3">
+          <div>
+            <h3 class="normal-header">What our clients<br /> say about us</h3>
+            <p class="small-text white-soft">Reviews we get on a daily basis.</p>
+            <div class="testimonial-buttons">
+              <img src="./images/testimonial-right.svg" style="transform: rotate(180deg);" onclick="togglet2()"/>
+              <img src="./images/testimonial-left.svg" style="transform: rotate(180deg);"/>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-contact-info">
+              <img src="./images/richard.jpeg" class="img-rounded"/>
+              <p>Richard</p>
+              <span></span>
+            </div>
+            <div class="testimonial-message">
+              <svg style="top:0;position:absolute;right:0;" width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9355 21.0302V17.08C13.9355 16.5442 14.3643 16.1101 14.8933 16.1101C16.7808 16.1101 17.8074 14.1497 17.9497 10.2803L14.8933 10.2803C14.3643 10.2803 13.9355 9.84586 13.9355 9.31032V0.96962C13.9355 0.434153 14.3643 0 14.8933 0H23.0424C23.5716 0 24 0.434492 24 0.96962L24 9.31032C24 11.1652 23.8156 12.8674 23.452 14.3701C23.0792 15.9109 22.5069 17.2581 21.7514 18.3744C20.9741 19.5216 20.0018 20.4219 18.8613 21.049C17.7131 21.68 16.3778 22 14.893 22C14.3643 22 13.9355 21.5659 13.9355 21.0302ZM0.957905 16.1101C0.429165 16.1101 0 16.5446 0 17.08V21.0302C0 21.5659 0.429098 22 0.957905 22C2.44213 22 3.77757 21.6799 4.92538 21.049C6.0661 20.4219 7.03893 19.5216 7.81637 18.3744C8.57151 17.2581 9.14384 15.9108 9.51676 14.3697C9.8801 12.8665 10.0645 11.1643 10.0645 9.31032V0.96962C10.0645 0.434153 9.63555 0 9.10668 0H0.95797C0.429232 0 0.000469208 0.434492 0.000469208 0.96962L0.000469208 9.31039C0.000469208 9.84586 0.429165 10.2804 0.95797 10.2804L3.97076 10.2804C3.83061 14.1497 2.81894 16.1101 0.957905 16.1101Z" fill="#E63946"/>
+              </svg>
+                
+              "Amazing platform to use, swift and prompt withdrawals. Love it"
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-black md-hidden">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex m-100 mb-100">
+          <div class="col-md-5">
+            <h2 class="font-42 text-white">Our real estate portfolio</h2>
+            <p style="font-weight: 400; font-size: 32px; line-height: 40px;" class="general-color">A once-in-a-decade lending environment</p>
+          </div>
+          <p class="font-16 off-white col-md-5">
+            Over the past 12-18 months, the Federal Reserve has implemented rapid interest rate hikes at unprecedented speeds in an effort to control inflation. This policy shift has disrupted markets, causing widespread dislocations, increased systemic pressure, and the potential for a liquidity crisis, posing risks to the global economy.
+    At the same time, these conditions have converged to create what we view as one of the most compelling opportunities for credit investments in decades.
+          </p>
+        </div>
+
+        <div class="d-flex m-100 mb-100">
+          <div class="col-md-5">
+            <img src="./images/1605.png" width="552px" height="401px" />
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-4 mt-100">
+            <h2 class="font-42 text-white">Track record of client results</h2>
+            <p class="font-16 off-white">One of the most important questions that any investor should ask when evaluating a new investment advisor is “how have you performed for your existing clients so far?” With over 387,000 clients pursuing a wide range of objectives, the answer is more nuanced than a single number.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" style="gap: 50px; background: url('./images/footer-bg.jpeg') #000000B2; background-position: center; background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h1 class="big-header">Let’s talk about your <br/><span class="general-color">Investment</span></h1>
+          <p class="footer-text text-capitalize mt-4">Sound Management practices, Competent & credible traders, User friendly policies, procedures & systems, proactive Service, philosophy & Strategy, multiple support channels.</p>
+          <div class="hero-btns mt-5">
+            <a href="https://app.advantawealth.co/login" class="def-btn bg-red text-white">Get Started</a>
+            <a href="about-us.html" class="def-btn text-white" style="border: 1px solid rgba(255, 255, 255, 0.4);">Contact Us</a>
+          </div>
+        </div>
+        
+        <!-- <div class="col-md-6" style="text-align: right!important; text-transform: uppercase;">
+          <p class="footer-text general-color mt-4">find us</p>
+          <p class="footer-text">130 Buckingham palace road, london, sw1w 9sa</p>
+          <hr style="width: 100%; color: #9C9C9C;height:0.3px;">
+          <p class="footer-text general-color mt-4">email us</p>
+          <a href="mailto:advantawealthmanagement@gmail.com"><p class="footer-text">advantawealthmanagement@gmail.com</p></a>
+          <hr style="width: 100%; color: #9C9C9C;height:0.3px;">
+          <p class="footer-text general-color mt-4">call us</p>
+          <a href="tel:+447414269127"><p class="footer-text">+44 7414 269127</p></a>
+          <hr style="width: 100%; color: #9C9C9C;height:0.3px;">
+        </div> -->
+        <div class="col-md-6 footer-menu d-flex flex-row">
+          <div class="col-md-5">
+            <p class="footer-header">Invest</p>
+            <p class="footer-text">Real Estate</p>
+            <p class="footer-text">Stock Exchange</p>
+            <p class="footer-text">Crypto Currency</p>
+          </div>
+  
+          <div class="col-md-5">
+            <p class="footer-header">Company</p>
+            <p class="footer-text">About Us</p>
+            <p class="footer-text">Get Started</p>
+          </div>
+        </div>
+      </div>
+      <div class="row footer-text" style="margin-top: 35px;">
+        <div style="display: flex; justify-content: space-between; border-top: 3px solid grey; padding: 33px 0;">
+          <p>Copyright 2025 </p>
+          <p>We use cookies for better service. <a>Accept</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer" style="background: #070707; margin: 0; padding-top: 20px;">
+    <div class="row">
+      <div style="padding: 0; border: 0;" class="footer">
+        <p class="footer-text" style="line-height: 25.6px; font-size: 16px; font-weight: 400;">Advanta wealth , LLC (“Advanta wealth “) operates a website at Advantawealth.co and certain mobile apps (the “Platform“). By using the Platform, you accept our Terms of Service and Privacy Policy. All images and return and projection figures shown are for illustrative purposes only, may assume additional investments over time, and are not actual Advanta wealth  customer or model returns or projections. Past performance is no guarantee of future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. All securities involve risk and may result in partial or total loss. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Advanta wealth  nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Prospective investors should confer with their personal tax advisors regarding the tax consequences based on their particular circumstances. Neither Advanta wealth  nor any of its affiliates assume responsibility for the tax consequences for any investor of any investment. Full Disclosure The publicly filed offering circulars of the issuers sponsored by Rise Companies Corp., not all of which may be currently qualified by the Securities and Exchange Commission, may be found at advantawealth.co For investors and potential investors who are residents of the State of Washington, please send all correspondence, including any questions or comments, to washingtonstate@arkcapitalshome.com Advanta wealth  takes any potential security issues seriously, and encourages the responsible and timely reporting of unknown security issues. Please send any discovered security concerns to securitydisclosure advantawealth.co © 2024 Advanta wealth , LLC. All Rights Reserved. eREIT, eFund and eDirect are trademarks of Rise Companies Corp. Google Play and the Google Play logo are registered trademarks of Google LLC. Apple, the Apple logo and iPhone are registered trademarks of Apple Inc. NerdWallet and the NerdWallet logo are trademarks owned by NerdWallet, Inc. and used with permission. Proudly designed and coded in Washington, D.C. </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function togglet1() {
+        $("#testimonial2").css('display', 'none');
+        $("#testimonial1").css('display', 'flex');
+    }
+
+    function togglet2() {
+        $("#testimonial3").css('display', 'none');
+        $("#testimonial1").css('display', 'none');
+        $("#testimonial2").css('display', 'flex');
+        
+    }
+
+    function togglet3() {
+        $("#testimonial2").css('display', 'none');
+        $("#testimonial3").css('display', 'flex');
+        
+    }
+
+    $('.butt').on('click', function() {
+      $('#mobile-menu').toggleClass('hidden');
+      $('.overlay-menu').toggleClass('hidden');
+      $('header').toggleClass('hidden');
+    })
+    $('.overlay-menu').on('click', function() {
+      $('#mobile-menu').toggleClass('hidden');
+      $('.overlay-menu').toggleClass('hidden');
+      $('header').toggleClass('hidden');
+    })
+    </script>
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/63c56fedc2f1ac1e202de813/1gmtjqefi';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

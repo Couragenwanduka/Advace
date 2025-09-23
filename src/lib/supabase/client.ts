@@ -33,6 +33,7 @@ export const login = async (email: string, password: string) => {
     password,
   });
   if (error) {
+    console.log('error',error);
     console.log(error.message);
     throw error.message;
   }
