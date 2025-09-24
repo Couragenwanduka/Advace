@@ -248,7 +248,7 @@
 
     <div class="get-started">
       <img class="" src="./images/search-icon.svg">
-      <a href="https://app.advantawealth.co/login" class="def-btn bg-red text-white">Get Started</a>
+      <a id="getStartedBtn" class="def-btn bg-red text-white">Get Started</a>
     </div>
 
     
@@ -278,7 +278,7 @@
       <h1 class="big-header">Elevate Your Portfolio</h1>
       <p class="header-sub white-soft">Diversify with private assets such as real estate, private credit, and venture capital.</p>
       <div class="hero-btns">
-        <a href="https://app.advantawealth.co/login" class="def-btn bg-red text-white">Get Started</a>
+        <a href="/" class="def-btn bg-red text-white">Get Started</a>
         <a href="about-us.html" class="def-btn text-white" style="border: 1px solid rgba(255, 255, 255, 0.4);">Learn More About Us</a>
       </div>
     </div>
@@ -643,5 +643,10 @@
   </script>
   <!--End of Tawk.to Script-->
   <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.getElementById("getStartedBtn").addEventListener("click", () => {
+      window.location.href = "/login"; // change to /login if needed
+    });
+  </script>
 </body>
 </html>

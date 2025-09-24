@@ -1,0 +1,292 @@
+.css-1ho5jj3{
+  border: 0!important;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1)!important;
+}
+.hidden {
+  visibility: hidden;
+  display: none;
+  /* opacity: 0; */
+  width: 0;
+  /* transform: translateX(283px); */
+  /* transition: width .3s ease;*/
+}
+.transaction-processing{
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 22px;
+  color: #FFBF00;
+  background: rgb(150, 129, 33, 0.2);
+}
+@media only screen and (max-width: 600px) {
+  .header{
+    gap: 0;
+    padding: 0 30px;
+    height: 70px;
+    justify-content: space-between;
+  }
+  .logo, .logo img{
+    width: 60px;
+    height: 60px;
+  }
+  .header-links-item, .get-started{
+      display: none;
+  }
+  .mob-menu-icon{
+    display: block;
+  }
+  #mobile-header-links{
+    transition: width .1s ease-in-out;
+    background-color: white;
+    display: flex;
+    /* position:absolute; */
+    height: 100%;
+  }
+  .mobile-menu{
+    top: 0;
+    width: 100%;
+  }
+  .transaction-amount{
+    display: none;
+  }
+
+  .mobile-header-links{
+      display: none;
+      width: 10px;
+      height: 0;
+      padding: 0;
+  }
+
+  /* Mobile Logo */
+  .log > img{
+    width: 85.33px;
+    height: 48px;
+  }
+
+
+  .mx-156{
+    margin: 0 24px!important;
+  }
+  .page-location, h1.big-header{
+    justify-content: center;
+    text-align: center;
+  }
+  /*fonts*/
+
+  .big-header{
+    font-size: 24px;
+    line-height: 29px;
+  }
+  .normal-header{
+    font-size: 24px;
+    line-height: 29px;
+  }
+  .sub-header{
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.2em;
+  }
+  .minifeature-item>span{
+    font-size: 9.64653px;
+    line-height: 17px;
+  }
+  .transaction-head{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+  }
+  /*fonts*/
+
+  .hero {
+    margin: 0 0;
+    height: 400px;
+    background-repeat-y: no-repeat;
+    background-position-y: center;
+    background-size: cover;
+    text-align: center;
+  }
+  .hero-div{
+    padding-top: 75px;
+    padding-bottom: 20px;
+    gap: 5px;
+    height: 357px;
+  }
+  .hero-btns{
+    gap: 16px;
+  }
+  .below-hero{
+    height: 99px;
+  }
+  .hr-stand{
+    left:30px; 
+    width: 10px; 
+    height: 99px; 
+    border-left: 1px solid white;
+  }
+  .investments-needs, .investment-services, .testimonial-div, .hero-btns, .how-it-works{
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .testimonial-card{
+    width: 100%;
+  }
+  .testimonial-div > div > p {
+    justify-content: center;
+  }
+  .md-hidden{
+    display: none;
+  }
+  .black-card{
+    width: 100%;
+  }
+  .video-img{
+    width: 100%;
+    height: 198px;
+  }
+  .laptop-img, .meeting-img{
+    height: 350px;
+    width: 100%;
+  }
+  .service-img{
+    height: 360px;
+    width: 100%;
+  }
+  .team-pic{
+    width: 324px;
+  }
+  .service-div{
+    flex-direction: column-reverse;
+  }
+  .pricing-plan{
+    flex-direction: column;
+  }
+  .footer{
+    padding: 20px 20px;
+  }
+  .footer *, .testimonial-div{
+    text-align: center!important;
+  }
+  /* Main App */
+
+  .auth-div {
+    /* z-index: 2; */
+    position: relative;
+    /* height: 497px; */
+    width: 319px;
+    padding-top: 41px;
+    padding-bottom: 35px;
+    gap: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 12px;
+  }
+  .auth form{
+    width: 202px;
+  }
+  .actual_transaction{
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+  }
+  .transaction-deposit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 310px;
+    height: 40px;
+  }
+  .transaction-deets{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+  }
+  .transactions-options{
+    flex-direction: row;
+    height: 96px;
+    align-items: center;
+  }
+  .transaction-history{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    gap: 32px;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+  }
+  .transaction-currency{
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 18px;
+  }
+  .transaction-date{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+
+    letter-spacing: -0.24px;
+  }
+  .transaction-status{
+    width: 53.44px;
+    height: 23px;
+    text-align: center;
+    border-radius: 61.2328px;
+  }
+  .transaction-done{
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 22px;
+    color: #219653;
+    background: rgba(33, 150, 83, 0.2);
+  }
+  .below-amiss{
+    font-weight: 400;
+    font-size: 13.3333px;
+    line-height: 17px;
+  }
+  .amiss{
+    font-weight: 700;
+    font-size: 14.2222px;
+    line-height: 21px;
+    color: white;
+  }
+
+  .deposit, .withdraw{
+    width: 342px;
+  }
+  .deposit form, .withdraw form{
+    padding: 40px 62px;
+    padding-bottom: 0;
+  }
+  .withdraw1{
+    width: 212px;
+  }
+  .withdraw1 a{
+    width: 100%!important;
+  }
+  #address-img{
+    height: 100px;
+    width: 91.3px;
+  }
+  .prices{
+    width: 100%;
+  }
+  .crypto-info{
+    flex-direction: column;
+  }
+  .app-footer{
+    padding: 0;
+    text-align: center;
+  }
+}
