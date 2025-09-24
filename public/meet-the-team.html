@@ -7,11 +7,10 @@
   <link href="css/bootstrap.min.css" rel="stylesheet"></link>
   <title>Advanta Investment</title>
   <link href="css/home.css" rel="stylesheet"></link>
-  <!-- <link href="css/tab.css" rel="stylesheet"></link> -->
-  <!-- <link href="css/mobile.css" rel="stylesheet"></link>  -->
+  <!-- <link href="css/tab.css" rel="stylesheet"></link>
+   -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
-    /* laptop view */
     .mx-156{
       margin: 0 156px!important;
     }
@@ -114,23 +113,22 @@
     }
     .investments-needs{
       display: flex;
-      flex-direction: column;
-      margin-left: 40px;
+      flex-direction: row;
+      /* margin: 0 100px; */
       margin-top: 75px;
-      gap: 64px;
       
     }
-    .investments-needs>div:nth-child(1){
-      margin-right: 0px;
-    }
-    .investment-services{
+    /* .investments-needs>div:nth-child(1){
+      margin-right: 150px;
+    } */
+    .how-it-works {
       display: flex;
       gap: 40px;
       flex-direction: row;
+      margin-top: 64px;
     }
     .testimonial-buttons>img{
       margin-right: 32px;
-      cursor: pointer;
     }
     .testimonial-buttons{
       margin-top: 40px;
@@ -182,14 +180,32 @@
       padding-top: 60px;
       position: relative;
     }
+    #testimonial2,#testimonial3{
+        display:none;
+    }
     .testimonial-div{
-      margin: 0 100px;
+      /* margin: 0 100px; */
       display: flex;
       flex-direction: row;
       gap: 150px;
     }
-    #testimonial2, #testimonial3{
-      display: none;
+    .page-location{
+      display: flex;
+      gap: 11px;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 46px;
+    }
+    .text-24{
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+    }
+    .whiteshade{
+      color: #8B8989;
+    }
+    .mb-90{
+      margin-bottom: 90px;
     }
     .video-img{
       border-radius:16px;
@@ -197,33 +213,35 @@
       width: 1128px;
       height: 544px;
     }
-    .hr-stand{
-      left:30px; 
-      width: 100px; 
-      height: 122px; 
-      border-left: 1px solid white;
+    .team-pic{
+      width: 294px;
+      height: 267px;
     }
-
-   .w-607{
-    width: 607px;
-   }
-    
-    /* Mobile View */
-    
+    .def-btn{
+      display: flex;
+      /* width: 158px; */
+      text-align: center;
+      padding: 11px 39px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    .bg-red{
+      background-color: #E63946;
+    }
+    .w-296{
+      width: 296px;
+    }
+    @media only screen and (max-width: 600px) {
+      .bg-black{
+        text-align: center!important;
+      }
+    }
   </style>
   <link href="css/mobile.css" rel="stylesheet"></link>
-  <style>
-    @media only screen and (max-width: 600px) {
-      .mx-156{
-        margin: 0!important;
-      }
-      .w-607{
-        width: 100%;
-      }
-    }
-  </style>
 </head>
-<body class="bg" style="background: #070707;">
+<body class="bg-black">
   <div class="overlay-menu hidden"></div>
   <header class="header sticky" id="header">
     <a href="index.html">
@@ -233,12 +251,12 @@
     </a>
 
     <div class="header-links">
-      <div class="header-links-item"><a href="index.html" class="header-links-text header-active">Home</a></div>
+      <div class="header-links-item"><a href="index.html" class="header-links-text header-not-active">Home</a></div>
       <div class="header-links-item"><a href="services.html" class="header-links-text header-not-active">Services</a></div>
       <div class="header-links-item"><a href="real-estate.html" class="header-links-text header-not-active">Real Estate</a></div>
       <div class="header-links-item"><a href="pricing.html" class="header-links-text header-not-active">Pricing</a></div>
       <div class="header-links-item"><a href="about-us.html" class="header-links-text header-not-active">About Us</a></div>
-      <div class="header-links-item"><a href="meet-the-team.html" class="header-links-text header-not-active">Our Team</a></div>
+      <div class="header-links-item"><a href="meet-the-team.html" class="header-links-text header-active">Our Team</a></div>
       <div class="header-links-item"><a href="contact-us.php" class="header-links-text header-not-active">Contact Us</a></div>
       <!-- <a href="" class="header-links-item">About</a>-->
       <a href="javascript:void(0);" class="butt mob-menu-icon" onclick="myFunction()">
@@ -259,163 +277,102 @@
       <a href="javascript:void(0);" class="butt mob-menu-icon-cancel" onclick="myFunction()">
         <img src="./images/cancel.svg">
       </a>
-        <div class="header-links-item"><a href="homeScreen.html" class="header-links-text header-not-active">Home</a></div>
-      <div class="header-links-item"><a href="services.html" class="header-links-text header-active">Services</a></div>
+      <div class="mobile-header-links-item"><a href="index.html" class="header-links-text header-not-active">Home</a></div>
+      <div class="mobile-header-links-item"><a href="services.html" class="header-links-text header-not-active">Services</a></div>
       <div class="header-links-item"><a href="real-estate.html" class="header-links-text header-not-active">Real Estate</a></div>
-      <div class="header-links-item"><a href="pricing.html" class="header-links-text header-not-active">Pricing</a></div>
-      <div class="header-links-item"><a href="about-us.html" class="header-links-text header-not-active">About Us</a></div>
-      <div class="header-links-item"><a href="meet-the-team.html" class="header-links-text header-not-active">Our Team</a></div>
-      <div class="header-links-item"><a href="contact-us.php" class="header-links-text header-not-active">Contact Us</a></div>
+      <div class="mobile-header-links-item"><a href="pricing.html" class="header-links-text header-not-active">Pricing</a></div>
+      <div class="mobile-header-links-item"><a href="about-us.html" class="header-links-text header-not-active">About Us</a></div>
+      <div class="mobile-header-links-item"><a href="meet-the-team.html" class="header-links-text header-active">Our Team</a></div>
+      <div class="mobile-header-links-item"><a href="contact-us.php" class="header-links-text header-not-active">Contact Us</a></div>
   </div>
   </nav>
-  <div style="height:62px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=light&pref_coin_id=1505&invert_hover=" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Coinlib</div></div>
+<div style="height:62px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=light&pref_coin_id=1505&invert_hover=" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Coinlib</div></div>
   
- 
-
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-div">
-      <h1 class="big-header">Elevate Your Portfolio</h1>
-      <p class="header-sub white-soft">Diversify with private assets such as real estate, private credit, and venture capital.</p>
-      <div class="hero-btns">
-        <a id="getStartedBtn"class="def-btn bg-red text-white">Get Started</a>
-        <a id="getStartedBtn" class="def-btn text-white" style="border: 1px solid rgba(255, 255, 255, 0.4);">Learn More About Us</a>
-      </div>
+  <div class="mx-156">
+    <div class="page-location bg-black">
+      <span class="small-text white-soft align-items-center">Home</span> 
+        <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.00006 3.00185L10.9983 2.99993M10.9983 2.99993L8.30645 0.307153M10.9983 2.99993L8.30645 5.69272" stroke="#999CA0" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="general-color">Meet the Team</span>
     </div>
-    <div class="below-hero">
-      <div class="hr-stand" style=""></div>
-    </div>
-  </div>
-
-  <section class="bg-black">
-    <div style="height: 130px;"></div>
-    <div class="container mx-156">
-      <div class="row" style="gap: 30px;">
-        <div class="col-md-5" style="padding-right: 70px!important;">
-          <p class="sub-header">About Advanta Investment</p>
-          <h3 class="normal-header">Breaking Barriers to Premium Investments</h3>
-          <p class="white-softest small-text text-left">For nearly a century, regulatory restrictions have limited individual investors’ access to private markets, granting billion-dollar institutions exclusive opportunities. This imbalance has left most investors confined to public markets, excluding them from high-growth private investment opportunities like real estate and venture capital. Today, technology is reshaping this outdated system.
-            That’s where Avanta Wealth comes in. As America’s leading direct-to-consumer private markets manager, we’ve developed a cutting-edge technology platform to eliminate these barriers. Our software empowers us to operate at the scale of institutional investors while avoiding unnecessary bureaucracy. By combining advanced technology with deep investment expertise, we’re redefining access to private markets and building smarter, more diversified portfolios for our clients.
-            
-          </p>
-          <div class="minifeature">
-            <div class="minifeature-row">
-              <div class="minifeature-item">
-                <img src="./images/business.svg"/>
-                <span>High Frequency Trading</span>
+    <h1 class="big-header">Meet the Team</h1>
+    
+    <section class="bg-black">
+      <div class="container">
+        <div class="row">
+          <p class="sub-header text-center">About the Team</p>
+          <h3 class="normal-header text-center mb-90">Meet our passionate and educated specialist who<br/>
+            make Advanta Investment a Success.</h3>
+          <div class="row mt-5 justify-content-center" style="gap: 24px; padding: 0!important; width: 100%;">
+            <div class="w-296 p-0">
+              <img src="./images/benjamin.png"class="team-pic">
+              <div class="team-info">
+                <div>
+                  <p class="heading500 text-white mb-2">Benjamin Cooper</p>
+                  <span class="text-white">President & Founding Partner</span>
+                </div>
+                <a href="benjamin.html" class="def-btn text-white bg-red">Bio</a>
               </div>
-              <div class="minifeature-item">
-                <img src="./images/business2.svg"/>
-                <span>Instant Withdrawals</span>
-              </div>
+             
             </div>
 
-            <div class="minifeature-row">
-              <div class="minifeature-item">
-                <img src="./images/finance.svg"/>
-                <span>Guaranteed RoI’s</span>
+            <div class="w-296 p-0">
+              <img src="./images/goldman.png"class="team-pic">
+              <div class="team-info">
+                <div>
+                  <p class="heading500 text-white mb-2">David Goldman</p>
+                  <span class="text-white">Investment Advisor</span>
+                  <span class="text-white">CFP® RICO®</span>
+                </div>
+                <a href="goldman.html" class="def-btn text-white bg-red">Bio</a>
               </div>
-              <div class="minifeature-item">
-                <img src="./images/finance2.svg"/>
-                <span>Multiple Funding Option</span>
-              </div>
+              
             </div>
 
-            <div class="minifeature-row">
-              <div class="minifeature-item">
-                <img src="./images/finance3.svg"/>
-                <span>Fast & Secure</span>
+            <div class="w-296 p-0">
+              <img src="./images/ryan.png"class="team-pic">
+              <div class="team-info">
+                <div>
+                  <p class="heading500 text-white mb-2">Ryan Rabusic</p>
+                  <span class="text-white">Executive Manager</span>
+                </div>
+                <a href="ryan.html" class="def-btn text-white bg-red">Bio</a>
               </div>
-              <div class="minifeature-item">
-                <img src="./images/systems.svg"/>
-                <span>Learn from Customer feedback</span>
+              
+            </div>
+
+            <div class="w-296 p-0">
+              <img src="./images/tom.png"class="team-pic">
+              <div class="team-info">
+                <div>
+                  <p class="heading500 text-white mb-2">Tom Grimes</p>
+                  <span class="text-white">Portfolio Manager</span>
+                </div>
+                <a href="tom.html" class="def-btn text-white bg-red">Bio</a>
               </div>
+              
             </div>
-            
-          </div>
-        </div>
-        <div class="col-md-5">
-          <img src="./images/home1.png" class="laptop-img" width="616px" height="740px"/>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="bg-black">
-    <div class="container ">
-      <div class="row ">
-        <p class="sub-header text-center">What We Do</p>
-        <h3 class="normal-header text-center">We Create Solutions for Your<br /> Investment Needs.</h3>
-
-        <div class="investments-needs">
-          <!-- <div class="md-hidden">
-            <h3 class="heading500 text-white">Services<br/>
-              We Offer</h3>
-              <a href="services.html"><p class="general-color small-text" style="font-weight:600; text-decoration-line: underline;">View All Services <svg style="margin-left: 28px;align-self: center;" width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.333313 13.6667L6.99998 7.00004L0.333313 0.333374V13.6667Z" fill="#E63946"/>
-                </svg>
-                </p></a>
-          </div> -->
-          <div class="investment-services">
-            <div class="black-card">
-              <img src="./images/crypto-investment.svg"/>
-              <h5 class="mt-3 black-card-head">Cryptocurrency Investment</h5>
-              <p class="mt-3 small-text white-soft">We provides services related to the buying,
-                selling, or renting of real estate. We
-                are involved in the management of residential,
-                commercial, or industrial properties.
-                </p>
-  
-                <a id="getStartedBtn"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
-                  </svg>
-                  </p></a>
-            </div>
-  
-            <div class="black-card">
-              <img src="./images/forex-trading.svg"/>
-              <h5 class="mt-3 black-card-head">Forex Trading</h5>
-              <p class="mt-3 small-text white-soft">For businesses interested in entering the forex market, we assist by providing insight and guidance around what market to enter, when to
-                enter the market, and what influences each market.                
-                </p>
-  
-                <a id="getStartedBtn"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
-                  </svg>
-                  </p></a>
-            </div>
-            <div class="black-card">
-              <img src="./images/real-estate.svg"/>
-              <h5 class="mt-3 black-card-head">Real Estate</h5>
-              <p class="mt-3 small-text white-soft">For businesses interested in entering the forex market, we assist by providing insight and guidance around what market to enter, when to
-                enter the market, and what influences each market.                
-                </p>
-  
-                <a id="getStartedBtn"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
-                  </svg>
-                  </p></a>
-            </div>
-          </div>
-          <div class="investment-services">
-            <div class="black-card mx-auto w-607">
-              <img src="./images/ticker.svg"/>
-              <h5 class="mt-3 black-card-head">Stock Option</h5>
-              <p class="mt-3 small-text white-soft">For businesses looking to enter the stock exchange, we provide expert guidance to help navigate this complex landscape. We offer insights on selecting the right markets to engage with, timing strategies for optimal entry, and understanding the factors that influence stock price movements. With a clear roadmap, we ensure businesses make informed decisions that align with their investment goals and risk profiles              
-                </p>
-  
-                <a id="getStartedBtn"><p class="small-text general-color">Learn more <svg class="mx-3 d-flex align-self-center" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.05176e-05 5.12708C3.05176e-05 4.88814 0.177587 4.69068 0.407954 4.65942L0.471997 4.65512L8.76854 4.65549L5.77124 1.67044C5.58653 1.48653 5.58589 1.1877 5.76981 1.00299C5.937 0.835067 6.19917 0.819269 6.38423 0.955964L6.43727 1.00155L10.2445 4.79238C10.2688 4.81662 10.29 4.84286 10.3079 4.87057C10.313 4.87891 10.3181 4.88744 10.323 4.89615C10.3275 4.90361 10.3316 4.91135 10.3354 4.91919C10.3408 4.93058 10.346 4.94236 10.3507 4.95437C10.3545 4.96363 10.3577 4.97264 10.3607 4.98172C10.3641 4.99298 10.3675 5.00498 10.3704 5.01716C10.3726 5.02567 10.3743 5.03386 10.3758 5.04207C10.3779 5.0543 10.3797 5.06696 10.3809 5.07976C10.382 5.08952 10.3827 5.0992 10.3831 5.10888C10.3832 5.11476 10.3833 5.12091 10.3833 5.12708L10.3831 5.14536C10.3827 5.15463 10.3821 5.16388 10.3812 5.17312L10.3833 5.12708C10.3833 5.15687 10.3805 5.186 10.3753 5.21426C10.374 5.221 10.3726 5.22793 10.371 5.23483C10.3676 5.24904 10.3637 5.26272 10.3593 5.27613C10.3571 5.2828 10.3545 5.28992 10.3518 5.29699C10.3463 5.31119 10.3403 5.32472 10.3337 5.33791C10.3306 5.34411 10.3272 5.3506 10.3236 5.35703C10.3177 5.36751 10.3116 5.37747 10.3052 5.38718C10.3007 5.39406 10.2957 5.40121 10.2904 5.40825L10.2863 5.41369C10.2736 5.4303 10.2598 5.44604 10.2451 5.46081L10.2445 5.46125L6.43729 9.25271C6.2526 9.43665 5.95377 9.43603 5.76983 9.25133C5.60262 9.08343 5.58793 8.82119 5.72541 8.63671L5.77122 8.58387L8.76728 5.59943L0.471997 5.59905C0.211337 5.59905 3.05176e-05 5.38774 3.05176e-05 5.12708Z" fill="#E63946"/>
-                  </svg>
-                  </p></a>
+            <div class="w-296 p-0">
+              <img src="./images/emily.png"class="team-pic">
+              <div class="team-info">
+                <div>
+                  <p class="heading500 text-white mb-2">Emily Choi</p>
+                  <span class="text-white">Wealth Manager</span>
+                </div>
+                <a href="emily.html" class="def-btn text-white bg-red">Bio</a>
+              </div>
+              
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <section class="bg-black">
+    </section>
+
+    <div style="height: 100px;"></div>
+
+    <section class="bg-black">
     <div class="container">
       <div class="row">
         <p class="sub-header text-center">Advanta Investment</p>
@@ -427,11 +384,11 @@
     </div>
   </section>
 
-  <section class="bg-black">
-    <div class="container">
-      <div class="row">
-
-        <div class="testimonial-div" id="testimonial1">
+    <section class="bg-black">
+      <div class="container">
+        <div class="row">
+          <!-- <p class="sub-header text-center">Advanta Investment</p> -->
+          <div class="testimonial-div" id="testimonial1">
           <div>
             <h3 class="normal-header">What our clients<br /> say about us</h3>
             <p class="small-text white-soft">Reviews we get on a daily basis.</p>
@@ -511,38 +468,13 @@
           </div>
           
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-black md-hidden">
-    <div class="container">
-      <div class="row">
-        <div class="d-flex m-100 mb-100">
-          <div class="col-md-5">
-            <h2 class="font-42 text-white">Our real estate portfolio</h2>
-            <p style="font-weight: 400; font-size: 32px; line-height: 40px;" class="general-color">A once-in-a-decade lending environment</p>
-          </div>
-          <p class="font-16 off-white col-md-5">
-            Over the past 12-18 months, the Federal Reserve has implemented rapid interest rate hikes at unprecedented speeds in an effort to control inflation. This policy shift has disrupted markets, causing widespread dislocations, increased systemic pressure, and the potential for a liquidity crisis, posing risks to the global economy.
-    At the same time, these conditions have converged to create what we view as one of the most compelling opportunities for credit investments in decades.
-          </p>
-        </div>
-
-        <div class="d-flex m-100 mb-100">
-          <div class="col-md-5">
-            <img src="./images/1605.png" width="552px" height="401px" />
-          </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-4 mt-100">
-            <h2 class="font-42 text-white">Track record of client results</h2>
-            <p class="font-16 off-white">One of the most important questions that any investor should ask when evaluating a new investment advisor is “how have you performed for your existing clients so far?” With over 387,000 clients pursuing a wide range of objectives, the answer is more nuanced than a single number.</p>
-          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  
+    
+
+  </div>
 
   <footer class="footer" style="gap: 50px; background: url('./images/footer-bg.jpeg') #000000B2; background-position: center; background-blend-mode: overlay;
   background-repeat: no-repeat;
@@ -553,7 +485,7 @@
           <h1 class="big-header">Let’s talk about your <br/><span class="general-color">Investment</span></h1>
           <p class="footer-text text-capitalize mt-4">Sound Management practices, Competent & credible traders, User friendly policies, procedures & systems, proactive Service, philosophy & Strategy, multiple support channels.</p>
           <div class="hero-btns mt-5">
-            <a href="https://app.advantawealth.co/login" class="def-btn bg-red text-white">Get Started</a>
+            <a id="getStartedBtn" class="def-btn bg-red text-white">Get Started</a>
             <a href="about-us.html" class="def-btn text-white" style="border: 1px solid rgba(255, 255, 255, 0.4);">Contact Us</a>
           </div>
         </div>
@@ -599,8 +531,9 @@
       </div>
     </div>
   </div>
+  
   <script>
-    function togglet1() {
+  function togglet1() {
         $("#testimonial2").css('display', 'none');
         $("#testimonial1").css('display', 'flex');
     }
@@ -617,7 +550,6 @@
         $("#testimonial3").css('display', 'flex');
         
     }
-
     $('.butt').on('click', function() {
       $('#mobile-menu').toggleClass('hidden');
       $('.overlay-menu').toggleClass('hidden');
@@ -629,7 +561,7 @@
       $('header').toggleClass('hidden');
     })
     </script>
-        <!--Start of Tawk.to Script-->
+    <!--Start of Tawk.to Script-->
 <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   (function(){
@@ -641,12 +573,12 @@
   s0.parentNode.insertBefore(s1,s0);
   })();
   </script>
-  <!--End of Tawk.to Script-->
-  <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
+   <script>
     document.getElementById("getStartedBtn").addEventListener("click", () => {
       window.location.href = "/login"; // change to /login if needed
     });
   </script>
+  <!--End of Tawk.to Script-->
+  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

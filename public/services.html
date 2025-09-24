@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+  <title>Advanta Investment</title>
+  <link href="css/home.css" rel="stylesheet"></link>
+  <!-- <link href="css/tab.css" rel="stylesheet"></link>
+   -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .mx-156{
+      margin: 0 156px!important;
+    }
+    *{
+      font-family: 'Sk Modernist';
+    }
+    .header{
+      display: flex;
+      justify-content: space-around;
+    }
+    .get-started{
+      display: flex;
+      gap:34px
+    }
+    .def-btn{
+      display: flex;
+      /* width: 158px; */
+      text-align: center;
+      padding: 11px 39px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    .bg-red{
+      background-color: #E63946;
+    }
+    .general-color{
+      color: #E63946;
+    }
+    .below-hero{
+      position: absolute;
+      height: 113px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, #070707 100%);
+    }
+    .sub-header{
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 32px;
+      /* identical to box height, or 178% */
+
+      letter-spacing: 0.2em;
+
+      /* Primary Color */
+
+      color: #E63946;
+    }
+    .normal-header{
+      font-weight: 600;
+      font-size: 42px;
+      line-height: 124%;
+      color: #FFFFFF;
+    }
+    .heading500{
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 124%;
+    }
+    .minifeature-row{
+      display: flex;
+      flex-direction: row;
+      gap: 34px;
+    }
+    .minifeature-item{
+      width: 186px;
+    }
+    .minifeature-item>img{
+      margin-right: 27px;
+    }
+    .minifeature-item>span{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 25px;
+      /* identical to box height, or 180% */
+
+
+      /* White */
+
+      color: #FFFFFF;
+    }
+    .black-card-head{
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 26px;
+      color: #FFFFFF;
+    }
+    .black-card{
+      background: linear-gradient(152.98deg, rgba(255, 255, 255, 0.2) 14.8%, rgba(255, 255, 255, 0.01) 87.76%);
+      box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(25px);
+      border-radius: 40px;
+      border: 1px solid rgba(230, 57, 70, 0.3);
+      width: 388px;
+      /* height: 446px; */
+      padding: 32px;
+    }
+    .investments-needs{
+      display: flex;
+      flex-direction: row;
+      /* margin: 0 100px; */
+      margin-top: 75px;
+      
+    }
+    /* .investments-needs>div:nth-child(1){
+      margin-right: 150px;
+    } */
+    .how-it-works {
+      display: flex;
+      gap: 40px;
+      flex-direction: row;
+      margin-top: 64px;
+    }
+    .testimonial-buttons>img{
+      margin-right: 32px;
+    }
+    .testimonial-buttons{
+      margin-top: 40px;
+    }
+    .testimonial-card{
+      background-color: white;
+      padding: 34px 32px 59px 56px;
+      width: 648px;
+      box-shadow: 0px 8px 16px -6px rgba(24, 39, 75, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: row;
+      gap: 64px;
+    }
+    .testimonial-contact-info{
+      width: 120px;
+      padding-top: 20px;
+    }
+    .testimonial-contact-info>img{
+      width: 120px;
+      height: 120px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+    .testimonial-contact-info>p{
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      color: #1D3557;
+    }
+    .testimonial-contact-info>span{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 25px;
+      color: rgba(29, 53, 87, 0.4);
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+    .testimonial-message{
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      display: flex;
+      letter-spacing: 0.004em;
+      text-transform: capitalize;
+      color: rgba(29, 53, 87, 0.4);
+      padding-top: 60px;
+      position: relative;
+    }
+    .testimonial-div{
+      /* margin: 0 100px; */
+      display: flex;
+      flex-direction: row;
+      gap: 150px;
+    }
+    .page-location{
+      display: flex;
+      gap: 11px;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 46px;
+    }
+    .text-24{
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+    }
+    .whiteshade{
+      color: #8B8989;
+    }
+    .mb-90{
+      margin-bottom: 90px;
+    }
+    .service-img{
+      border-radius:8px;
+      width: 552px;
+      height: 592px;
+    }
+    @media only screen and (max-width: 600px) {
+      .bg-black{
+        text-align: center!important;
+      }
+    }
+  </style>
+  <link href="css/mobile.css" rel="stylesheet"></link>
+</head>
+<body class="bg-black">
+  <div class="overlay-menu hidden"></div>
+  <header class="header sticky" id="header">
+    <a href="index.html">
+      <div class="log">
+        <img src="./images/logo.svg">
+      </div>
+    </a>
+
+    <div class="header-links">
+      <div class="header-links-item"><a href="index.html" class="header-links-text header-not-active">Home</a></div>
+      <div class="header-links-item"><a href="services.html" class="header-links-text header-active">Services</a></div>
+      <div class="header-links-item"><a href="real-estate.html" class="header-links-text header-not-active">Real Estate</a></div>
+      <div class="header-links-item"><a href="pricing.html" class="header-links-text header-not-active">Pricing</a></div>
+      <div class="header-links-item"><a href="about-us.html" class="header-links-text header-not-active">About Us</a></div>
+      <div class="header-links-item"><a href="meet-the-team.html" class="header-links-text header-not-active">Our Team</a></div>
+      <div class="header-links-item"><a href="contact-us.php" class="header-links-text header-not-active">Contact Us</a></div>
+      <!-- <a href="" class="header-links-item">About</a>-->
+      <a href="javascript:void(0);" class="butt mob-menu-icon" onclick="myFunction()">
+        <img src="./images/hamburger_menu.svg">
+      </a>
+    </div>
+
+    <div class="get-started">
+      <img class="" src="./images/search-icon.svg">
+      <a  id="getStartedBtn" class="def-btn bg-red text-white">Get Started</a>
+    </div>
+
+    
+
+  </header>
+  <nav class="mobile-menu shadow-sm hidden " id="mobile-menu">
+    <div id="mobile-header-links" >
+      <a href="javascript:void(0);" class="butt mob-menu-icon-cancel" onclick="myFunction()">
+        <img src="./images/cancel.svg">
+      </a>
+      <div class="mobile-header-links-item"><a href="homeScreen.html" class="header-links-text header-not-active">Home</a></div>
+      <div class="mobile-header-links-item"><a href="services.html" class="header-links-text header-active">Services</a></div>
+      <div class="header-links-item"><a href="real-estate.html" class="header-links-text header-not-active">Real Estate</a></div>
+      <div class="mobile-header-links-item"><a href="pricing.html" class="header-links-text header-not-active">Pricing</a></div>
+      <div class="mobile-header-links-item"><a href="about-us.html" class="header-links-text header-not-active">About Us</a></div>
+      <div class="mobile-header-links-item"><a href="meet-the-team.html" class="header-links-text header-not-active">Our Team</a></div>
+      <div class="mobile-header-links-item"><a href="contact-us.php" class="header-links-text header-not-active">Contact Us</a></div>
+  </div>
+  </nav>
+<div style="height:62px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=light&pref_coin_id=1505&invert_hover=" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Coinlib</div></div>
+  
+  <div class="mx-156">
+    <div class="page-location bg-black">
+      <span class="small-text white-soft align-items-center">Home</span> 
+        <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.00006 3.00185L10.9983 2.99993M10.9983 2.99993L8.30645 0.307153M10.9983 2.99993L8.30645 5.69272" stroke="#999CA0" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="general-color">Services</span>
+    </div>
+    <h1 class="big-header">Services</h1>
+    <section class="bg-black">
+      <div class="container">
+        <div class="row">
+          <p class="sub-header text-center">Our Services</p>
+          <h3 class="normal-header text-center mb-5" style="text-transform: capitalize;">We bring to the table win-win survival<br/>
+            strategies to ensure proactive<br/>
+            domination.</h3>
+
+            <div class="row mb-5 service-div gap-80">
+              <div class="align-self-center d-flex">
+                <h3 class="normal-header col-md-4">Unlocking Stock Market Potential</h3>
+                <p class="small-text white-softest mt-3 text-capitalize">The stock market remains a cornerstone of wealth creation, offering unparalleled opportunities for investors to grow their portfolios over time. However, much like the private market dynamics, significant gains are often captured during pivotal growth phases that many retail investors miss.
+                  Historically, large-cap stocks like Apple, Microsoft, and Tesla experienced exponential growth early in their public life cycles, rewarding early investors substantially. However, the current market trend shows companies entering the public market at much later stages of maturity. This shift often means that substantial returns are already realized by private investors and venture capitalists before stocks become accessible to the general public.                  
+                  </p>
+              </div>
+              <div class="col-md-12">
+                <img src="./images/eth.png" class="mx-auto" width="100%" style=""/>
+              </div>
+            </div>
+
+            <div class="row mb-5 service-div gap-80 mt-100">
+              <div class="align-self-center d-flex" style="gap: 40px;">
+                <h3 class="normal-header col-md-5">The Shift in Public <br/>Market Opportunities</h3>
+                <p class="small-text white-softest text-capitalize">In the 90s and early 2000s, companies such as Amazon and Google debuted in the stock market earlier in their growth trajectories, enabling public investors to participate in their meteoric rise. Today, companies remain private for an average of 10 years longer, which delays the window of opportunity for retail investors to capitalize on early-stage growth.
+                  </p>
+              </div>
+              <div class="col-md-12">
+                <img src="./images/eth2.png" class="mx-auto" width="100%" style=""/>
+              </div>
+            </div>
+
+            <div class="row mb-5 service-div gap-80 mt-100">
+              <div class="align-self-center d-flex" style="gap: 40px;">
+                <h3 class="normal-header col-md-5">Navigating the Stock Market Landscape                </h3>
+                <p class="small-text white-softest text-capitalize">Despite these challenges, the stock market still provides individual investors with access to diverse opportunities, ranging from blue-chip stocks to high-growth sectors such as technology, healthcare, and renewable energy. By adopting strategies like dollar-cost averaging, diversification, and staying informed about emerging industries, investors can position themselves to capture meaningful returns over time.
+                  </p>
+              </div>
+              <div class="col-md-12">
+                <img src="./images/realestateservice.jpg" class="mx-auto" width="100%" height="484px" style=""/>
+              </div>
+            </div>
+
+            <!-- <div class="row mb-5 service-div">
+              <div class="col-md-6">
+                <img src="./images/realestateservice.jpg" class="mx-auto service-img"/>
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-5 align-self-center">
+                <h3 class="normal-header ">Real Estate</h3>
+                  <p class="small-text white-softest mt-3 text-capitalize">WE provides services related to the buying,
+                    selling, or renting of real estate. We are involved in the management of residential, commercial, or industrial properties. We also provide property valuations, development, and financial services in the UK and Around Europe. we provide guidance through the complicated process of buying and selling property; finding the right house for our clients and making sure that the price is right by participating in negotiations and communicating with the other parties involved.                                      
+                    </p>
+              </div>
+            </div> -->
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-black mb-90">
+      <div class="container">
+        <div class="row text-center gap-80">
+            <div>
+              <p class="font-42 text-white">How it works?</p>
+              <span class="font-18 off-white">
+                High-quality assets. Minimal fees. Intelligent technology.
+We combine our investment expertise with cutting-edge technology to empower over 385,000 investors, giving them access to opportunities and purchasing power typically reserved for billion-dollar institutions.
+              </span>
+            </div> 
+            <div>
+              <p class="font-42 text-white">Start investing in less than 5 minutes and with as low as $10,000.</p>
+              <span class="font-18 off-white">
+                Your investment journey starts here.
+In under 5 minutes, you can set up an account, select a portfolio strategy, and make your first investment.
+Once your initial investment is made, we’ll handle the growth of your portfolio by adding new assets over time—no extra effort required from you. This ensures your already diverse portfolio becomes even more robust year after year. You can also choose to make additional contributions manually or set up automated recurring investments.
+              </span>
+            </div>
+            <div>
+              <p class="font-42 text-white">Empowering your portfolio with high-quality, resilient investments.</p>
+              <span class="font-18 off-white">
+                Advanta Wealth is built on a foundation of excellence, integrity, and a steadfast commitment to client satisfaction. With a team of experienced professionals and industry leaders, we provide personalized investment guidance, superior returns, and unparalleled opportunities tailored to our investors' need
+              </span>
+            </div>
+        </div>
+      </div>
+    </section> 
+
+    <div style="height: 50px;"></div>
+
+  </div>
+
+  <footer class="footer" style="gap: 50px; background: url('./images/footer-bg.jpeg') #000000B2; background-position: center; background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h1 class="big-header">Let’s talk about your <br/><span class="general-color">Investment</span></h1>
+          <p class="footer-text text-capitalize mt-4">Sound Management practices, Competent & credible traders, User friendly policies, procedures & systems, proactive Service, philosophy & Strategy, multiple support channels.</p>
+          <div class="hero-btns mt-5">
+            <a href="https://app.advantawealth.co/login" class="def-btn bg-red text-white">Get Started</a>
+            <a href="about-us.html" class="def-btn text-white" style="border: 1px solid rgba(255, 255, 255, 0.4);">Contact Us</a>
+          </div>
+        </div>
+        
+        <!-- <div class="col-md-6" style="text-align: right!important; text-transform: uppercase;">
+          <p class="footer-text general-color mt-4">find us</p>
+          <p class="footer-text">130 Buckingham palace road, london, sw1w 9sa</p>
+          <hr style="width: 100%; color: #9C9C9C;height:0.3px;">
+          <p class="footer-text general-color mt-4">email us</p>
+          <a href="mailto:advantawealthmanagement@gmail.com"><p class="footer-text">advantawealthmanagement@gmail.com</p></a>
+          <hr style="width: 100%; color: #9C9C9C;height:0.3px;">
+          <p class="footer-text general-color mt-4">call us</p>
+          <a href="tel:+447414269127"><p class="footer-text">+44 7414 269127</p></a>
+          <hr style="width: 100%; color: #9C9C9C;height:0.3px;">
+        </div> -->
+        <div class="col-md-6 footer-menu d-flex flex-row">
+          <div class="col-md-5">
+            <p class="footer-header">Invest</p>
+            <p class="footer-text">Real Estate</p>
+            <p class="footer-text">Stock Exchange</p>
+            <p class="footer-text">Crypto Currency</p>
+          </div>
+  
+          <div class="col-md-5">
+            <p class="footer-header">Company</p>
+            <p class="footer-text">About Us</p>
+            <p class="footer-text">Get Started</p>
+          </div>
+        </div>
+      </div>
+      <div class="row footer-text" style="margin-top: 35px;">
+        <div style="display: flex; justify-content: space-between; border-top: 3px solid grey; padding: 33px 0;">
+          <p>Copyright 2025 </p>
+          <p>We use cookies for better service. <a>Accept</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer" style="background: #070707; margin: 0; padding-top: 20px;">
+    <div class="row">
+      <div style="padding: 0; border: 0;" class="footer">
+        <p class="footer-text" style="line-height: 25.6px; font-size: 16px; font-weight: 400;">Advanta wealth , LLC (“Advanta wealth “) operates a website at Advantawealth.co and certain mobile apps (the “Platform“). By using the Platform, you accept our Terms of Service and Privacy Policy. All images and return and projection figures shown are for illustrative purposes only, may assume additional investments over time, and are not actual Advanta wealth  customer or model returns or projections. Past performance is no guarantee of future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. All securities involve risk and may result in partial or total loss. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Advanta wealth  nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Prospective investors should confer with their personal tax advisors regarding the tax consequences based on their particular circumstances. Neither Advanta wealth  nor any of its affiliates assume responsibility for the tax consequences for any investor of any investment. Full Disclosure The publicly filed offering circulars of the issuers sponsored by Rise Companies Corp., not all of which may be currently qualified by the Securities and Exchange Commission, may be found at advantawealth.co For investors and potential investors who are residents of the State of Washington, please send all correspondence, including any questions or comments, to washingtonstate@arkcapitalshome.com Advanta wealth  takes any potential security issues seriously, and encourages the responsible and timely reporting of unknown security issues. Please send any discovered security concerns to securitydisclosure advantawealth.co © 2024 Advanta wealth , LLC. All Rights Reserved. eREIT, eFund and eDirect are trademarks of Rise Companies Corp. Google Play and the Google Play logo are registered trademarks of Google LLC. Apple, the Apple logo and iPhone are registered trademarks of Apple Inc. NerdWallet and the NerdWallet logo are trademarks owned by NerdWallet, Inc. and used with permission. Proudly designed and coded in Washington, D.C. </p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    $('.butt').on('click', function() {
+      $('#mobile-menu').toggleClass('hidden');
+      $('.overlay-menu').toggleClass('hidden');
+      $('header').toggleClass('hidden');
+    })
+    $('.overlay-menu').on('click', function() {
+      $('#mobile-menu').toggleClass('hidden');
+      $('.overlay-menu').toggleClass('hidden');
+      $('header').toggleClass('hidden');
+    })
+    </script>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/63c56fedc2f1ac1e202de813/1gmtjqefi';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+   <script>
+    document.getElementById("getStartedBtn").addEventListener("click", () => {
+      window.location.href = "/login"; // change to /login if needed
+    });
+  </script>
+  <!--End of Tawk.to Script-->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
